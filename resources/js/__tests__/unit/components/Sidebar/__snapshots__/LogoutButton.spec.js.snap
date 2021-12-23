@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`LogoutButton.vue render 1`] = `
+<a
+  class="black-text exit-to-app"
+  href="#"
+  title="LOGIN_LOGOUT"
+>
+  <i
+    class="material-icons"
+  >
+    exit_to_app
+  </i>
+</a>
+`;

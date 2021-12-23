@@ -1,0 +1,149 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`NodeOfTreeViewer.vue render with depth equals 0 1`] = `
+<div>
+  <div
+    style="padding-left: 20px;"
+  >
+    <p
+      class="tree-node"
+    >
+      <label>
+        <input
+          class="filled-in"
+          type="checkbox"
+        />
+         
+        <span
+          style="color: rgb(33, 33, 33);"
+        >
+          1
+        </span>
+         
+        <a
+          style="color: rgb(33, 33, 33);"
+        >
+          <i
+            class="material-icons chevron"
+          >
+            chevron_left
+          </i>
+        </a>
+      </label>
+    </p>
+     
+    <p
+      class="tree-nodes children-select-0"
+    >
+      <!---->
+      <!---->
+    </p>
+  </div>
+</div>
+`;
+
+exports[`NodeOfTreeViewer.vue render with depth equals 1 1`] = `
+<div>
+  <div
+    style="padding-left: 20px;"
+  >
+    <p
+      class="tree-node"
+    >
+      <label>
+        <input
+          class="filled-in"
+          type="checkbox"
+        />
+         
+        <span
+          style="color: rgb(33, 33, 33);"
+        >
+          1
+        </span>
+         
+        <a
+          style="color: rgb(33, 33, 33);"
+        >
+          <i
+            class="material-icons chevron shown"
+          >
+            chevron_left
+          </i>
+        </a>
+      </label>
+    </p>
+     
+    <p
+      class="tree-nodes children-select-0"
+    >
+      <div>
+        <div
+          style="padding-left: 20px;"
+        >
+          <p
+            class="tree-node"
+          >
+            <label>
+              <input
+                class="filled-in"
+                type="checkbox"
+              />
+               
+              <span
+                style="color: rgb(33, 33, 33);"
+              >
+                2-1
+              </span>
+               
+              <a
+                style="color: rgb(33, 33, 33);"
+              >
+                <i
+                  class="material-icons chevron"
+                >
+                  chevron_left
+                </i>
+              </a>
+            </label>
+          </p>
+           
+          <p
+            class="tree-nodes children-select-1"
+          >
+            <!---->
+          </p>
+        </div>
+      </div>
+      <div>
+        <div
+          style="padding-left: 20px;"
+        >
+          <p
+            class="tree-node"
+          >
+            <label>
+              <input
+                class="filled-in"
+                type="checkbox"
+              />
+               
+              <span
+                style="color: rgb(33, 33, 33);"
+              >
+                2-2
+              </span>
+               
+              <!---->
+            </label>
+          </p>
+           
+          <p
+            class="tree-nodes children-select-1"
+          />
+        </div>
+      </div>
+    </p>
+  </div>
+</div>
+`;

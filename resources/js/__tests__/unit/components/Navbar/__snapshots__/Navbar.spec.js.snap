@@ -1,0 +1,43 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Navbar.vue render 1`] = `
+<header>
+  <div
+    class="navbar-fixed"
+  >
+    <nav
+      class="navbar teal"
+    >
+      <div
+        class="nav-wrapper"
+      >
+        <a
+          class="brand-logo white-text"
+          href="#"
+        >
+          TEST TITLE
+        </a>
+         
+        <a
+          class="sidenav-trigger"
+          data-target="sidenav-left"
+          href="#"
+        >
+          <i
+            class="material-icons"
+          >
+            menu
+          </i>
+        </a>
+         
+        <ul
+          class="right"
+          id="nav-mobile"
+        >
+          <notifications-drop-down-stub />
+        </ul>
+      </div>
+    </nav>
+  </div>
+</header>
+`;

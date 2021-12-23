@@ -1,0 +1,67 @@
+.dropdown-content.notifications {
+  width: 450px;
+  padding: 8px 16px;
+  background-color: #f4f4f4;
+  top: 64px !important;
+}
+
+.dropdown-content.notifications {
+  box-shadow: 0 24px 38px 3px rgba(0, 0, 0, 0.14),
+  0 9px 46px 8px rgba(0, 0, 0, 0.12),
+  0 11px 15px -7px rgba(0, 0, 0, 0.2);
+}
+
+.dropdown-content.notifications {
+  color: black !important;
+}
+
+.dropdown-content.notifications .notifications-title {
+  height: 56px;
+  line-height: 56px;
+  font-weight: 500;
+}
+
+.dropdown-content.notifications .notifications-title a {
+  float: right;
+  color: black;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+
+.dropdown-content.notifications .card {
+  line-height: normal;
+}
+
+.dropdown-content.notifications .card-title {
+  line-height: 32px;
+  margin-bottom: 8px;
+  font-weight: normal;
+  font-size: 24px;
+}
+
+.dropdown-content.notifications .card-content p {
+  font-size: 16px;
+  margin: 0;
+  font-weight: 300;
+  color: #555;
+}
+
+.dropdown-content.notifications .card .card-action {
+  padding: 8px;
+  height: auto;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.dropdown-content.notifications .card .card-action a {
+  padding: 0 8px;
+  margin-right: 8px !important;
+  height: 36px;
+  line-height: 36px;
+  /*display: inline-block;*/
+}
+
+.dropdown-content.notifications .notifications-footer a {
+  color: black !important;
+}

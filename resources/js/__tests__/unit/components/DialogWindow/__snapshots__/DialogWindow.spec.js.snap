@@ -1,0 +1,35 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`DialogWindow render when prop IsOpened is falsy 1`] = `
+<div id="dialog-window" class="modal" tabindex="0">
+  <div class="modal-header"></div>
+  <div class="modal-content"></div>
+  <div class="modal-footer"><a href="#!" class="modal-close waves-effect waves-green btn">
+      DIALOG_TREE_SELECT
+    </a></div>
+</div>
+`;
+
+exports[`DialogWindow render when prop IsOpened is truthy 1`] = `
+<div id="dialog-window" class="modal open" tabindex="0" style="z-index: 1003; display: block; opacity: 0; top: 4%; transform: scaleX(0.8) scaleY(0.8);">
+  <div class="modal-header"></div>
+  <div class="modal-content"></div>
+  <div class="modal-footer"><a href="#!" class="modal-close waves-effect waves-green btn">
+      DIALOG_TREE_SELECT
+    </a></div>
+</div>
+`;
+
+exports[`DialogWindow render with slots 1`] = `
+<div id="dialog-window" class="modal" tabindex="0">
+  <div class="modal-header">
+    <div id="test-slot-header"></div>
+  </div>
+  <div class="modal-content">
+    <div id="test-slot-content"></div>
+  </div>
+  <div class="modal-footer"><a href="#!" class="modal-close waves-effect waves-green btn">
+      DIALOG_TREE_SELECT
+    </a></div>
+</div>
+`;

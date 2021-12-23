@@ -1,0 +1,53 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`DefaultFileUploadPage.vue render 1`] = `
+<div class="row">
+  <div class="col s12">
+    <div class="card">
+      <div class="card-content">
+        <div>
+          <v-file-input-stub small-chips="" multiple="" label="Добавьте файлы" dense=""></v-file-input-stub>
+          <!---->
+          <div class="center-align"><a class="waves-effect btn teal disabled"><i class="material-icons right">cloud_upload</i>
+              FILE_UPLOAD_FORM_UPLOAD_BUTTON
+            </a></div>
+        </div>
+        <table>
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>FILES_TABLE_COLUMN_TYPE_FILE</th>
+              <th>FILES_TABLE_COLUMN_NAME_FILE</th>
+              <th>FILES_TABLE_COLUMN_DATE_UPLOAD</th>
+              <th>FILES_TABLE_COLUMN_DELETE_FILE</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td>image</td>
+              <td><a href="/some/url/to/file/test/1.jpg" target="_blank">FILE_TEST_1</a></td>
+              <td>202112211135</td>
+              <td><button class="btn btn-danger"><i class="medium material-icons">delete</i></button></td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>image</td>
+              <td><a href="/some/url/to/file/test/2.jpg" target="_blank">FILE_TEST_2</a></td>
+              <td>202112211135</td>
+              <td><button class="btn btn-danger"><i class="medium material-icons">delete</i></button></td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td>image</td>
+              <td><a href="/some/url/to/file/test/3.jpg" target="_blank">FILE_TEST_3</a></td>
+              <td>202112211135</td>
+              <td><button class="btn btn-danger"><i class="medium material-icons">delete</i></button></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+`;

@@ -1,0 +1,105 @@
+body {
+  color: black !important;
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  background-color: #f4f4f4;
+}
+
+header,
+main {
+  padding-left: 300px;
+}
+
+/* NAVBAR */
+.navbar-fixed {
+  height: 64px;
+  position: relative;
+}
+
+.navbar-fixed nav.navbar {
+  padding: 0 20px;
+}
+
+.navbar-fixed nav.navbar {
+  width: calc(100% - 300px);
+}
+
+
+/* SIDEBAR */
+.sidenav.sidenav-fixed {
+  position: fixed;
+  top: 0;
+  left: 0;
+  transition: transform 0.1s;
+  transition: transform 0.1s, -webkit-transform 0.1s;
+}
+
+ul.sidenav.sidenav-fixed ul.collapsible-accordion div.collapsible-body ul.collapsible-accordion div.collapsible-body ul li a {
+  padding-left: 60px;;
+}
+ul.sidenav.sidenav-fixed ul {
+  border: none;
+}
+ul.sidenav.sidenav-fixed ul li {
+  border: none;
+}
+
+.collapsible > .active > .collapsible-header .chevron {
+  transform: rotate(-90deg);
+}
+
+.collapsible .collapsible-header .chevron {
+  float: right;
+  margin: 0 0 0 0;
+  transition: transform 0.2s;
+}
+
+.background img {
+  height: 100%;
+}
+
+
+/* APP*/
+.app-container {
+  margin: 0 auto;
+}
+
+.app-container {
+  margin-top: 20px;
+  width: 90%;
+}
+
+ul.indicators li.indicator-item {
+  background-color: #9e9e9e !important;
+}
+
+ul.indicators li.indicator-item.active {
+  background-color: black !important;
+}
+
+.tabs .tab a {
+  color: gray;
+}
+
+.tabs .indicator {
+  background-color: #009688;
+}
+
+.tabs .tab a:hover,
+.tabs .tab a.active {
+  background-color: #80cbc4 !important;
+  color: black;
+}
+
+
+@media only screen and (max-width: 992px) {
+  header,
+  main {
+    padding-left: 0;
+  }
+
+  .navbar-fixed nav.navbar {
+    width: 100%;
+  }
+}

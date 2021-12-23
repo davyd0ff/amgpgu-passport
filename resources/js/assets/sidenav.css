@@ -1,0 +1,47 @@
+/* SIDEBAR */
+.sidenav.sidenav-fixed {
+  position: fixed;
+  top: 0;
+  left: 0;
+  transition: transform 0.1s;
+  transition: transform 0.1s, -webkit-transform 0.1s;
+}
+
+ul.sidenav.sidenav-fixed a.exit-to-app {
+  position: fixed;
+  top: 0;
+  right: 15px;
+}
+
+ul.sidenav.sidenav-fixed ul.collapsible-accordion div.collapsible-body ul.collapsible-accordion div.collapsible-body ul li a {
+  padding-left: 60px;;
+}
+
+ul.sidenav.sidenav-fixed ul {
+  border: none;
+}
+
+ul.sidenav.sidenav-fixed ul li {
+  border: none;
+}
+
+.collapsible > .active > .collapsible-header .chevron {
+  transform: rotate(-90deg);
+}
+
+.collapsible .collapsible-header .chevron {
+  /*float: right;*/
+  margin: 0 0 0 0;
+  transition: transform 0.2s;
+  position: absolute;
+  top: 0;
+  right: 7px;
+}
+
+.sidenav .collapsible-body li a, .sidenav.fixed .collapsible-body li a {
+  text-overflow: ellipsis;
+}
+
+.background img {
+  height: 100%;
+}

@@ -1,0 +1,29 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Sidebar.vue render 1`] = `
+<aside>
+  <ul
+    class="sidenav sidenav-fixed grey-text text-darken-4"
+    id="sidenav-left"
+    style="transform: translateX(0px);"
+  >
+    <li>
+      <user-info-stub />
+    </li>
+     
+    <li
+      class="no-padding"
+    >
+      <ul
+        class="collapsible collapsible-accordion"
+      >
+        <!---->
+         
+        <!---->
+         
+        <!---->
+      </ul>
+    </li>
+  </ul>
+</aside>
+`;
