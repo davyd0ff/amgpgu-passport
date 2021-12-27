@@ -7,6 +7,7 @@ import { getExtensionDescription } from 'prettier/third-party';
 describe('Page/Login.vue', () => {
   const $router = {
     push: jest.fn(),
+    replace: jest.fn(),
   };
   const $route = {};
   const action_login = jest.fn();
@@ -34,6 +35,7 @@ describe('Page/Login.vue', () => {
 
   beforeEach(() => {
     $router.push.mockClear();
+    $router.replace.mockClear();
     $error.mockClear();
     action_login.mockClear();
   });
@@ -61,8 +63,9 @@ describe('Page/Login.vue', () => {
       username: 'TEST_USERNAME',
       password: 'TEST_PASSWORD',
     });
+    expect($router.push).not.toHaveBeenCalled();
     expect($error).not.toHaveBeenCalled();
-    expect($router.push).toHaveBeenCalledWith('/');
+    expect($router.replace).toHaveBeenCalledWith('/');
   });
 
   it('submit form and loggin is failure', async () => {
@@ -83,6 +86,7 @@ describe('Page/Login.vue', () => {
       password: 'TEST_PASSWORD',
     });
     expect($router.push).not.toHaveBeenCalled();
+    expect($router.replace).not.toHaveBeenCalled();
     expect($error).toHaveBeenCalledWith({ message: 'TEST_ERROR' });
   });
 });
