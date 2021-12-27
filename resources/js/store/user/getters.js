@@ -2,10 +2,10 @@ export default {
   user: (state) => {
     return state ?? {};
   },
-  userAvatar: (state) => {
+  avatar: (state) => {
     return state.avatar ?? '';
   },
-  userMenu: (state) => {
+  menu: (state) => {
     return state.menu;
   },
 };

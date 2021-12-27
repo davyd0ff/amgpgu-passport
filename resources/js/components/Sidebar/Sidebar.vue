@@ -33,7 +33,7 @@ export default {
 
   computed: {
     menu: function () {
-      return this.$store.getters.userMenu;
+      return this.$store.getters.menu;
     },
     isStudent: function () {
       return this.menu?.student?.length > 0 || false;
