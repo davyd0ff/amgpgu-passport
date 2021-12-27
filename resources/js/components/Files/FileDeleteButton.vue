@@ -10,10 +10,6 @@ export default {
   methods: {
     onClick: function () {
       this.$emit('delete-file');
-      // this.onDeleteFile().then(() => {
-      //   this.$message('DELETE_FILE_FILE_WAS_DELETED');
-      // });
-      // .catch((_) => {});
     },
   },
 };
