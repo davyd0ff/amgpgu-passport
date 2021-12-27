@@ -1,11 +1,11 @@
 export default {
-  user: function (state) {
-    return state.user;
+  user: (state) => {
+    return state ?? {};
   },
-  avatar: function (state) {
-    return state.user.avatar ?? '';
+  userAvatar: (state) => {
+    return state.avatar ?? '';
   },
-  menu: function (state) {
-    return state.user.menu;
+  userMenu: (state) => {
+    return state.menu;
   },
 };

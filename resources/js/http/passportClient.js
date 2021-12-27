@@ -61,7 +61,6 @@ export default class PassportClient {
     this.client.interceptors.response.use(
       (response) => response,
       async (error) => {
-        // todo fixme: add httpForbidden
         if (error.response && error.response.status === httpForbidden) {
           // todo fixme: change magic row
           throw Error('USER_IS_UNAUTHORIZED');

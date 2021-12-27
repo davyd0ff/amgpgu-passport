@@ -14,7 +14,7 @@
                     v-model="username"
                   />
                   <label for="username">
-                    {{ LOGIN_LABEL_USERNAME | localize }}
+                    {{ 'LOGIN_LABEL_USERNAME' | localize }}
                   </label>
                 </div>
               </div>
@@ -28,7 +28,7 @@
                     v-model="password"
                   />
                   <label for="password">
-                    {{ LOGIN_LABEL_PASSWORD | localize }}
+                    {{ 'LOGIN_LABEL_PASSWORD' | localize }}
                   </label>
                 </div>
               </div>
@@ -56,11 +56,16 @@ export default {
   methods: {
     onSubmit() {
       this.$store
-        .dispatch('login', { username: this.username, password: this.password })
-        .then(() => {
-          // todo development: move to app.vue (/home)
+        .dispatch('login', {
+          username: this.username,
+          password: this.password,
         })
-        .catch((error) => this.$error(error));
+        .then(() => {
+          this.$router.replace('/');
+        })
+        .catch((error) => {
+          this.$error(error);
+        });
     },
   },
 };

@@ -79,8 +79,12 @@
   "STUDENT_MY_CERTIFICATES_TITLE_PAGE": "Мои сертификаты",
   "STUDENT_ADDITIONAL_EDUCATION_TITLE_PAGE": "Дополнительное образование",
   "ADMIN_ADDNOTIFICATION_FORSTUDENTS_TITLE_PAGE": "Создать уведомление для студентов",
-  "LOGIN_LOGIN": "Вход",
+  
+  "LOGIN_LABEL_USERNAME": "Логин",
+  "LOGIN_LABEL_PASSWORD": "Пароль",
+  "LOGIN_BUTTON_LOGIN": "Вход",
   "LOGIN_LOGOUT": "Выход",
+  
   "MESSAGE_WRONG_PASSWORD": "Неправильно указан пароль",
   "MESSAGE_EMAIL_IS_BUSY": "Email уже занят"
 }

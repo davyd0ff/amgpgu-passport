@@ -1,8 +1,8 @@
 <template>
   <Fragment>
     <div v-if="!isLoading">
-      <Sidebar />
-      <Navbar />
+      <Sidebar v-if="isAuthenticated" />
+      <Navbar v-if="isAuthenticated" />
       <main>
         <router-view />
       </main>
@@ -12,36 +12,44 @@
 </template>
 
 <script>
+import Loader from './components/Loader';
 import Sidebar from './components/Sidebar';
 import Navbar from './components/Navbar';
-import Loader from './components/Loader';
 
 export default {
   name: 'Application',
-  components: { Loader, Navbar, Sidebar },
+  components: { Loader, Sidebar, Navbar },
   props: {},
   data: function () {
     return {
       isLoading: false,
     };
   },
+  computed: {
+    isAuthenticated() {
+      return this.$store.getters.userIsAuthenticated;
+    },
+  },
+  watch: {
+    isAuthenticated: {
+      handler: 'loadPassportData',
+      immediate: true,
+    },
+  },
   methods: {
     loadPassportData: function () {
-      return [
+      const data = [
         this.$store.dispatch('getNotifications'),
         this.$store.dispatch('getUserData'),
         this.$store.dispatch('getUserMenu'),
         this.$store.dispatch('getStudentInfo'),
       ];
+
+      if (this.isAuthenticated) {
+        this.isLoading = true;
+        Promise.all(data).finally(this.isLoading);
+      }
     },
-  },
-
-  mounted() {
-    this.isLoading = true;
-
-    Promise.all(this.loadPassportData()).finally(() => {
-      this.isLoading = false;
-    });
   },
 };
 </script>

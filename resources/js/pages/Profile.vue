@@ -7,51 +7,66 @@
             <form class="col s12" v-on:submit.prevent="onSubmit">
               <div class="row center-align">
                 <div class="col s12">
-                  <avatar/>
+                  <avatar />
                 </div>
               </div>
 
               <div class="row">
                 <div class="input-field">
-                  <input id="lastname" name="lastname" type="text" v-model="lastname"/>
+                  <input
+                    id="lastname"
+                    name="lastname"
+                    type="text"
+                    v-model="lastname"
+                  />
                   <label for="lastname">
                     {{ 'PROFILE_LABEL_LASTNAME' | localize }}
                   </label>
-<!--                  <span class="helper-text invalid">-->
-<!--                    {{ 'PROFILE_MESSAGE_INVALID_LASTNAME' | localize }}-->
-<!--                  </span>-->
+                  <!--                  <span class="helper-text invalid">-->
+                  <!--                    {{ 'PROFILE_MESSAGE_INVALID_LASTNAME' | localize }}-->
+                  <!--                  </span>-->
                 </div>
 
                 <div class="input-field">
-                  <input id="firstname" name="firstname" type="text" v-model="firstname"/>
+                  <input
+                    id="firstname"
+                    name="firstname"
+                    type="text"
+                    v-model="firstname"
+                  />
                   <label for="firstname">
                     {{ 'PROFILE_LABEL_FIRSTNAME' | localize }}
                   </label>
-<!--                  <span class="helper-text invalid">-->
-<!--                    {{ 'PROFILE_MESSAGE_INVALID_FIRSTNAME' | localize }}-->
-<!--                  </span>-->
+                  <!--                  <span class="helper-text invalid">-->
+                  <!--                    {{ 'PROFILE_MESSAGE_INVALID_FIRSTNAME' | localize }}-->
+                  <!--                  </span>-->
                 </div>
 
                 <div class="input-field">
-                  <input id="middlename" name="middlename" type="text" v-model="middlename"/>
+                  <input
+                    id="middlename"
+                    name="middlename"
+                    type="text"
+                    v-model="middlename"
+                  />
                   <label for="middlename">
                     {{ 'PROFILE_LABEL_MIDDLENAME' | localize }}
                   </label>
-<!--                  <span class="helper-text invalid">-->
-<!--                    {{ 'PROFILE_MESSAGE_INVALID_MIDDLENAME' | localize }}-->
-<!--                  </span>-->
+                  <!--                  <span class="helper-text invalid">-->
+                  <!--                    {{ 'PROFILE_MESSAGE_INVALID_MIDDLENAME' | localize }}-->
+                  <!--                  </span>-->
                 </div>
               </div>
 
               <div class="row">
                 <div class="input-field">
-                  <input id="email" name="email" type="text" v-model="email"/>
+                  <input id="email" name="email" type="text" v-model="email" />
                   <label for="email">
                     {{ 'PROFILE_LABEL_EMAIL' | localize }}
                   </label>
-<!--                  <span class="helper-text invalid">-->
-<!--                    {{ 'PROFILE_MESSAGE_INVALID_EMAIL' | localize }}-->
-<!--                  </span>-->
+                  <!--                  <span class="helper-text invalid">-->
+                  <!--                    {{ 'PROFILE_MESSAGE_INVALID_EMAIL' | localize }}-->
+                  <!--                  </span>-->
                 </div>
               </div>
 
@@ -68,17 +83,17 @@
 
 <script>
 import M from 'materialize-css';
-import Avatar from "../components/Avatar/Avatar";
+import Avatar from '@/components/Avatar';
 
 export default {
   name: 'Profile',
-  components: {Avatar},
+  components: { Avatar },
   data: () => ({
-    firstname: "",
-    lastname: "",
-    middlename: "",
-    email: "",
-    avatar: "",
+    firstname: '',
+    lastname: '',
+    middlename: '',
+    email: '',
+    avatar: '',
   }),
   computed: {
     user: function () {
@@ -89,23 +104,22 @@ export default {
     user: {
       handler: 'userChanged',
       immediate: true,
-    }
+    },
   },
   methods: {
     userChanged: function () {
-      this.firstname = this.user.firstname;
-      this.lastname = this.user.lastname;
-      this.middlename = this.user.middlename;
-      this.email = this.user.email;
-      this.avatar = this.user.avatar;
+      this.firstname = this.user.firstname ?? '';
+      this.lastname = this.user.lastname ?? '';
+      this.middlename = this.user.middlename ?? '';
+      this.email = this.user.email ?? '';
+      this.avatar = this.user.avatar ?? '';
     },
-    onSubmit: function () {
-    },
+    onSubmit: function () {},
   },
 
   mounted() {
     M.updateTextFields();
-  }
+  },
 };
 </script>
 

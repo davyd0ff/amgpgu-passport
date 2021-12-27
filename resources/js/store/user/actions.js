@@ -1,24 +1,6 @@
 import PassportApi from '@/commands/passport';
 
 export default {
-  login: async ({ commit }, { username, password }) => {
-    try {
-      const response = await PassportApi.login({ username, password });
-      commit('LOGIN', { token: response.data });
-    } catch (error) {
-      throw new Error(error);
-    }
-  },
-
-  logout: async ({ commit }) => {
-    try {
-      await PassportApi.logout();
-      commit('LOGOUT');
-    } catch (error) {
-      throw new Error(error);
-    }
-  },
-
   getUserData: async ({ commit }) => {
     try {
       const response = await PassportApi.getUserData();

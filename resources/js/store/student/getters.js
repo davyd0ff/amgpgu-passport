@@ -1,11 +1,13 @@
 export default {
   student: function (state) {
-    return state.student;
+    return state;
   },
   educations: function (state) {
-    return state.student.educations;
+    return state.educations;
   },
-  education: state => academicPlanCode => {
-    return state.student.educations.find(education => education.academicPlanCode === academicPlanCode);
+  education: (state) => (academicPlanCode) => {
+    return state.educations.find(
+      (education) => education.academicPlanCode === academicPlanCode
+    );
   },
-}
+};

@@ -1,5 +1,5 @@
-import PassportClient from '@/http/passportClient';
-import BACKEND_ENDPOINTS from '@/backend-endpoints/passport';
+import PassportClient from '@/http/passportClient.js';
+import BACKEND_ENDPOINTS from '@/backend-endpoints/passport.js';
 
 function httpClient(config, options = {}) {
   const client = new PassportClient(options);
@@ -7,7 +7,7 @@ function httpClient(config, options = {}) {
 }
 
 const LoginCommands = {
-  login: (username, password) => {
+  login: ({ username, password }) => {
     const backpoint = BACKEND_ENDPOINTS.login();
     const config = { ...backpoint, data: { username, password } };
 

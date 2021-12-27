@@ -1,20 +1,11 @@
 export default {
-  LOGIN: function (_, { token }) {
-    // todo: save token
-    window.localStorage.setItem('token', JSON.stringify(token));
+  SET_USER: (state, { user }) => {
+    state = { ...state, ...user };
   },
-  LOGOUT: function (state) {
-    // todo fixme: don't reset state ... wtf?
-    state = {};
-    window.localStorage.removeItem('token');
+  SET_AVATAR: (state, { url }) => {
+    state = { ...state, avatar: url };
   },
-  SET_USER: function (state, { user }) {
-    state.user = user;
-  },
-  SET_AVATAR: function (state, { url }) {
-    state.user = { ...state.user, avatar: url };
-  },
-  SET_MENU: function (state, { menu }) {
-    state.user = { ...state.user, menu: menu };
+  SET_MENU: (state, { menu }) => {
+    state = { ...state, menu: menu };
   },
 };

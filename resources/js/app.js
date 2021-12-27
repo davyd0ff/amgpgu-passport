@@ -46,9 +46,11 @@ Vue.use(messagePlugin);
 
 Vue.filter('localize', localizeFilter);
 
+// window.store = store;
+
 const app = new Vue({
   store,
   router,
   el: '#app',
-  vuetify: new vuetify()
+  vuetify: new vuetify(),
 });

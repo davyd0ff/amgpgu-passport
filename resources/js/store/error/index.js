@@ -1,26 +1,24 @@
 export default {
-  state: {
-    error: null,
-  },
+  state: () => ({}),
   getters: {
-    error: function (state) {
-      return state.error;
+    error(state) {
+      return state;
     },
   },
   mutations: {
-    setError: function (state, error) {
-      state.error = error;
+    SET_ERROR(state, error) {
+      state = error;
     },
-    clearError: function (state) {
-      state.error = null;
+    CLEAR_ERROR(state) {
+      state = {};
     },
   },
   actions: {
-    setError: function (context, payload) {
-      context.commit('setError', payload);
+    setError(context, payload) {
+      context.commit('SET_ERROR', payload);
     },
     clearError: function (context) {
-      context.commit('clearError');
+      context.commit('CLEAR_ERROR');
     },
   },
 };

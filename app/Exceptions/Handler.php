@@ -34,7 +34,7 @@
      * @throws \Exception
      */
     public function report(Throwable $exception) {
-      dd($exception);
+      // dd($exception);
       parent::report($exception);
     }
     
@@ -48,7 +48,7 @@
      * @throws \Throwable
      */
     public function render($request, Throwable $exception) {
-      dd($exception);
+      // dd($exception);
       return parent::render($request, $exception);
     }
   }
