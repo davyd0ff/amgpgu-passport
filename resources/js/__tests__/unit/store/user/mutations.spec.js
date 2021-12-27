@@ -1,49 +1,15 @@
 import mutations from '@/store/user/mutations';
 
 describe('test user mutations', () => {
-  it('LOGIN', () => {
-    window.localStorage.__proto__.setItem = jest.fn();
-    const TEST_ACCESS_TOKEN = 'TEST_ACCESS_TOKEN';
-    const TEST_REFRESH_TOKEN = 'TEST_REFRESH_TOKEN';
-    const TEST_TOKEN_TYPE = 'TEST_TOKEN_TYPE';
-    const token = {
-      access_token: TEST_ACCESS_TOKEN,
-      refresh_token: TEST_REFRESH_TOKEN,
-      type_token: TEST_TOKEN_TYPE,
-    };
-    const state = {};
-
-    mutations.LOGIN(state, { token });
-
-    expect(window.localStorage.__proto__.setItem).toHaveBeenCalledWith(
-      'token',
-      JSON.stringify({
-        access_token: TEST_ACCESS_TOKEN,
-        refresh_token: TEST_REFRESH_TOKEN,
-        type_token: TEST_TOKEN_TYPE,
-      })
-    );
-  });
-
-  it('LOGOUT', () => {
-    window.localStorage.__proto__.removeItem = jest.fn();
-    let state = { user: 'some data', student: 'some data' };
-
-    mutations.LOGOUT(state);
-
-    expect(state).toStrictEqual({});
-    expect(window.localStorage.__proto__.removeItem).toHaveBeenCalledWith(
-      'token'
-    );
-  });
-
   it('SET_USER', () => {
-    const state = {};
-    const user = 'TEST';
+    const state = {
+      info: {},
+    };
+    const user = { name: 'TEST' };
 
     mutations.SET_USER(state, { user });
 
-    expect(state.user).toBe(user);
+    expect(state.info).toStrictEqual(user);
   });
 
   it('SET_AVATAR', () => {
@@ -52,17 +18,18 @@ describe('test user mutations', () => {
 
     mutations.SET_AVATAR(state, { url });
 
-    expect(state.user.avatar).toBe(url);
+    expect(state.avatar).toBe(url);
   });
 
   describe('GET_MENU', () => {
     it('menu was added', () => {
       const state = {};
-      const menu = 'TEST';
+      const nodeTitle = 'TEST';
+      const menu = { node: { title: nodeTitle } };
 
       mutations.SET_MENU(state, { menu });
 
-      expect(state.user.menu).toBe(menu);
+      expect(state.menu.node.title).toBe(nodeTitle);
     });
 
     it('smoke: menu was added and user is not changed', () => {
@@ -70,13 +37,13 @@ describe('test user mutations', () => {
       const user = {
         name: TEST_USER_NAME,
       };
-      const state = { user };
-      const menu = [{ TEST_ITEM: [] }];
+      const state = { info: user };
+      const menu = { nodes: [] };
 
       mutations.SET_MENU(state, { menu });
 
-      expect(state.user.name).toBe(TEST_USER_NAME);
-      expect(state.user.menu).toStrictEqual(menu);
+      expect(state.info.name).toBe(TEST_USER_NAME);
+      expect(state.menu).toStrictEqual(menu);
     });
   });
 });
