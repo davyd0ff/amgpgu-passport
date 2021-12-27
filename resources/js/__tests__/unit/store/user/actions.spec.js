@@ -5,7 +5,7 @@ describe('test store - user actions', () => {
   const commit = jest.fn();
 
   it('getUserData', async () => {
-    commit.mockReset();
+    commit.mockClear();
     const TEST_USER_NAME = 'TEST_USER_NAME';
     PassportAPI.getUserData = jest.fn(() => ({ data: TEST_USER_NAME }));
 
@@ -16,40 +16,8 @@ describe('test store - user actions', () => {
     expect(PassportAPI.getUserData).toHaveBeenCalledTimes(1);
   });
 
-  it('login', async () => {
-    commit.mockReset();
-    const username = 'TEST_USER_NAME';
-    const password = 'TEST_USER_PASSWD';
-    PassportAPI.login = jest.fn((_) => ({
-      data: 'SOME_TOKEN_DATA',
-    }));
-
-    await actions.login({ commit }, { username, password });
-
-    expect(commit).toHaveBeenCalledTimes(1);
-    expect(commit).toHaveBeenCalledWith('LOGIN', {
-      token: 'SOME_TOKEN_DATA',
-    });
-    expect(PassportAPI.login).toHaveBeenCalledTimes(1);
-    expect(PassportAPI.login).toHaveBeenCalledWith({
-      username,
-      password,
-    });
-  });
-
-  it('logout', async () => {
-    commit.mockReset();
-    PassportAPI.logout = jest.fn();
-
-    await actions.logout({ commit });
-
-    expect(commit).toHaveBeenCalledTimes(1);
-    expect(commit).toHaveBeenCalledWith('LOGOUT');
-    expect(PassportAPI.logout).toHaveBeenCalledTimes(1);
-  });
-
   it('getUserMenu', async () => {
-    commit.mockReset();
+    commit.mockClear();
     PassportAPI.getUserMenu = jest.fn(() => ({ data: 'TEST_MENU_LIST' }));
 
     await actions.getUserMenu({ commit });
@@ -62,7 +30,7 @@ describe('test store - user actions', () => {
   });
 
   it('uploadAvatar', async () => {
-    commit.mockReset();
+    commit.mockClear();
     const avatar = 'THIS_IS_SOME_FILE';
     const url = 'SOME_URL_TO_FILE';
     PassportAPI.uploadAvatar = jest.fn((_) => ({ data: url }));
