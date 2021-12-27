@@ -1,6 +1,6 @@
 export default {
   student: function (state) {
-    return state;
+    return state.info;
   },
   educations: function (state) {
     return state.educations;
