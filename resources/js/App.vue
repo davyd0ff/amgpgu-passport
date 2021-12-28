@@ -38,16 +38,20 @@ export default {
   },
   methods: {
     loadPassportData: function () {
+      // console.log(this.$store);
       const data = [
         this.$store.dispatch('getNotifications'),
         this.$store.dispatch('getUserData'),
         this.$store.dispatch('getUserMenu'),
         this.$store.dispatch('getStudentInfo'),
       ];
-
       if (this.isAuthenticated) {
         this.isLoading = true;
-        Promise.all(data).finally(this.isLoading);
+        Promise.all(data)
+          .catch(() => {})
+          .finally(() => {
+            this.isLoading = false;
+          });
       }
     },
   },

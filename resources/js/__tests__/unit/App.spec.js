@@ -1,46 +1,79 @@
-import { shallowMount, createLocalVue } from '@vue/test-utils';
+import { shallowMount, createLocalVue, createWrapper } from '@vue/test-utils';
 import Vuex from 'vuex';
+import flushPromises from 'flush-promises';
 import App from '@/App.vue';
 import Fragment from 'vue-fragment';
-import user from '@/store/user';
-import student from '@/store/student';
-import notifications from '@/store/notifications';
-
-const localVue = createLocalVue();
-localVue.use(Vuex);
-localVue.use(Fragment.Plugin);
+// import user from '@/store/user';
+// import student from '@/store/student';
+// import notifications from '@/store/notifications';
 
 describe('App.vue', () => {
-  let store;
+  const action_getUserMenu = jest.fn();
+  const action_getUserData = jest.fn(() => Promise.resolve({}));
+  const action_uploadAvatar = jest.fn(() => Promise.resolve({}));
+  const action_getStudentInfo = jest.fn(() => Promise.resolve({}));
+  const action_getNotifications = jest.fn(() => Promise.resolve({}));
 
-  beforeEach(() => {
-    user.actions.getUserData = jest.fn();
-    user.actions.getUserMenu = jest.fn();
-    user.actions.uploadAvatar = jest.fn();
-    student.actions.getStudentInfo = jest.fn();
-    notifications.actions.getNotifications = jest.fn();
+  const makeWrapper = (options = {}) => {
+    const localVue = createLocalVue();
+    localVue.use(Vuex);
+    localVue.use(Fragment.Plugin);
 
-    store = new Vuex.Store({
-      modules: {
-        user,
-        student,
-        notifications,
+    const store = new Vuex.Store({
+      getters: {
+        userIsAuthenticated: (_) => true,
+      },
+
+      actions: {
+        getUserData: action_getUserData,
+        getUserMenu: action_getUserMenu,
+        uploadAvatar: action_uploadAvatar,
+        getStudentInfo: action_getStudentInfo,
+        getNotifications: action_getNotifications,
       },
     });
-  });
 
-  it('called actions after mounted', () => {
-    const wrapper = shallowMount(App, {
+    return shallowMount(App, {
       store,
       localVue,
       stubs: ['router-view'],
+      ...options,
     });
+  };
 
-    expect(user.actions.getUserData).toHaveBeenCalledTimes(1);
-    expect(user.actions.getUserMenu).toHaveBeenCalledTimes(1);
-    expect(student.actions.getStudentInfo).toHaveBeenCalledTimes(1);
-    expect(notifications.actions.getNotifications).toHaveBeenCalledTimes(1);
+  beforeEach(() => {
+    action_getUserData.mockClear();
+    action_getUserMenu.mockClear();
+    action_uploadAvatar.mockClear();
+    action_getStudentInfo.mockClear();
+    action_getNotifications.mockClear();
+  });
 
-    expect(user.actions.uploadAvatar).not.toHaveBeenCalled();
+  it('called actions after mounted', async () => {
+    const wrapper = makeWrapper();
+
+    await flushPromises();
+    expect(action_getUserData).toHaveBeenCalledTimes(1);
+    expect(action_getUserMenu).toHaveBeenCalledTimes(1);
+    expect(action_getStudentInfo).toHaveBeenCalledTimes(1);
+    expect(action_getNotifications).toHaveBeenCalledTimes(1);
+
+    expect(action_uploadAvatar).not.toHaveBeenCalled();
+  });
+
+  it('actions have worked as success and isLoading is falsy', async () => {
+    const wrapper = makeWrapper();
+
+    await flushPromises();
+    expect(wrapper.vm.isLoading).toBeFalsy();
+  });
+
+  it('some action has worked as filure and isLoading is falsy', async () => {
+    action_getUserMenu.mockImplementation(() => Promise.reject({ code: 500 }));
+
+    const wrapper = makeWrapper();
+
+    await flushPromises();
+    expect(wrapper.vm.isLoading).toBeFalsy();
   });
 });
