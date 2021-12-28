@@ -99,20 +99,23 @@
       return new JsonResponse(['id' => $user->id], 200);
     }
     
-    public function suspend(User $user): JsonResponse {
+    public function suspend(Request $request): JsonResponse {
+      $user = $request->user();
       $user->suspended = true;
       $user->save();
       
       return new JsonResponse(['id' => $user->id], 200);
     }
     
-    public function delete(User $user): JsonResponse {
+    public function delete(Request $request): JsonResponse {
+      $user = $request->user();
       $user->delete();
       
       return new JsonResponse(['id' => $user->id]);
     }
     
-    public function getMenu(User $user, IMenuBuilder $menuBuilder): JsonResponse {
+    public function getMenu(Request $request, IMenuBuilder $menuBuilder): JsonResponse {
+      $user = $request->user();
       return new JsonResponse($user->getMenu($menuBuilder)->getSerializableData(), 200);
     }
   }
