@@ -5,7 +5,11 @@ import actions from './actions';
 export default {
   // namespaced: true,
 
-  state: () => ({}),
+  state: () => ({
+    menu: {},
+    avatar: '',
+    info: {},
+  }),
   getters,
   mutations,
   actions,

@@ -1,11 +1,11 @@
 export default {
-  SET_USER: (state, { user }) => {
-    state.info = { ...user };
+  SET_USER(state, { user }) {
+    state.info = { ...state.info, ...user };
   },
-  SET_AVATAR: (state, { url }) => {
+  SET_AVATAR(state, { url }) {
     state.avatar = url;
   },
-  SET_MENU: (state, { menu }) => {
-    state.menu = { ...menu };
+  SET_MENU(state, { menu }) {
+    state.menu = { ...state.menu, ...menu };
   },
 };

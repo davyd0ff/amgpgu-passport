@@ -1,11 +1,17 @@
 export default {
-  user: (state) => {
-    return state ?? {};
+  userInfo: (state) => {
+    return state.info ?? {};
   },
   avatar: (state) => {
     return state.avatar ?? '';
   },
-  menu: (state) => {
-    return state.menu;
+  listenerMenu: (state) => {
+    return state.menu?.listener || [];
+  },
+  adminMenu: (state) => {
+    return state.menu?.admin || [];
+  },
+  studentMenu: (state) => {
+    return state.menu?.student || [];
   },
 };
