@@ -8,7 +8,10 @@
       </tr>
     </thead>
     <tbody>
-      <tr v-for="item in performance" v-bind:key="item">
+      <tr
+        v-for="item in performance"
+        v-bind:key="item.subject + item.rating + item.maxRating"
+      >
         <td>{{ item.subject }}</td>
         <td>{{ item.rating }}</td>
         <td>{{ item.maxRating }}</td>
