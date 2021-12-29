@@ -2,7 +2,10 @@ import PassportClient from '@/http/passportClient.js';
 import BACKEND_ENDPOINTS from '@/backend-endpoints/passport.js';
 
 function httpClient(config, options = {}) {
-  const client = new PassportClient(options);
+  const defaultOptions = {
+    baseURL: 'https://passport.amgpgu.ru/',
+  };
+  const client = new PassportClient({ ...defaultOptions, ...options });
   return client.request(config);
 }
 
