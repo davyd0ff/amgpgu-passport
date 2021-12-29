@@ -13,5 +13,5 @@
     
     function getStudentAcademicPlans(string $userCode): array;
     
-    function getStudentData(string $userCode): array;
+    function getStudentData(string $userCode): object;
   }

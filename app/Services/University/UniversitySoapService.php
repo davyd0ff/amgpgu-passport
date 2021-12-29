@@ -29,7 +29,7 @@
       // TODO: Implement getStudentAcademicPlans() method.
     }
   
-    public function getStudentData(string $userCode): array {
+    public function getStudentData(string $userCode): object {
       return $this->soapClient->getStudentData(['usercode' => $userCode]);
     }
     

@@ -1,6 +1,6 @@
 <?php
   
-  use App\Builders\Menu\MenuItemIndexes;
+  use App\Builders\Menu\MenuItems;
   use App\Capabilities;
   use App\Models\Entities\Capability;
   use App\Models\Entities\MenuItem;
@@ -16,11 +16,19 @@
       //
       $this->insertStudentMenu();
       $this->insertAdminMenu();
+      $this->insertListenerMenu();
+    }
+
+    protected function insertListenerMenu() {
+      $menu_item_listener_index = MenuItem::firstOrCreate(
+        ['title' => MenuItems::LISTENER_INDEX]
+      );
+      $menu_item_listener_index->save();
     }
     
     protected function insertStudentMenu() {
       $menu_item_student_index = MenuItem::firstOrCreate(
-        ['title' => MenuItemIndexes::STUDENT_INDEX]
+        ['title' => MenuItems::STUDENT_INDEX]
       );
       $menu_item_student_index->save();
       
@@ -114,7 +122,7 @@
     protected function insertAdminMenu() {
       // Administration
       $menu_item_administration = MenuItem::firstOrCreate(
-        ['title' => MenuItemIndexes::ADMINISTRATION_INDEX]
+        ['title' => MenuItems::ADMINISTRATION_INDEX]
       );
       $menu_item_administration->save();
       

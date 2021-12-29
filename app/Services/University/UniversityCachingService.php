@@ -28,10 +28,18 @@
     public function isStudent(string $userCode): bool {
       return Cache::remember("$userCode-is-student", $this->ttl, function () use ($userCode) {
         try {
-          return $this->realService->isStudent($userCode);
+          // return $this->realService->isStudent($userCode);
+          $studentData = $this->getStudentData($userCode);
+          return is_array($studentData->educations) && count($studentData->educations) > 0;
         } catch (\Exception $exp) {
           return false;
         }
+      });
+    }
+
+    public function getStudentData(string $userCode): object {
+      return Cache::remember("$userCode-student-data", $this->ttl, function () use ($userCode) {
+        return $this->realService->getStudentData($userCode);
       });
     }
     
@@ -44,12 +52,6 @@
     public function getStudentAcademicPlans(string $userCode): array {
       return Cache::remember("$userCode-student-plans", $this->ttl, function () use ($userCode) {
         return $this->realService->getStudentAcademicPlans($userCode);
-      });
-    }
-    
-    public function getStudentData(string $userCode): array {
-      return Cache::remember("$userCode-student-data", $this->ttl, function () use ($userCode) {
-        return $this->realService->getStudentData($userCode);
       });
     }
   }

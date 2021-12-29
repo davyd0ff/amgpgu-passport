@@ -17,7 +17,7 @@ const LoginCommands = {
 };
 
 const StudentCommands = {
-  getStudentData: () => {
+  getStudentInfo: () => {
     const backpoint = BACKEND_ENDPOINTS.getStudentData();
     return httpClient(backpoint);
   },

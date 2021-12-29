@@ -1,4 +1,4 @@
-import PassportApi from '../../commands/passport';
+import PassportApi from '@/commands/passport';
 
 export default {
   getStudentInfo: async ({ commit }) => {
