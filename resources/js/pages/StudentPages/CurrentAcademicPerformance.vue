@@ -29,9 +29,11 @@ export default {
     academicPlanCode: String,
   },
   computed: {
-    performance: function () {
-      return this.$store.getters.education(this.academicPlanCode)
-        .partOfAcademicPerformance;
+    performance() {
+      return (
+        this.$store.getters.planEducation(this.academicPlanCode)
+          ?.partOfAcademicPerformance || []
+      );
     },
   },
 };
