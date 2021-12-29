@@ -1,6 +1,8 @@
+import Vue from 'vue';
+
 export default {
-  SET_STUDENT: function (state, { student }) {
-    // console.log("store/student/index.js::mutations::setStudent()", student);
-    state.info = { ...student };
+  SET_STUDENT(state, { student }) {
+    Vue.set(state, 'info', { ...student.info });
+    Vue.set(state, 'educations', [...student.educations]);
   },
 };
