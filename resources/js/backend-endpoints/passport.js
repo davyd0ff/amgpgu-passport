@@ -31,24 +31,17 @@ const BACKEND_ENDPOINTS = {
     url: 'api/notifications/incoming',
   }),
   readNotification: (notificationId) => ({
-    method: `post', url: 'api/notifications/read/${notificationId}`,
+    method: 'post',
+    url: `api/notifications/read/${notificationId}`,
   }),
   readNotifications: () => ({
     method: 'post',
     url: 'api/notifications/read-all',
   }),
 
-  addNotificationForStudents: () => ({
-    method: 'post',
-    url: 'api/admin/notifications/add-for-students',
-  }),
-  addNotificationForEmployees: () => ({
-    method: 'post',
-    url: 'api/admin/notifications/add-for-employees',
-  }),
-  addNotificationForListeners: () => ({
-    method: 'post',
-    url: 'api/admin/notifications/add-for-listeners',
+  addNotification: (context) => ({
+    method: 'POST',
+    url: `api/admin/notifications/add/for-${context}`,
   }),
 };
 

@@ -1,5 +1,6 @@
 import PassportClient from '@/http/passportClient.js';
 import BACKEND_ENDPOINTS from '@/backend-endpoints/passport.js';
+import { data } from 'jquery';
 
 function httpClient(config, options = {}) {
   const defaultOptions = {
@@ -75,7 +76,7 @@ const UserCommands = {
 
 const NotificationCommands = {
   getNotifications: () => {
-    const backpoint = BACKEND_ENDPOINTS.getNotifications();
+    const backpoint = BACKEND_ENDPOINTS.getIncomingNotifications();
     return httpClient(backpoint);
   },
   readNotification: (notificationId) => {
@@ -85,6 +86,26 @@ const NotificationCommands = {
   readNotifications: () => {
     const backpoint = BACKEND_ENDPOINTS.readNotifications();
     return httpClient(backpoint);
+  },
+  sendNotification: (notification, context) => {
+    const backpoint = BACKEND_ENDPOINTS.addNotification(context);
+    const headers = {
+      'Content-Type': 'multipart/form-data',
+    };
+
+    let data = new FormData();
+    data.append('title', notification.title);
+    data.append('message', notification.message);
+    data.append(
+      'recipients',
+      JSON.stringify(notification.recipients.map((r) => r.code))
+    );
+    notification.files.forEach((file, index) => {
+      data.append(`files[${index}]`, file, file.name);
+    });
+
+    const options = { ...backpoint, headers, data };
+    return httpClient(options);
   },
 };
 
