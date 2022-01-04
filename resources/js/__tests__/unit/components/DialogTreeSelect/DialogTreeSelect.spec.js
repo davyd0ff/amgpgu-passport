@@ -1,6 +1,6 @@
 import DialogTreeSelect from '@/components/DialogTreeSelect/DialogTreeSelect.vue';
 import { shallowMount } from '@vue/test-utils';
-import { tree, filteredTree } from './__fixtures__/tree';
+import { tree, filteredTree } from '@/__tests__/__fixtures__/studentTree';
 
 describe('component: DialogTreeSelect.vue', () => {
   const createWrapper = (options) =>

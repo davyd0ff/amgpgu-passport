@@ -4,7 +4,7 @@ import flushPromises from 'flush-promises';
 import passport from '@/commands/passport';
 import DefaultFileUploadPage from '@/pages/DefaultFileUploadPage.vue';
 import FileUploadForm from '@/components/Files/FileUploadForm.vue';
-import { files } from '../__fixtures__/files';
+import { files } from '@/__tests__/__fixtures__/files';
 
 jest.mock('@/commands/passport');
 
