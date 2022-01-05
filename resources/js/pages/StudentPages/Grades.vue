@@ -3,7 +3,7 @@
     <div class="col s12">
       <div class="card">
         <div class="card-content">
-          <div class="card-tabs">
+          <div class="card-tabs" v-if="hasGrades">
             <ul ref="tabs" class="tabs tabs-fixed-width">
               <li
                 v-for="(semester, index) in semesters"
@@ -23,9 +23,7 @@
             v-bind:key="`grades${semester.replace(' ', '')}`"
             v-bind:id="`semester${index + 1}`"
           >
-            <grade-table
-              v-bind:grades="education.partOfGrades | group(semester)"
-            />
+            <grade-table v-bind:grades="grades | group(semester)" />
           </div>
         </div>
       </div>
@@ -45,38 +43,44 @@ export default {
     academicPlanCode: String,
   },
   computed: {
-    education: function () {
-      return this.$store.getters.educations.find(
-        (education) => education.academicPlanCode === this.academicPlanCode
-      );
+    education() {
+      return this.$store.getters.planEducation(this.academicPlanCode);
     },
-    semesters: function () {
-      return this.$store.getters.educations
-        .find(
-          (education) => education.academicPlanCode === this.academicPlanCode
-        )
-        .partOfGrades.reduce((total, current) => {
-          return total.some((semester) => semester === current.semester)
-            ? total
-            : [...total, current.semester];
-        }, []);
+    grades() {
+      return this.education?.partOfGrades || [];
+    },
+    semesters() {
+      return this.grades.reduce((total, current) => {
+        return total.some((semester) => semester === current.semester)
+          ? total
+          : [...total, current.semester];
+      }, []);
+    },
+    hasGrades() {
+      return this.grades.length > 0;
     },
   },
   filters: {
-    group: function (grades, semester) {
+    group(grades, semester) {
       return grades.filter((row) => row.semester === semester);
     },
   },
 
   mounted() {
-    this.$instance = M.Tabs.init(this.$refs.tabs);
+    if (this.hasGrades) {
+      this.$instance = M.Tabs.init(this.$refs.tabs);
+    }
   },
   updated() {
-    this.$instance.destroy();
-    this.$instance = M.Tabs.init(this.$refs.tabs);
+    if (this.hasGrades) {
+      this.$instance.destroy();
+      this.$instance = M.Tabs.init(this.$refs.tabs);
+    }
   },
   destroyed() {
-    this.$instance.destroy();
+    if (this.hasGrades) {
+      this.$instance.destroy();
+    }
   },
 };
 </script>

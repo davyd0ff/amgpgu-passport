@@ -8,7 +8,10 @@
       </tr>
     </thead>
     <tbody>
-      <tr v-for="grade in grades" v-bind:key="grade">
+      <tr
+        v-for="grade in grades"
+        v-bind:key="`${grade.subject}-${grade.valuation}`"
+      >
         <td>{{ grade.subject }}</td>
         <td>{{ grade.valuation }}</td>
         <td>{{ grade.reasonForNoAttestation }}</td>

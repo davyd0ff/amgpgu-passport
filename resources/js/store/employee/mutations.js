@@ -1,5 +1,5 @@
 export default {
   SET_TREE: (state, { context, tree }) => {
-    state[context] = { ...tree };
+    Vue.set(state, context, { ...tree });
   },
 };
