@@ -41,9 +41,10 @@ export default {
   },
   computed: {
     orders() {
-      return this.$store.getters.educations.find(
-        (education) => education.academicPlanCode === this.academicPlanCode
-      ).partOfOrders;
+      return (
+        this.$store.getters.planEducation(this.academicPlanCode)
+          ?.partOfOrders || []
+      );
     },
   },
 
