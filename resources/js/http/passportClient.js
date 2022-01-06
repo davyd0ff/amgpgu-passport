@@ -63,7 +63,7 @@ export default class PassportClient {
       async (error) => {
         if (error.response && error.response.status === httpForbidden) {
           // todo fixme: change magic row
-          throw Error('USER_IS_UNAUTHORIZED');
+          throw error;
         }
 
         if (
