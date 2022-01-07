@@ -2,6 +2,7 @@
   <div class="row">
     <div class="col s12">
       <dialog-tree-select
+        v-bind:tree="$store.getters.studentsTree"
         v-bind:load-tree="() => $store.dispatch('getStudentsTree')"
         v-bind:is-opened="isDialogTreeOpened"
         v-on:select="onTreeSelected"

@@ -27,4 +27,12 @@ export default {
       throw new Error(err);
     }
   },
+
+  sendNotification: async ({ commit }, { notification, context }) => {
+    try {
+      await PassportApi.sendNotification(notification, context);
+    } catch (error) {
+      throw new Error(error);
+    }
+  },
 };

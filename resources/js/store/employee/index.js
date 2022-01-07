@@ -5,7 +5,13 @@ import actions from './actions';
 export default {
   // namespaced: true,
 
-  state: () => ({}),
+  state: {
+    trees: {
+      students: {},
+      listeners: {},
+      employees: {},
+    },
+  },
   getters,
   mutations,
   actions,

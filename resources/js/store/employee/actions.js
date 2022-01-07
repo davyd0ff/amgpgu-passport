@@ -1,21 +1,20 @@
-import PassportApi from '../../commands/passport';
+import PassportApi from '@/commands/passport';
 
 export default {
-  getStudentsTree: async ({ commit }, { facultyCode = undefined }) => {
+  getStudentsTree: async ({ commit }, { facultyCode = null } = {}) => {
     try {
-      const response = await PassportApi.getStudentsTree(facultyCode);
-      commit('SET_TREE', { tree: response.data, context: 'studentsTree' });
+      const tree = await PassportApi.getStudentsTree(facultyCode);
+      commit('SET_STUDENTS_TREE', { tree });
     } catch (err) {
-      // commit error
-      throw Error(err);
+      throw err;
     }
   },
 
-  getEmployeeTree: async ({ rootGetters, commit }) => {
+  getEmployeeTree: async ({ commit }) => {
     throw Error('NotImplementation');
   },
 
-  getListenerTree: async ({ rootGetters, commit }) => {
+  getListenerTree: async ({ commit }) => {
     throw Error('NotImplementation');
   },
 };

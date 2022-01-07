@@ -11,7 +11,7 @@
         <div
           class="col s12"
           v-bind:class="`m${Math.floor(12 / cssColumnsCount)}`"
-          v-for="node in tree.nodes"
+          v-for="node in nodes"
           v-bind:key="node.name"
         >
           <node-of-tree-viewer
@@ -39,23 +39,22 @@ export default {
   name: 'DialogTreeSelect',
   components: { Loader, NodeOfTreeViewer, DialogWindow },
   props: {
-    tree: { type: Array, default: () => [] },
+    // tree: { type: Array, default: () => [] },
+    tree: { type: Object, default: () => ({}) },
     loadTree: { type: Function, default: () => Promise.resolve({}) },
     isOpened: { type: Boolean, default: false },
   },
-  data: function () {
+  data() {
     return {
       isLoading: false,
       filter: '',
     };
   },
   computed: {
-    filteredTree: function () {
+    filteredTree() {
       const stack = new Stack();
 
       const dfs = (node, filter) => {
-        console.log(node);
-        console.log(filter);
         const result = { nodes: [] };
         stack.push(node);
 
@@ -75,9 +74,11 @@ export default {
 
       return dfs(this.tree, this.filter);
     },
-    cssColumnsCount: function () {
-      // tree.nodes - это очка и заочка
-      return (this.tree && this.tree.nodes && this.tree.nodes.length) || 1;
+    nodes() {
+      return this.tree?.nodes || [];
+    },
+    cssColumnsCount() {
+      return this.nodes.length || 1;
     },
   },
   methods: {

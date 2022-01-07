@@ -1,5 +1,5 @@
-import DialogTreeSelect from '@/components/DialogTreeSelect/DialogTreeSelect.vue';
 import { shallowMount } from '@vue/test-utils';
+import DialogTreeSelect from '@/components/DialogTreeSelect/DialogTreeSelect.vue';
 import { tree, filteredTree } from '@/__tests__/__fixtures__/studentTree';
 
 describe('component: DialogTreeSelect.vue', () => {
@@ -12,6 +12,26 @@ describe('component: DialogTreeSelect.vue', () => {
     const wrapper = createWrapper({ propsData: { loadTree } });
 
     expect(loadTree).toHaveBeenCalled();
+  });
+
+  it('computed props', () => {
+    const wrapper = createWrapper({ propsData: { tree } });
+
+    expect(wrapper.vm.cssColumnsCount).toBe(2);
+    expect(wrapper.vm.nodes).toEqual(
+      expect.arrayContaining([
+        expect.objectContaining({
+          nodes: expect.any(Array),
+          name: expect.any(String),
+        }),
+      ])
+    );
+  });
+
+  it('render', () => {
+    const wrapper = createWrapper({ propsData: { tree, isOpened: true } });
+
+    expect(wrapper).toMatchSnapshot();
   });
 
   it('filtered tree', async () => {
