@@ -36,7 +36,7 @@
           />
           <span style="color: #212121">{{ node | title }}</span>
           <a
-            v-if="node.nodes"
+            v-if="nodes.length > 0"
             style="color: #212121"
             v-on:click.stop.prevent="onShowChildren"
           >
@@ -82,29 +82,29 @@ export default {
     styles: { type: Object, default: () => ({}) },
     toggle: { type: Function, default: (m, a) => {} },
   },
-  data: function () {
+  data() {
     return {
       currentChecked: this.parentChecked,
       isShownNodes: this.level + 1 <= this.depthDisplayed,
     };
   },
   computed: {
-    nodes: function () {
-      return (this.node && this.node.nodes) || [];
+    nodes() {
+      return this.node?.nodes ?? [];
     },
   },
   watch: {
-    parentChecked: function () {
+    parentChecked() {
       this.currentChecked = this.parentChecked;
     },
-    currentChecked: function (value) {
+    currentChecked(value) {
       if (this.node && this.node.member) {
         this.toggle(this.node.member, value);
       }
     },
   },
   filters: {
-    title: function (node) {
+    title(node) {
       if (node.name) {
         return node.name;
       }
@@ -116,10 +116,10 @@ export default {
     },
   },
   methods: {
-    checkboxClicked: function () {
+    checkboxClicked() {
       this.currentChecked = !this.currentChecked;
     },
-    onShowChildren: function () {
+    onShowChildren() {
       this.isShownNodes = !this.isShownNodes;
     },
   },
