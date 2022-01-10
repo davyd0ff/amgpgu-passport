@@ -1,28 +1,39 @@
-import PassportApi from '../../commands/passport';
+import PassportApi from '@/commands/passport';
 
 export default {
-  attachFiles: ({ commit }, { context, files }) => {
-    // console.log('store.files.actions.attachFiles()', context, files);
-    commit('ADD_FILES', { context, files });
-  },
-
-  deleteFile: async ({ rootGetters, commit }, { fileId }) => {
+  attachFiles: async (
+    { commit },
+    { context, files, progressCallback = () => {} }
+  ) => {
     try {
-      await PassportApi.deleteFile(fileId);
-      commit('DELETE_FILES', { fileId });
-    } catch (err) {
-      // todo develop: set error to store
-      throw Error(err);
+      const uploadedFiles = await PassportApi.uploadFiles(
+        files,
+        context,
+        progressCallback
+      );
+      commit('ADD_FILES', { context, files: uploadedFiles });
+    } catch (error) {
+      throw error;
     }
   },
 
-  getFiles: async ({ rootGetters, commit }, { context }) => {
+  deleteFile: async ({ commit }, { context, fileId }) => {
     try {
-      const response = await PassportApi.getFiles(context);
-      commit('LOAD_FILES', { context, files: Object.values(response.data) });
+      await PassportApi.deleteFile(fileId);
+      commit('DELETE_FILES', { context, fileId });
     } catch (err) {
       // todo develop: set error to store
-      throw Error(err);
+      throw err;
+    }
+  },
+
+  getFiles: async ({ commit }, { context }) => {
+    try {
+      const files = await PassportApi.getFiles(context);
+      commit('LOAD_FILES', { context, files });
+    } catch (error) {
+      // todo develop: set error to store
+      throw error;
     }
   },
 };

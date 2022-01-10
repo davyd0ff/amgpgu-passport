@@ -25,11 +25,11 @@ const StudentCommands = {
     const backpoint = BACKEND_ENDPOINTS.getStudentData();
     return httpClient(backpoint);
   },
-  getStudentsTree: (facultyCode = undefined) => {
+  getStudentsTree: (facultyCode = null) => {
     const backpoint = facultyCode
       ? BACKEND_ENDPOINTS.getStudentsTreeOfFaculty(facultyCode)
       : BACKEND_ENDPOINTS.getStudentsTree();
-    return httpClient(backpoint);
+    return httpClient(backpoint).then((response) => response.data);
   },
 };
 
@@ -39,24 +39,25 @@ const FileCommands = {
     return httpClient(backpoint);
   },
   getFiles: (context) => {
-    const backpoint = BACKEND_ENDPOINTS.getFiles(context);
-    return httpClient(backpoint);
+    const backpoint = BACKEND_ENDPOINTS.fetchFiles(context);
+    return httpClient(backpoint).then((response) =>
+      Object.values(response.data)
+    );
   },
   uploadFiles: (files, context, onUploadProgress) => {
     const backpoint = BACKEND_ENDPOINTS.uploadFile(context);
 
     let data = new FormData();
     files.forEach((file, index) => {
-      data.append(`files[${index}]`.file, file.name);
+      data.append(`files[${index}]`, file, file.name);
     });
-    // data.append(`files[0]`, file, file.name);
 
     const headers = {
       'Content-Type': 'multipart/form-data',
     };
 
     const options = { ...backpoint, headers, data, onUploadProgress };
-    return httpClient(options);
+    return httpClient(options).then((response) => Object.values(response.data));
   },
   uploadAvatar: (file) => {
     return this.uploadFile(file, 'avatar');

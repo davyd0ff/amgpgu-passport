@@ -15,7 +15,6 @@
 <script>
 import FilesTable from '@/components/Files/FilesTable';
 import FileUploadForm from '@/components/Files/FileUploadForm';
-import passport from '@/commands/passport';
 
 export default {
   name: 'DefaultFileUploadPage',
@@ -40,23 +39,21 @@ export default {
         });
     },
     onUpload(filesToUpload, fnProgress) {
-      return passport
-        .uploadFiles(filesToUpload, this.context, fnProgress)
-        .then((response) => {
-          const uploadedfiles = Object.values(response.data);
-          this.$store.dispatch('attachFiles', {
-            context: this.context,
-            files: uploadedfiles,
-          });
+      // todo think: имхо костыль
+      return this.$store
+        .dispatch('attachFiles', {
+          context: this.context,
+          files: filesToUpload,
+          progressCallback: fnProgress,
         })
         .catch((error) => {
           this.$error(error);
-          return Promise.reject(error);
+          return Promise.reject({});
         });
     },
     onDelete(fileId) {
       this.$store
-        .dispatch('deleteFile', { fileId })
+        .dispatch('deleteFile', { context: this.context, fileId })
         .then(() => this.$message('DELETE_FILE_FILE_WAS_DELETED'))
         .catch((error) => this.$error(error));
     },

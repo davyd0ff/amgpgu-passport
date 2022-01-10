@@ -10,13 +10,13 @@ const BACKEND_ENDPOINTS = {
     method: 'delete',
     url: `/api/files/delete/${fileId}`,
   }),
-  getFiles: (context) => ({
+  fetchFiles: (context) => ({
     method: 'get',
-    url: `/api/files/${context}`,
+    url: `/api/files/fetch/${context}`,
   }),
   uploadFile: (context) => ({
     method: 'post',
-    url: `/api/files/${context}`,
+    url: `/api/files/upload/${context}`,
   }),
 
   getStudentData: () => ({ method: 'get', url: 'api/user/student-data' }),
