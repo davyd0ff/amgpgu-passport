@@ -14,11 +14,7 @@
   | is assigned the "api" middleware group. Enjoy building your API!
   |
   */
-  Route::get('/test/phpinfo', function(){
-    return phpinfo();
-  });
-  Route::get('/test/students/tree', 'ApiEmployeeController@getStudentsTree');
-
+  
   Route::group(['middleware' => ['force-json-response']], function () {
     Route::post('/login', 'ApiAccessTokenController@issueToken')
       ->middleware(['login-via-default-client', 'throttle']);
@@ -38,6 +34,17 @@
         Route::post('/read/{id}', 'ApiNotificationController@setRead');
         Route::post('/read-all', 'ApiNotificationController@setReadAll');
       });
+
+      Route::group(['prefix' => 'files'], function() {
+        Route::get('/fetch/{context}', 'ApiFileController@fetchFiles');
+        Route::post('/upload/{context}', 'ApiFileController@uploadFiles');
+        // todo think: CAN_DELETE_STUDENT_FILES ?? А если файлы listeners? или employees?
+        Route::delete('/delete/{file}', 'ApiFileController@delete')
+          ->middleware(
+            'is-owner:file', 
+            HasCapability::getStringForRoute(Capabilities::CAN_DELETE_STUDENT_FILES)
+          );
+      });
       
       
       Route::group(['prefix' => 'students'], function () {
@@ -47,15 +54,14 @@
       
       Route::group(['prefix' => 'admin'], function () {
         Route::group(['prefix' => 'notifications'], function () {
-          // todo develop: Если я хочу чтобы это работало, то скорее всего придется добавлять категории для пользователей
-          //               Listener, Employee, Student...
-          //               Категория будет отдельной Entity
-          Route::post('/add-for-students', 'NotificationController@add')
-            ->middleware(HasCapability::getStringForRoute(Capabilities::CAN_ADD_NOTIFICATION_FOR_STUDENTS));
-          Route::post('/add-for-employees', 'NotificationController@add')
-            ->middleware(HasCapability::getStringForRoute(Capabilities::CAN_ADD_NOTIFICATION_FOR_EMPLOYEES));
-          Route::post('/add-for-listeners', 'NotificationController@add')
-            ->middleware(HasCapability::getStringForRoute(Capabilities::CAN_ADD_NOTIFICATION_FOR_LISTENERS));
+          Route::group(['prefix' => 'add'], function(){
+            Route::post('/for-students', 'NotificationController@add')
+              ->middleware(HasCapability::getStringForRoute(Capabilities::CAN_ADD_NOTIFICATION_FOR_STUDENTS));
+            Route::post('/for-employees', 'NotificationController@add')
+              ->middleware(HasCapability::getStringForRoute(Capabilities::CAN_ADD_NOTIFICATION_FOR_EMPLOYEES));
+            Route::post('/for-listeners', 'NotificationController@add')
+              ->middleware(HasCapability::getStringForRoute(Capabilities::CAN_ADD_NOTIFICATION_FOR_LISTENERS));
+          });
         });
         
         Route::group(['prefix' => 'users'], function () {
@@ -71,8 +77,11 @@
               ->middleware([HasCapability::getStringForRoute(Capabilities::CAN_SUSPEND_USER)]);
           });
         });
-      });
-      
+      });  
+    });
+
+    Route::any('/{path?}/{page?}/{param?}', function () {
+      throw new App\Exceptions\OperationDeniedException();
     });
   });
   
