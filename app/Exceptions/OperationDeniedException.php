@@ -5,6 +5,6 @@
   
   
   class OperationDeniedException extends AmgpguPassportException {
-    protected $messageCode = 'TARGET_USER_HAS_HIGHER_PRIORITY';
+    protected $messageCode = 'OPERATION_DENIED';
     protected $code = 403;
   }
