@@ -1,6 +1,18 @@
 import PassportApi from '@/commands/passport';
 
 export default {
+  getFiles: async ({ commit }, { context }) => {
+    try {
+      const files = await PassportApi.getFiles(context);
+      console.log('store/files/actions/getFiles()', files);
+
+      commit('LOAD_FILES', { context, files });
+    } catch (error) {
+      // todo develop: set error to store
+      throw error;
+    }
+  },
+
   attachFiles: async (
     { commit },
     { context, files, progressCallback = () => {} }
@@ -11,6 +23,7 @@ export default {
         context,
         progressCallback
       );
+      console.log('store/files/actions/attachFiles()', uploadedFiles);
       commit('ADD_FILES', { context, files: uploadedFiles });
     } catch (error) {
       throw error;
@@ -24,16 +37,6 @@ export default {
     } catch (err) {
       // todo develop: set error to store
       throw err;
-    }
-  },
-
-  getFiles: async ({ commit }, { context }) => {
-    try {
-      const files = await PassportApi.getFiles(context);
-      commit('LOAD_FILES', { context, files });
-    } catch (error) {
-      // todo develop: set error to store
-      throw error;
     }
   },
 };
