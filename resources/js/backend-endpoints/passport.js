@@ -1,7 +1,7 @@
 const BACKEND_ENDPOINTS = {
-  login: () => ({ method: 'post', url: 'api/login' }),
-  refreshToken: () => ({ method: 'post', url: 'api/login/refresh' }),
-  logout: () => ({ method: 'post', url: 'api/logout' }),
+  login: () => ({ method: 'post', url: 'api/login/default' }),
+  refreshToken: () => ({ method: 'post', url: 'api/login/refresh/personal' }),
+  logout: () => ({ method: 'post', url: '/logout' }),
 
   getUserData: () => ({ method: 'get', url: 'api/user' }),
   getUserMenu: () => ({ method: 'get', url: 'api/user/menu' }),

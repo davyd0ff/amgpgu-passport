@@ -15,11 +15,52 @@
   |
   */
   
+  Route::group(['prefix' => 'test'], function() {
+    Route::get('/phpinfo', function(){ return phpinfo(); });
+    Route::get('/students/tree', 'ApiEmployeeController@getStudentsTree');
+    Route::get('/student/data/{usercode}', function ($usercode) {
+      $service = new App\Services\University\UniversitySoapService();
+      $studentData = $service->getStudentData($usercode);
+      // dd($studentData);
+      return new Illuminate\Http\JsonResponse($studentData, 200);
+    });
+    Route::get('/user/info', function() {
+      $user = App\User::where('id', 3)->first();
+      $userInfo = $user->getSerializableData();
+      return new Illuminate\Http\JsonResponse($userInfo, 200);
+    });
+    Route::get('/user/menu', function() {
+      $user = App\User::where('id', 3)->first();
+      $universityService = new App\Services\University\UniversitySoapService();
+      $cashingService = new App\Services\University\UniversityCachingService($universityService);
+      $rootMenus = new App\Builders\Menu\RootMenuItems();
+      $menuBuilder = new App\Builders\Menu\MenuBuilder($cashingService, $rootMenus);
+      $menu = $user->getMenu($menuBuilder)->getSerializableData();
+      return new Illuminate\Http\JsonResponse($menu, 200);
+    });
+    Route::get('/notifications', function() {
+      $user = App\User::where('id', 1)->first();
+      $notifications = $user
+        ->getIncomingNotifications(now()->addYears(-3))
+        ->map(function (App\Models\Entities\Notification $notification) {
+          return $notification->getSerializableData();
+        });
+      return new Illuminate\Http\JsonResponse($notifications, 200);
+    });
+  });
+
+
+
+
+
   Route::group(['middleware' => ['force-json-response']], function () {
-    Route::post('/login', 'ApiAccessTokenController@issueToken')
+    Route::post('/logout', 'Auth\LoginController@logout');
+    Route::post('/login/default', 'ApiAccessTokenController@issueToken')
       ->middleware(['login-via-default-client', 'throttle']);
-    Route::post('/login/refresh', 'ApiAccessTokenController@issueToken')
+    Route::post('/login/refresh/default', 'ApiAccessTokenController@issueToken')
       ->middleware(['refresh-token-via-default-client', 'throttle']);
+    Route::post('/login/refresh/personal', 'ApiAccessTokenController@issueToken')
+      ->middleware(['refresh-token-via-personal-client', 'throttle']);
     
     Route::group(['middleware' => ['auth:api']], function () {
       Route::group(['prefix' => 'user'], function () {
@@ -46,7 +87,6 @@
           );
       });
       
-      
       Route::group(['prefix' => 'students'], function () {
         Route::get('/tree/{facultyCode?}', 'ApiEmployeeController@getStudentsTree')
           ->middleware(HasCapability::getStringForRoute(Capabilities::CAN_GET_STUDENT_TREE));
@@ -55,11 +95,11 @@
       Route::group(['prefix' => 'admin'], function () {
         Route::group(['prefix' => 'notifications'], function () {
           Route::group(['prefix' => 'add'], function(){
-            Route::post('/for-students', 'NotificationController@add')
+            Route::post('/for-students', 'ApiNotificationController@add')
               ->middleware(HasCapability::getStringForRoute(Capabilities::CAN_ADD_NOTIFICATION_FOR_STUDENTS));
-            Route::post('/for-employees', 'NotificationController@add')
+            Route::post('/for-employees', 'ApiNotificationController@add')
               ->middleware(HasCapability::getStringForRoute(Capabilities::CAN_ADD_NOTIFICATION_FOR_EMPLOYEES));
-            Route::post('/for-listeners', 'NotificationController@add')
+            Route::post('/for-listeners', 'ApiNotificationController@add')
               ->middleware(HasCapability::getStringForRoute(Capabilities::CAN_ADD_NOTIFICATION_FOR_LISTENERS));
           });
         });

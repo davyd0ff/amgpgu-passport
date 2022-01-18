@@ -13,10 +13,15 @@
 export default {
   name: 'LogoutButton',
   methods: {
-    onLogout: function () {
-      this.$store.dispatch('logout').then(() => {
-        // route to login
-      });
+    onLogout() {
+      this.$store
+        .dispatch('logout')
+        .then(() => {
+          // route to login
+        })
+        .catch((error) => {
+          this.$error(error);
+        });
     },
   },
 };

@@ -1,6 +1,5 @@
 import PassportClient from '@/http/passportClient.js';
 import BACKEND_ENDPOINTS from '@/backend-endpoints/passport.js';
-import { data } from 'jquery';
 
 function httpClient(config, options = {}) {
   const defaultOptions = {
@@ -17,6 +16,10 @@ const LoginCommands = {
 
     // todo think: "нарушается" сопряжение
     return httpClient(config, { enableProcessing: false });
+  },
+  logout: () => {
+    const backpoint = BACKEND_ENDPOINTS.logout();
+    return httpClient(backpoint);
   },
 };
 
