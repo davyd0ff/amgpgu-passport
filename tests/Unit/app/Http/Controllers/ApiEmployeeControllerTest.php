@@ -21,7 +21,6 @@
       
     }
     
-    
     public function test_getStudentsTree() {
       $this->artisan('db:seed', ['--class' => CapabilitySeeder::class]);
       Passport::actingAs($this->getUserStub(true));

@@ -8,14 +8,15 @@
   use App\Models\Entities\Notification;
   use App\Models\Entities\Role;
   use App\Models\Entities\Capability;
+  use App\Passport\HasApiTokensWithRefreshToken;
   use App\Serializer\ISerializer;
   use Illuminate\Foundation\Auth\User as Authenticatable;
   use Illuminate\Notifications\Notifiable;
   use Illuminate\Support\Collection;
-  use Laravel\Passport\HasApiTokens;
+//  use Laravel\Passport\HasApiTokens;
   
   class User extends Authenticatable {
-    use HasApiTokens, Notifiable;
+    use HasApiTokensWithRefreshToken, Notifiable;
     
     /**
      * The attributes that are mass assignable.

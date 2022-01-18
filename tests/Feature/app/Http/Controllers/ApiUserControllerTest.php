@@ -137,7 +137,7 @@
     }
 
     public function test_refreshToken_ViaDefaultClient(){
-      $response = $this->call('post', '/api/login/refresh', [
+      $response = $this->call('post', '/api/login/refresh/default', [
         'refresh_token' => $this->oldAuthData['refresh_token'],
       ]);
 
@@ -150,10 +150,26 @@
     }
 
     public function test_refreshToken_ViaDefaultClientWithWrongToken() {
-      $response = $this->call('post', '/api/login/refresh', [
+      $response = $this->call('post', '/api/login/refresh/default', [
         'refresh_token' => 'A AM AN WRONG TOKEN',
       ]);
 
       $response->assertUnauthorized();
+    }
+    
+    public function test_refreshToken_ViaPersonalClient(){
+      $user = factory(User::class)->create();
+      $tokens = $user->createToken('TEST TOKEN');
+      
+      $response = $this->call('post', '/api/login/refresh/personal', [
+        'refresh_token' => $tokens->refreshToken
+      ]);
+      
+      $response->assertJsonStructure([
+        'token_type',
+        'expires_in',
+        'access_token',
+        'refresh_token',
+      ]);
     }
   }

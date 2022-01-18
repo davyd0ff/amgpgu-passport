@@ -43,7 +43,8 @@
       "database/factories",
       "app/Services",
       "app/Serializer",
-      "app/Builders"
+      "app/Builders",
+      "app/Passport"
     ],
     "files": [
       

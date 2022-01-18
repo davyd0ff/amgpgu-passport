@@ -7,6 +7,7 @@
   use App\Http\Middleware\IsOwnerOrHasCapability;
   use App\Http\Middleware\LoginViaDefaultClient;
   use App\Http\Middleware\RefreshTokenViaDefaultClient;
+  use App\Http\Middleware\RefreshTokenViaPersonalClient;
   use App\Http\Middleware\TargetHasLowerRolePriority;
   use App\Http\Middleware\TargetIsNotAdmin;
   use Illuminate\Foundation\Http\Kernel as HttpKernel;
@@ -74,6 +75,7 @@
       'target-has-lower-role-priority' => TargetHasLowerRolePriority::class,
       'login-via-default-client' => LoginViaDefaultClient::class,
       'refresh-token-via-default-client' => RefreshTokenViaDefaultClient::class,
+      'refresh-token-via-personal-client' => RefreshTokenViaPersonalClient::class,
       'force-json-response' => ForceJsonResponse::class,
     ];
   }
