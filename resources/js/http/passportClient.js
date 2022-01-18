@@ -1,4 +1,5 @@
 import axios from 'axios';
+import tokenRepository from '@/store/repositories/tokenRepository';
 import { httpUnauthorized, httpForbidden } from './codes';
 import BACKEND_ENDPOINTS from '@/backend-endpoints/passport';
 
@@ -38,8 +39,7 @@ export default class PassportClient {
   setPreProcessing() {
     this.client.interceptors.request.use(
       (config) => {
-        // todo fixme: change localstorage to CoR
-        const token = JSON.parse(window.localStorage.getItem('token'));
+        const token = tokenRepository.getToken();
         if (!token) {
           return config;
         }
@@ -83,8 +83,7 @@ export default class PassportClient {
   }
 
   async createRefreshTokenRequest() {
-    // todo fixme: change localStorage to managerStorage (CoR)
-    const token = JSON.parse(window.localStorage.getItem('token'));
+    const token = tokenRepository.getToken();
 
     if (!token) {
       return;
@@ -103,7 +102,8 @@ export default class PassportClient {
     };
     const newToken = await axios.request(config);
 
-    window.localStorage.setItem('token', JSON.stringify(newToken.data));
+    // todo think: repository or store?
+    tokenRepository.saveToken(newToken.data);
   }
 
   request(config) {
