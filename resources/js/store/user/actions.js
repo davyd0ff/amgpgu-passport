@@ -1,6 +1,10 @@
 import PassportApi from '@/commands/passport';
 
 export default {
+  saveUserData: ({ commit }, user) => {
+    commit('SET_USER', { user });
+  },
+
   getUserData: async ({ commit }) => {
     try {
       const response = await PassportApi.getUserData();

@@ -19,7 +19,14 @@ import Navbar from './components/Navbar';
 export default {
   name: 'Application',
   components: { Loader, Sidebar, Navbar },
-  props: {},
+  props: {
+    user: { type: String },
+    token: { type: String },
+  },
+  mounted() {
+    this.$store.dispatch('saveToken', JSON.parse(this.token));
+    this.$store.dispatch('saveUserData', JSON.parse(this.user));
+  },
   data: function () {
     return {
       isLoading: false,
@@ -38,10 +45,9 @@ export default {
   },
   methods: {
     loadPassportData: function () {
-      // console.log(this.$store);
       const data = [
         this.$store.dispatch('getNotifications'),
-        this.$store.dispatch('getUserData'),
+        // this.$store.dispatch('getUserData'),
         this.$store.dispatch('getUserMenu'),
         this.$store.dispatch('getStudentInfo'),
       ];
