@@ -6,12 +6,12 @@ export default {
     return state.avatar ?? '';
   },
   listenerMenu: (state) => {
-    return state.menu?.listener || [];
+    return state.menu?.listener ?? [];
   },
   adminMenu: (state) => {
-    return state.menu?.admin || [];
+    return state.menu?.admin ?? [];
   },
   studentMenu: (state) => {
-    return state.menu?.student || [];
+    return state.menu?.student ?? [];
   },
 };

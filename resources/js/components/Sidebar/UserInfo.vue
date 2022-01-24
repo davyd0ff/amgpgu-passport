@@ -27,16 +27,16 @@ export default {
   name: 'UserInfo',
   components: { LogoutButton },
   computed: {
-    info: function () {
-      return this.$store.getters.user;
+    info() {
+      return this.$store.getters.userInfo;
     },
-    username: function () {
+    username() {
       if (this.info && this.info.lastname) {
         return `${this.info.lastname} ${this.info.firstname} ${this.info.middlename}`;
       }
       return '';
     },
-    email: function () {
+    email() {
       if (this.info && this.info.email) {
         return this.info.email;
       }
