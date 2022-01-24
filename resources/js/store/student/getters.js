@@ -3,7 +3,7 @@ export default {
     return state.info;
   },
   studentEducations: (state) => {
-    return state.educations || [];
+    return state.educations ?? [];
   },
   planEducation: (state) => (academicPlanCode) => {
     return (

@@ -10,9 +10,9 @@
       </li>
       <li class="no-padding">
         <ul ref="collapsible" class="collapsible collapsible-accordion">
-          <student-menu v-if="isStudent" v-bind:menu="studentMenu" />
-          <listener-menu v-if="isListener" v-bind:menu="listenerMenu" />
-          <admin-menu v-if="hasAccessAdminMenu" v-bind:menu="adminMenu" />
+          <passport-menu v-if="isStudent" v-bind:menu="studentMenu" />
+          <passport-menu v-if="isListener" v-bind:menu="listenerMenu" />
+          <passport-menu v-if="hasAccessAdminMenu" v-bind:menu="adminMenu" />
         </ul>
       </li>
     </ul>
@@ -22,24 +22,39 @@
 <script>
 import M from 'materialize-css';
 
-import StudentMenu from '@/components/Menu/StudentMenu';
-import ListenerMenu from '@/components/Menu/ListenerMenu';
-import AdminMenu from '@/components/Menu/AdminMenu';
 import UserInfo from './UserInfo';
+import PassportMenu from '@/components/Menu';
+import studentMenuFactory from '@/factories/studentMenuFactory';
+import mapper from '@/frontend-points/mapperMenuItems.js';
 
 export default {
   name: 'Sidebar',
-  components: { AdminMenu, ListenerMenu, StudentMenu, UserInfo },
+  components: { PassportMenu, UserInfo },
 
   computed: {
     adminMenu() {
-      return this.$store.getters.adminMenu;
+      return [...this.$store.getters.adminMenu].map((item) => mapper(item));
     },
     listenerMenu() {
-      return this.$store.getters.listenerMenu;
+      return [...this.$store.getters.listenerMenu].map((item) => mapper(item));
     },
     studentMenu() {
-      return this.$store.getters.studentMenu;
+      const generalMenu = [...this.$store.getters.studentMenu].map((item) =>
+        mapper(item)
+      );
+      const educationMenu = [...this.$store.getters.studentEducations].map(
+        (education) => mapper(studentMenuFactory.make(education))
+      );
+
+      const firstMenuItem = generalMenu[0];
+      if (firstMenuItem) {
+        firstMenuItem.items = [
+          ...educationMenu,
+          ...(firstMenuItem.items || []),
+        ];
+      }
+
+      return generalMenu;
     },
     isStudent() {
       return this.studentMenu.length > 0;

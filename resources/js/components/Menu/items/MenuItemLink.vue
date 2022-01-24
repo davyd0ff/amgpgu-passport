@@ -1,24 +1,26 @@
 <template>
-  <router-link v-bind:to="item.url" class="waves-effect waves-teal" v-bind:class="{teal: isLinkActive}">
+  <router-link
+    v-bind:to="item.url"
+    class="waves-effect waves-teal"
+    v-bind:class="{ teal: isLinkActive }"
+  >
     {{ item.title | localize }}
-    <slot/>
+    <slot />
   </router-link>
 </template>
 
 <script>
 export default {
-  name: "MenuItemLink",
+  name: 'MenuItemLink',
   props: {
-    item: Object
+    item: Object,
   },
   computed: {
-    isLinkActive: function () {
+    isLinkActive() {
       return this.$route.path === this.item.url;
-    }
-  }
-}
+    },
+  },
+};
 </script>
 
-<style scoped>
-
-</style>
+<style scoped></style>

@@ -10,8 +10,12 @@
       <ul>
         <li class="no-padding">
           <ul ref="collapsible" class="collapsible collapsible-accordion">
-            <slot/>
-            <menu-item v-for="_item in item.items" v-bind:key="_item.title" v-bind:item="_item"/>
+            <slot />
+            <menu-item
+              v-for="_item in item.items"
+              v-bind:key="_item.title"
+              v-bind:item="_item"
+            />
           </ul>
         </li>
       </ul>
@@ -22,20 +26,25 @@
 <script>
 import M from 'materialize-css';
 
-import MenuItemDefault from "./MenuItemDefault";
-import MenuItemLink from "./MenuItemLink";
+import MenuItemDefault from './MenuItemDefault';
+import MenuItemLink from './MenuItemLink';
 
 export default {
-  name: "MenuItem",
-  components: {MenuItemLink, MenuItemDefault},
+  name: 'MenuItem',
+  components: { MenuItemLink, MenuItemDefault },
   props: {
     item: Object,
   },
   computed: {
-    isItemGroup: function () {
-      return this.item.items && this.item.items.length && this.item.items.length > 0 || this.$slots.default?.length > 0;
+    isItemGroup() {
+      return (
+        (this.item.items &&
+          this.item.items.length &&
+          this.item.items.length > 0) ||
+        this.$slots.default?.length > 0
+      );
     },
-    isItemLink: function () {
+    isItemLink() {
       return this.item.url && this.item.url.length > 0;
     },
   },
@@ -46,10 +55,8 @@ export default {
     if (this.$collapsible && this.$collapsible.hasOwnProperty('destroy')) {
       this.$collapsible.destroy();
     }
-  }
-}
+  },
+};
 </script>
 
-<style scoped>
-
-</style>
+<style scoped></style>

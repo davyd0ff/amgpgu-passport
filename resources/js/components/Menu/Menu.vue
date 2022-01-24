@@ -12,7 +12,7 @@
 import MenuItem from './items/MenuItem';
 
 export default {
-  name: 'AdminMenu',
+  name: 'Menu',
   components: { MenuItem },
   props: {
     menu: Array,

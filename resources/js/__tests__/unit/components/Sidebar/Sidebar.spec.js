@@ -1,18 +1,30 @@
 import { shallowMount, createLocalVue } from '@vue/test-utils';
 import Vuex from 'vuex';
 import Sidebar from '@/components/Sidebar/Sidebar.vue';
+import userGetters from '@/store/user/getters';
+import studentGetters from '@/store/student/getters';
 
-const localVue = createLocalVue();
-localVue.use(Vuex);
+import * as studentData from '@/__tests__/__fixtures__/studentData';
+import * as userMenu from '@/__tests__/__fixtures__/userMenu';
 
 describe('Sidebar.vue', () => {
-  it('render', () => {
-    const store = new Vuex.Store();
+  const makeWrapper = (options = {}) => {
+    const localVue = createLocalVue();
+    localVue.use(Vuex);
 
-    const wrapper = shallowMount(Sidebar, {
-      store,
-      localVue,
+    const store = new Vuex.Store({
+      getters: { ...userGetters, ...studentGetters },
     });
+
+    return shallowMount(Sidebar, {
+      localVue,
+      store,
+      ...options,
+    });
+  };
+
+  it('render', () => {
+    const wrapper = makeWrapper();
 
     expect(wrapper.element).toMatchSnapshot();
   });
@@ -21,20 +33,13 @@ describe('Sidebar.vue', () => {
     const store = new Vuex.Store({
       state: {
         menu: {
-          student: ['TEST'],
+          student: [{ title: 'TEST' }],
         },
       },
-      getters: {
-        menu: (state) => {
-          return state.menu;
-        },
-      },
+      getters: { ...userGetters, ...studentGetters },
     });
 
-    const wrapper = shallowMount(Sidebar, {
-      store,
-      localVue,
-    });
+    const wrapper = makeWrapper({ store });
 
     expect(wrapper.vm.isListener).toBeFalsy();
     expect(wrapper.vm.hasAccessAdminMenu).toBeFalsy();
@@ -45,20 +50,13 @@ describe('Sidebar.vue', () => {
     const store = new Vuex.Store({
       state: {
         menu: {
-          listener: ['TEST'],
+          listener: [{ title: 'TEST' }],
         },
       },
-      getters: {
-        menu: (state) => {
-          return state.menu;
-        },
-      },
+      getters: { ...userGetters, ...studentGetters },
     });
 
-    const wrapper = shallowMount(Sidebar, {
-      store,
-      localVue,
-    });
+    const wrapper = makeWrapper({ store });
 
     expect(wrapper.vm.isListener).toBeTruthy();
     expect(wrapper.vm.hasAccessAdminMenu).toBeFalsy();
@@ -69,23 +67,81 @@ describe('Sidebar.vue', () => {
     const store = new Vuex.Store({
       state: {
         menu: {
-          admin: ['TEST'],
+          admin: [{ title: 'TEST' }],
         },
       },
-      getters: {
-        menu: (state) => {
-          return state.menu;
-        },
-      },
+      getters: { ...userGetters, ...studentGetters },
     });
 
-    const wrapper = shallowMount(Sidebar, {
-      store,
-      localVue,
-    });
+    const wrapper = makeWrapper({ store });
 
     expect(wrapper.vm.isListener).toBeFalsy();
     expect(wrapper.vm.hasAccessAdminMenu).toBeTruthy();
     expect(wrapper.vm.isStudent).toBeFalsy();
   });
+
+  it('computed property studentMenu', () => {
+    const store = new Vuex.Store({
+      state: {
+        educations: [{ group: 'TEST_GROUP' }],
+        menu: {
+          student: [
+            {
+              title: 'TEST_INDEX',
+              items: [
+                {
+                  title: 'TEST_SUB_INDEX',
+                },
+              ],
+            },
+          ],
+        },
+      },
+      getters: { ...userGetters, ...studentGetters },
+    });
+
+    const wrapper = makeWrapper({ store });
+
+    expect(wrapper.vm.studentMenu).toEqual([
+      {
+        title: 'TEST_INDEX',
+        items: [
+          {
+            title: 'TEST_GROUP',
+            items: expect.any(Array),
+          },
+          {
+            title: 'TEST_SUB_INDEX',
+          },
+        ],
+      },
+    ]);
+  });
+
+  it('computed property studentMenu via fixtures', () => {
+    const store = new Vuex.Store({
+      state: {
+        educations: studentData.studentDataHasSeveralEducations.educations,
+        menu: userMenu.studentMenu,
+      },
+      getters: { ...userGetters, ...studentGetters },
+    });
+
+    const wrapper = makeWrapper({ store });
+
+    expect(wrapper.vm.studentMenu).toEqual(
+      expect.arrayContaining([
+        expect.objectContaining({
+          title: 'MENU_ITEM_STUDENT_INDEX',
+          items: expect.arrayContaining([
+            expect.objectContaining({
+              url: expect.any(String),
+            }),
+          ]),
+        }),
+      ])
+    );
+  });
+
+  it('computed property adminMenu via fixture', () => {});
 });
