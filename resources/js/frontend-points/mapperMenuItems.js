@@ -1,23 +1,34 @@
 import Queue from '@/utils/Queue';
-import mapping from './mapMenuItemToUrl';
+import mapMenuItemsAndUrls from './mapMenuItemToUrl';
 
-const makeFrontendMenuItem = (menuItem) => {
-  let url = mapping(menuItem.title);
+const map = new Map(mapMenuItemsAndUrls);
 
-  if (url && menuItem.subpath) {
-    url = `${url}/${menuItem.subpath}`;
-  }
+const replaceUrlParameters = (url, menuItem) =>
+  url
+    .split('/')
+    .map((str) => {
+      if (str.startsWith(':') && menuItem?.context[str.substring(1)]) {
+        return menuItem.context[str.substring(1)];
+      }
+      return str;
+    })
+    .join('/');
+
+const getUrl = (key) => map.get(key) ?? '';
+
+const convertToFrontendMenuItem = (menuItem) => {
+  const url = replaceUrlParameters(getUrl(menuItem.title), menuItem);
 
   return {
     ...menuItem,
-    ...(url ? { url } : {}),
+    ...(url !== '' ? { url } : {}),
   };
 };
 
-const turnMenuItemsToFrontendMenuItems = (menuItem) => {
+const convertMenuItemsToFrontendMenuItems = (menuItem) => {
   const queue = new Queue();
   const marked = new Map();
-  const turnedMenuItem = makeFrontendMenuItem(menuItem);
+  const turnedMenuItem = convertToFrontendMenuItem(menuItem);
 
   queue.push(turnedMenuItem);
   marked.set(turnedMenuItem, true);
@@ -26,7 +37,7 @@ const turnMenuItemsToFrontendMenuItems = (menuItem) => {
     const item = queue.pop();
 
     if (item?.items?.length) {
-      item.items = item.items.map((el) => makeFrontendMenuItem(el));
+      item.items = item.items.map((el) => convertToFrontendMenuItem(el));
       item.items.forEach((el) => {
         if (!marked.has(el)) {
           queue.push(el);
@@ -38,4 +49,4 @@ const turnMenuItemsToFrontendMenuItems = (menuItem) => {
   return turnedMenuItem;
 };
 
-export default turnMenuItemsToFrontendMenuItems;
+export default convertMenuItemsToFrontendMenuItems;
