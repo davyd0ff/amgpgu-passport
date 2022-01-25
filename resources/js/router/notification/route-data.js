@@ -1,16 +1,18 @@
-export const NOTIFICATIONS_VIEW_ROUTE_DATA = {
+export const NOTIFICATIONS_VIEW = {
   path: '/notifications/:id',
+  component: () => import('@/pages/NotificationPages/ViewNotification'),
   props: true,
   meta: {
-    title: "NOTIFICATIONS__VIEW_NOTIFICATION_PAGE_TITLE",
+    title: 'NOTIFICATIONS__VIEW_NOTIFICATION_PAGE_TITLE',
     auth: true,
   },
 };
 
-export const NOTIFICATIONS_LIST_ROUTE_DATA = {
+export const NOTIFICATIONS_LIST = {
   path: '/notifications',
+  component: () => import('@/pages/NotificationPages/ListNotifications'),
   meta: {
-    title: "NOTIFICATIONS__LIST_NOTIFICATIONS_PAGE_TITLE",
+    title: 'NOTIFICATIONS__LIST_NOTIFICATIONS_PAGE_TITLE',
     auth: true,
-  }
+  },
 };
