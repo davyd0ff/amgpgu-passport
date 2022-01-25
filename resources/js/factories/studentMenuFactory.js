@@ -10,11 +10,13 @@ const educationMenu = [
   },
 ];
 
+// todo think: хорошая ли идея засунуть context в каждый пункт меню? Не лучше ли использовать Composite и CoR?
+
 const make = (education) => ({
   title: education.group,
   items: educationMenu.map((item) => ({
     ...item,
-    subpath: education.academicPlanCode,
+    context: education,
   })),
 });
 
