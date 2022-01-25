@@ -117,31 +117,4 @@ describe('Sidebar.vue', () => {
       },
     ]);
   });
-
-  it('computed property studentMenu via fixtures', () => {
-    const store = new Vuex.Store({
-      state: {
-        educations: studentData.studentDataHasSeveralEducations.educations,
-        menu: userMenu.studentMenu,
-      },
-      getters: { ...userGetters, ...studentGetters },
-    });
-
-    const wrapper = makeWrapper({ store });
-
-    expect(wrapper.vm.studentMenu).toEqual(
-      expect.arrayContaining([
-        expect.objectContaining({
-          title: 'MENU_ITEM_STUDENT_INDEX',
-          items: expect.arrayContaining([
-            expect.objectContaining({
-              url: expect.any(String),
-            }),
-          ]),
-        }),
-      ])
-    );
-  });
-
-  it('computed property adminMenu via fixture', () => {});
 });

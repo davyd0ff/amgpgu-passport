@@ -12,6 +12,7 @@ import { studentDataHasSeveralEducations as studentData } from '@/__tests__/__fi
 describe('Sidebar', () => {
   const localVue = createLocalVue();
   localVue.use(Vuex);
+  localVue.filter('localize', (str) => str);
 
   const makeWrapper = (options = {}) => {
     const $route = {
