@@ -4,8 +4,8 @@
       <div class="card">
         <div class="card-content">
           <file-upload-form v-bind:upload-files="onUpload" />
-
           <files-table v-bind:files="files" v-on:delete-file="onDelete" />
+          <loader v-if="isLoading" />
         </div>
       </div>
     </div>
@@ -15,15 +15,29 @@
 <script>
 import FilesTable from '@/components/Files/FilesTable';
 import FileUploadForm from '@/components/Files/FileUploadForm';
+import Loader from '@/components/Loader';
 
 export default {
   name: 'DefaultFileUploadPage',
-  components: { FileUploadForm, FilesTable },
+  components: { FileUploadForm, FilesTable, Loader },
   props: {
     context: String,
   },
-  mounted() {
-    this.onDownload();
+  data() {
+    return {
+      isLoading: false,
+    };
+  },
+  watch: {
+    context: {
+      handler: 'onDownload',
+      immediate: true,
+    },
+  },
+  destroyed() {
+    if (this.timeout) {
+      clearTimeout(this.timeout);
+    }
   },
   computed: {
     files() {
@@ -32,11 +46,22 @@ export default {
   },
   methods: {
     onDownload() {
-      this.$store
-        .dispatch('getFiles', { context: this.context })
-        .catch((error) => {
-          this.$error(error);
-        });
+      this.isLoading = true;
+      if (this.timeout) {
+        clearTimeout(this.timeout);
+      }
+      this.timeout = window.setTimeout(
+        () =>
+          this.$store
+            .dispatch('getFiles', { context: this.context })
+            .catch((error) => {
+              this.$error(error);
+            })
+            .finally(() => {
+              this.isLoading = false;
+            }),
+        1000
+      );
     },
     onUpload(filesToUpload, fnProgress) {
       // todo think: имхо костыль

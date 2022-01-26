@@ -17,6 +17,9 @@ describe('DefaultFileUploadPage.vue', () => {
   const $message = jest.fn();
 
   beforeEach(() => {
+    window.setTimeout = jest.fn((fn, _) => fn());
+    window.clearTimeout = jest.fn();
+
     passport.uploadFiles.mockClear();
     passport.getFiles.mockClear();
     $error.mockClear();
