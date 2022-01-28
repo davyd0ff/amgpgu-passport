@@ -2,7 +2,7 @@ export const INFO_INDEX = {
   path: '/student',
   component: () => import('@/pages/Student.vue'),
   meta: {
-    title: 'STUDENT__INFO_INDEX_PAGE_TITLE',
+    title: 'STUDENT__INFO_INDEX_TITLE_PAGE',
     auth: true,
   },
 };
@@ -12,7 +12,7 @@ export const SPECIALITY = {
   component: () => import('@/pages/StudentPages/Info.vue'),
   props: true,
   meta: {
-    title: 'STUDENT__SPECIALITY_INFO_PAGE_TITLE',
+    title: 'STUDENT__SPECIALITY_INFO_TITLE_PAGE',
     auth: true,
   },
 };
@@ -22,7 +22,7 @@ export const GRADES = {
   component: () => import('@/pages/StudentPages/Grades.vue'),
   props: true,
   meta: {
-    title: 'STUDENT__GRADES_PAGE_TITLE',
+    title: 'STUDENT__GRADES_TITLE_PAGE',
     auth: true,
   },
 };
@@ -33,7 +33,7 @@ export const ACADEMIC_PERFORMANCE = {
     import('@/pages/StudentPages/CurrentAcademicPerformance.vue'),
   props: true,
   meta: {
-    title: 'STUDENT__CURRENT_ACADEMIC_PERFORMANCE_PAGE_TITLE',
+    title: 'STUDENT__CURRENT_ACADEMIC_PERFORMANCE_TITLE_PAGE',
     auth: true,
   },
 };
@@ -43,7 +43,7 @@ export const ORDERS = {
   component: () => import('@/pages/StudentPages/Orders.vue'),
   props: true,
   meta: {
-    title: 'STUDENT__ORDERS_PAGE_TITLE',
+    title: 'STUDENT__ORDERS_TITLE_PAGE',
     auth: true,
   },
 };
@@ -55,7 +55,7 @@ export const PRACTICE = {
     context: 'student.practice',
   },
   meta: {
-    title: 'STUDENT__PRACTICE_PAGE_TITLE',
+    title: 'STUDENT__PRACTICE_TITLE_PAGE',
     auth: true,
   },
 };
@@ -67,7 +67,7 @@ export const COURSE_WORKS = {
     context: 'student.course-works',
   },
   meta: {
-    title: 'STUDENT__COURSE_WORKS_PAGE_TITLE',
+    title: 'STUDENT__COURSE_WORKS_TITLE_PAGE',
     auth: true,
   },
 };
@@ -79,7 +79,7 @@ export const QUALIFYING_WORKS = {
     context: 'student.qualifying-works',
   },
   meta: {
-    title: 'STUDENT__QUALIFYING_WORKS_PAGE_TITLE',
+    title: 'STUDENT__QUALIFYING_WORKS_TITLE_PAGE',
     auth: true,
   },
 };
@@ -91,7 +91,7 @@ export const PROFESSIONAL_ACHIEVEMENT = {
     context: 'student.professional-achievement',
   },
   meta: {
-    title: 'STUDENT__PROFESSIONAL_ACHIEVEMENT_PAGE_TITLE',
+    title: 'STUDENT__PROFESSIONAL_ACHIEVEMENT_TITLE_PAGE',
     auth: true,
   },
 };
@@ -103,7 +103,7 @@ export const PUBLIC_LIFE = {
     context: 'student.public-life',
   },
   meta: {
-    title: 'STUDENT__PUBLIC_LIFE_PAGE_TITLE',
+    title: 'STUDENT__PUBLIC_LIFE_TITLE_PAGE',
     auth: true,
   },
 };
@@ -115,7 +115,7 @@ export const UNIVERSITY_LIFE = {
     context: 'student.university-life',
   },
   meta: {
-    title: 'STUDENT__UNIVERSITY_LIFE_PAGE_TITLE',
+    title: 'STUDENT__UNIVERSITY_LIFE_TITLE_PAGE',
     auth: true,
   },
 };
@@ -127,7 +127,7 @@ export const MY_PUBLICATIONS = {
     context: 'student.my-publications',
   },
   meta: {
-    title: 'STUDENT__MY_PUBLICATIONS_PAGE_TITLE',
+    title: 'STUDENT__MY_PUBLICATIONS_TITLE_PAGE',
     auth: true,
   },
 };
@@ -139,7 +139,7 @@ export const MY_CERTIFICATES = {
     context: 'student.my-certificates',
   },
   meta: {
-    title: 'STUDENT__MY_CERTIFICATES_PAGE_TITLE',
+    title: 'STUDENT__MY_CERTIFICATES_TITLE_PAGE',
     auth: true,
   },
 };
@@ -151,7 +151,7 @@ export const ADDITIONAL_EDUCATION = {
     context: 'student.additional-education',
   },
   meta: {
-    title: 'STUDENT__ADDITIONAL_EDUCATION_PAGE_TITLE',
+    title: 'STUDENT__ADDITIONAL_EDUCATION_TITLE_PAGE',
     auth: true,
   },
 };
@@ -163,7 +163,7 @@ export const ADDITIONAL_EDUCATION = {
 //     title: (route) =>
 //       `STUDENT__${route.params.path
 //         .replace('-', '_')
-//         .toUpperCase()}_PAGE_TITLE`,
+//         .toUpperCase()}_TITLE_PAGE`,
 //     auth: true,
 //   },
 //   props: (route) => ({

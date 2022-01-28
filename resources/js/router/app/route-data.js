@@ -3,7 +3,7 @@ export const HOME = {
   component: () => import('@/pages/Home'),
   name: 'Home',
   meta: {
-    title: 'HOME_PAGE_TITLE',
+    title: 'HOME__TITLE_PAGE',
     auth: true,
   },
 };
@@ -13,7 +13,7 @@ export const PROFILE = {
   component: () => import('@/pages/Profile'),
   name: 'Profile',
   meta: {
-    title: 'PROFILE_PAGE_TITLE',
+    title: 'PROFILE__TITLE_PAGE',
     auth: true,
   },
 };
@@ -23,7 +23,7 @@ export const PROFILE = {
 //   component: () => import('@/pages/Login'),
 //   name: "Login",
 //   meta: {
-//     title: "LOGIN_PAGE_TITLE",
+//     title: "LOGIN_TITLE_PAGE",
 //     auth: false,
 //   }
 // }
