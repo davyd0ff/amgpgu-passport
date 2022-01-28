@@ -12,12 +12,9 @@
      * @return void
      */
     public function run() {
-      $role = Role::firstOrCreate(['name' => 'admin'], ['priority' => 1]);
-      $capabilities = Capability::all()->map(function ($entity) {
-        return $entity->id;
-      });
+      $role = Role::firstOrCreate(['name' => 'admin'], ['priority' => 1, 'alias' => 'Администраторы']);
       
-      $role->users()->sync([User::where('name', env('APP_ADMIN_NAME'))->first()->id]);
-      $role->capabilities()->sync($capabilities);
+      $role->setUsers(collect([User::where('name', env('APP_ADMIN_NAME'))->first()]));
+      $role->setCapabilities(Capability::all());
     }
   }
