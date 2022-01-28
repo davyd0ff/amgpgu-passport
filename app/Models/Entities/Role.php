@@ -5,13 +5,13 @@
   
   
   use App\User;
-  use Illuminate\Database\Eloquent\Collection;
+  use Illuminate\Support\Collection;
   use Illuminate\Database\Eloquent\Model;
   
   class Role extends Model {
     protected $table = 'roles';
-    protected $fillable = ['name', 'priority'];
-    
+    protected $fillable = ['name', 'alias', 'priority'];
+
 //    public function construct(string $name, Collection $capabilities){
 //      $this->name = $name;
 //    }
@@ -34,6 +34,17 @@
       )->withPivot(['denied', 'capability_id']);
     }
     
+    public function setUsers(Collection $users) {
+      $this->users()->sync($users->map(function ($entity) {
+        return $entity->id;
+      }));
+    }
+    
+    public function setCapabilities(Collection $capabilities) {
+      $this->capabilities()->sync($capabilities->map(function ($entity) {
+        return $entity->id;
+      }));
+    }
     
     public function getCapabilities() {
       return $this->capabilities;
