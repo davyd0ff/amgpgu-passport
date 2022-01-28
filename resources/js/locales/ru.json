@@ -26,6 +26,10 @@
 
   "NOTIFICATION_CARD_TO_OPEN": "Открыть",
   "NOTIFICATION_CARD_TO_SIGN_AS_SHOWED": "Просмотрено",
+  "NOTIFICATIONS_TABLE_COLUMN_TITLE": "Уведомление",
+  "NOTIFICATIONS_TABLE_COLUMN_DATE": "Дата уведомления",
+  "NOTIFICATIONS_TABS_FOR_ME": "Предназначенные мне",
+  "": "",
 
   "NAVBAR_NOTIFICATIONS_DROPDOWN_TITLE": "Уведомления",
   "NAVBAR_NOTIFICATIONS_DROPDOWN_BUTTON_CLEAR": "Очистить",
@@ -42,8 +46,24 @@
   "FILE_UPLOAD_FORM_UPLOAD_BUTTON": "Загрузить",
   "FILE_UPLOAD_FORM_ATTACH_FILES": "Добавьте файлы",
 
-  "HOME_TITLE_PAGE": "Главная",
-  "PROFILE_TITLE_PAGE": "Профиль",
+  "HOME__TITLE_PAGE": "Главная",
+  "PROFILE__TITLE_PAGE": "Профиль",
+  "STUDENT__PRACTICE_TITLE_PAGE": "Практика",
+  "STUDENT__COURSE_WORKS_TITLE_PAGE": "Курсовые работы",
+  "STUDENT__QUALIFYING_WORKS_TITLE_PAGE": "ВКР",
+  "STUDENT__CURRENT_ACADEMIC_PERFORMANCE_TITLE_PAGE": "Текущая успеваемость",
+  "STUDENT__GRADES_TITLE_PAGE": "Зачеты и экзамены",
+  "STUDENT__ORDERS_TITLE_PAGE": "Приказы",
+  "STUDENT__PROFESSIONAL_ACHIEVEMENT_TITLE_PAGE": "Профессиональные достижения",
+  "STUDENT__PUBLIC_LIFE_TITLE_PAGE": "Публичная жизнь",
+  "STUDENT__UNIVERSITY_LIFE_TITLE_PAGE": "Университетская жизнь",
+  "STUDENT__MY_PUBLICATIONS_TITLE_PAGE": "Мои публикации",
+  "STUDENT__MY_CERTIFICATES_TITLE_PAGE": "Мои сертификаты",
+  "STUDENT__ADDITIONAL_EDUCATION_TITLE_PAGE": "Дополнительное образование",
+  "ADMIN__ADD_NOTIFICATION_FOR_STUDENTS_TITLE_PAGE": "Создать уведомление для студентов",
+  "NOTIFICATIONS__VIEW_NOTIFICATION_TITLE_PAGE": "Просмотр уведомления",
+  "NOTIFICATIONS__LIST_NOTIFICATIONS_TITLE_PAGE": "Уведомления",
+
   "PROFILE_LABEL_FIRSTNAME": "Имя",
   "PROFILE_LABEL_LASTNAME": "Фамилия",
   "PROFILE_LABEL_MIDDLENAME": "Отчество",
@@ -53,38 +73,28 @@
   "PROFILE_MESSAGE_INVALID_MIDDLENAME": "Неправильно указано Отчество",
   "PROFILE_MESSAGE_INVALID_EMAIL": "Неправильно указан Email",
   "PROFILE_BUTTON_UPDATE": "Обновить профиль",
-  "STUDENT_PRACTICE_TITLE_PAGE": "Практика",
-  "STUDENT_COURSE_WORKS_TITLE_PAGE": "Курсовые работы",
-  "STUDENT_QUALIFYING_WORKS_TITLE_PAGE": "ВКР",
-  "STUDENT_CURRENTACADEMICPERFORMANCE_TITLE_PAGE": "Текущая успеваемость",
+
   "PERFORMANCE_THERE_IS_NO_DATA": "Нет данных",
   "PERFORMANCE_TABLE_COLUMN_SUBJECT": "Дисциплина",
   "PERFORMANCE_TABLE_COLUMN_RATING": "Рейтинг",
   "PERFORMANCE_TABLE_COLUMN_MAX_RATING": "Максимальный рейтинг",
-  "STUDENT_GRADES_TITLE_PAGE": "Зачеты и экзамены",
+
   "GRADE_TABLE_COLUMN_SUBJECT": "Дисциплина",
   "GRADE_TABLE_COLUMN_GRADES": "Оценка",
   "GRADE_TABLE_COLUMN_REASON_NO_ATTESTATION": "Причина не аттестации",
-  "STUDENT_ORDERS_TITLE_PAGE": "Приказы",
+
   "ORDER_TABLE_COLUMN_STUDENT_RECORD_BOOK": "Зачетная книжка",
   "ORDER_TABLE_COLUMN_ORDER_TITLE": "Приказ",
   "ORDER_TABLE_COLUMN_ORDER_TYPE": "Тип приказа",
   "ORDER_TABLE_COLUMN_COURSE": "Курс",
   "ORDER_TABLE_COLUMN_GROUP": "Группа",
   "ORDER_TABLE_COLUMN_ACADEMIC_YEAR": "Период обучения",
-  "STUDENT_PROFESSIONAL_ACHIEVEMENT_TITLE_PAGE": "Профессиональные достижения",
-  "STUDENT_PUBLIC_LIFE_TITLE_PAGE": "Публичная жизнь",
-  "STUDENT_UNIVERSITY_LIFE_TITLE_PAGE": "Университетская жизнь",
-  "STUDENT_MY_PUBLICATIONS_TITLE_PAGE": "Мои публикации",
-  "STUDENT_MY_CERTIFICATES_TITLE_PAGE": "Мои сертификаты",
-  "STUDENT_ADDITIONAL_EDUCATION_TITLE_PAGE": "Дополнительное образование",
-  "ADMIN_ADDNOTIFICATION_FORSTUDENTS_TITLE_PAGE": "Создать уведомление для студентов",
-  
+
   "LOGIN_LABEL_USERNAME": "Логин",
   "LOGIN_LABEL_PASSWORD": "Пароль",
   "LOGIN_BUTTON_LOGIN": "Вход",
   "LOGIN_LOGOUT": "Выход",
-  
+
   "MESSAGE_WRONG_PASSWORD": "Неправильно указан пароль",
   "MESSAGE_EMAIL_IS_BUSY": "Email уже занят"
 }
