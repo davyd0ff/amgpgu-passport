@@ -11,16 +11,16 @@ const router = new VueRouter({
   routes,
 });
 
-router.beforeEach((to, from, next) => {
-  const isAuthenticated = store.getters.userIsAuthenticated;
+// router.beforeEach((to, from, next) => {
+//   const isAuthenticated = store.getters.userIsAuthenticated;
 
-  if (to.name !== 'Login' && !isAuthenticated) {
-    next({ name: 'Login', meta: { ...to.meta, redirect: to.path } });
-  } else if (to.name === 'Login' && isAuthenticated) {
-    next({ name: 'Home' });
-  } else {
-    next();
-  }
-});
+//   if (to.name !== 'Login' && !isAuthenticated) {
+//     next({ name: 'Login', meta: { ...to.meta, redirect: to.path } });
+//   } else if (to.name === 'Login' && isAuthenticated) {
+//     next({ name: 'Home' });
+//   } else {
+//     next();
+//   }
+// });
 
 export default router;
