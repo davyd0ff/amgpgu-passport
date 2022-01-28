@@ -2,6 +2,7 @@
   
   use App\Capabilities;
   use App\Http\Middleware\HasCapability;
+  use App\Http\Middleware\IsOwnerOrHasCapability;
   use Illuminate\Support\Facades\Route;
   
   /*
@@ -15,30 +16,11 @@
   |
   */
   
-  Route::group(['prefix' => 'test'], function() {
-    Route::get('/phpinfo', function(){ return phpinfo(); });
-    Route::get('/students/tree', 'ApiEmployeeController@getStudentsTree');
-    Route::get('/student/data/{usercode}', function ($usercode) {
-      $service = new App\Services\University\UniversitySoapService();
-      $studentData = $service->getStudentData($usercode);
-      // dd($studentData);
-      return new Illuminate\Http\JsonResponse($studentData, 200);
+  Route::group(['prefix' => 'test'], function () {
+    Route::get('/phpinfo', function () {
+      return phpinfo();
     });
-    Route::get('/user/info', function() {
-      $user = App\User::where('id', 3)->first();
-      $userInfo = $user->getSerializableData();
-      return new Illuminate\Http\JsonResponse($userInfo, 200);
-    });
-    Route::get('/user/menu', function() {
-      $user = App\User::where('id', 3)->first();
-      $universityService = new App\Services\University\UniversitySoapService();
-      $cashingService = new App\Services\University\UniversityCachingService($universityService);
-      $rootMenus = new App\Builders\Menu\RootMenuItems();
-      $menuBuilder = new App\Builders\Menu\MenuBuilder($cashingService, $rootMenus);
-      $menu = $user->getMenu($menuBuilder)->getSerializableData();
-      return new Illuminate\Http\JsonResponse($menu, 200);
-    });
-    Route::get('/notifications', function() {
+    Route::get('/notifications', function () {
       $user = App\User::where('id', 1)->first();
       $notifications = $user
         ->getIncomingNotifications(now()->addYears(-3))
@@ -48,11 +30,8 @@
       return new Illuminate\Http\JsonResponse($notifications, 200);
     });
   });
-
-
-
-
-
+  
+  
   Route::group(['middleware' => ['force-json-response']], function () {
     Route::post('/logout', 'Auth\LoginController@logout');
     Route::post('/login/default', 'ApiAccessTokenController@issueToken')
@@ -75,51 +54,48 @@
         Route::post('/read/{id}', 'ApiNotificationController@setRead');
         Route::post('/read-all', 'ApiNotificationController@setReadAll');
       });
-
-      Route::group(['prefix' => 'files'], function() {
+      
+      Route::group(['prefix' => 'files'], function () {
         Route::get('/fetch/{context}', 'ApiFileController@fetchFiles');
         Route::post('/upload/{context}', 'ApiFileController@uploadFiles');
         // todo think: CAN_DELETE_STUDENT_FILES ?? А если файлы listeners? или employees?
         Route::delete('/delete/{file}', 'ApiFileController@delete')
-          ->middleware(
-            'is-owner:file', 
-            HasCapability::getStringForRoute(Capabilities::CAN_DELETE_STUDENT_FILES)
-          );
+          ->middleware(IsOwnerOrHasCapability::getMiddlewareName(Capabilities::CAN_DELETE_STUDENT_FILES));
       });
       
       Route::group(['prefix' => 'students'], function () {
         Route::get('/tree/{facultyCode?}', 'ApiEmployeeController@getStudentsTree')
-          ->middleware(HasCapability::getStringForRoute(Capabilities::CAN_GET_STUDENT_TREE));
+          ->middleware(HasCapability::getMiddlewareName(Capabilities::CAN_GET_STUDENT_TREE));
       });
       
       Route::group(['prefix' => 'admin'], function () {
         Route::group(['prefix' => 'notifications'], function () {
-          Route::group(['prefix' => 'add'], function(){
+          Route::group(['prefix' => 'add'], function () {
             Route::post('/for-students', 'ApiNotificationController@add')
-              ->middleware(HasCapability::getStringForRoute(Capabilities::CAN_ADD_NOTIFICATION_FOR_STUDENTS));
+              ->middleware(HasCapability::getMiddlewareName(Capabilities::CAN_ADD_NOTIFICATION_FOR_STUDENTS));
             Route::post('/for-employees', 'ApiNotificationController@add')
-              ->middleware(HasCapability::getStringForRoute(Capabilities::CAN_ADD_NOTIFICATION_FOR_EMPLOYEES));
+              ->middleware(HasCapability::getMiddlewareName(Capabilities::CAN_ADD_NOTIFICATION_FOR_EMPLOYEES));
             Route::post('/for-listeners', 'ApiNotificationController@add')
-              ->middleware(HasCapability::getStringForRoute(Capabilities::CAN_ADD_NOTIFICATION_FOR_LISTENERS));
+              ->middleware(HasCapability::getMiddlewareName(Capabilities::CAN_ADD_NOTIFICATION_FOR_LISTENERS));
           });
         });
         
         Route::group(['prefix' => 'users'], function () {
           Route::post('/add', 'ApiUserController@add')
-            ->middleware([HasCapability::getStringForRoute(Capabilities::CAN_CREATE_USER)]);
+            ->middleware([HasCapability::getMiddlewareName(Capabilities::CAN_CREATE_USER)]);
           
           Route::group(['middleware' => ['target-is-not-admin', 'target-has-lower-role-priority']], function () {
             Route::post('/remove/{user}', 'ApiUserController@delete')
-              ->middleware([HasCapability::getStringForRoute(Capabilities::CAN_DELETE_USER)]);
+              ->middleware([HasCapability::getMiddlewareName(Capabilities::CAN_DELETE_USER)]);
             Route::post('/update', 'ApiUserController@update')
-              ->middleware([HasCapability::getStringForRoute(Capabilities::CAN_UPDATE_USER)]);
+              ->middleware([HasCapability::getMiddlewareName(Capabilities::CAN_UPDATE_USER)]);
             Route::post('/suspend/{user}', 'ApiUserController@suspend')
-              ->middleware([HasCapability::getStringForRoute(Capabilities::CAN_SUSPEND_USER)]);
+              ->middleware([HasCapability::getMiddlewareName(Capabilities::CAN_SUSPEND_USER)]);
           });
         });
-      });  
+      });
     });
-
+    
     Route::any('/{path?}/{page?}/{param?}', function () {
       throw new App\Exceptions\OperationDeniedException();
     });
