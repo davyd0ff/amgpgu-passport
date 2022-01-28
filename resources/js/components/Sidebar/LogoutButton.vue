@@ -18,6 +18,7 @@ export default {
         .dispatch('logout')
         .then(() => {
           // route to login
+          this.$router.push('/login', () => window.location.reload());
         })
         .catch((error) => {
           this.$error(error);

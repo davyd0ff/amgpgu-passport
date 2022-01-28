@@ -1,5 +1,6 @@
 <?php
   
+  use Illuminate\Http\Request;
   use Illuminate\Support\Facades\Auth;
   use Illuminate\Support\Facades\Route;
   
@@ -8,20 +9,26 @@
   Route::post('login', 'Auth\LoginController@login');
   Route::post('logout', 'Auth\LoginController@logout')->name('logout');
   
-  Route::group(['middleware' => ['auth']], function () {
-    Route::get('/{path?}/{page?}/{param?}', function ($path = null, $page = null, $param = null) {
-      $user = auth()->user();
+  
+  Route::get('/{path?}/{page?}/{param?}', function (Request $request, $path = null, $page = null, $param = null) {
+    $encodedUser = '{}';
+    $encodedToken = '{}';
+
+    $user = $request->user();
+    if($user){
       $tokens = $user->createToken('Passport ' . $user->name);
+      $encodedToken = json_encode([
+        'access_token' => $tokens->accessToken,
+        'refresh_token' => $tokens->refreshToken,
+        'token_type' => $tokens->tokenType,
+      ], JSON_UNESCAPED_UNICODE);
+      $encodedUser = json_encode($user->getSerializableData(), JSON_UNESCAPED_UNICODE);
+    }
       
-      return view('application', [
-        'user' => json_encode($user->getSerializableData(), JSON_UNESCAPED_UNICODE),
-        'token' => json_encode([
-          'access_token' => $tokens->accessToken,
-          'refresh_token' => $tokens->refreshToken,
-          'token_type' => $tokens->tokenType,
-        ], JSON_UNESCAPED_UNICODE)
-      ]);
-    });
+    return view('application', [
+      'user' => $encodedUser,
+      'token' => $encodedToken
+    ]);
   });
   
   

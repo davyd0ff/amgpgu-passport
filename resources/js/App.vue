@@ -24,8 +24,19 @@ export default {
     token: { type: String },
   },
   mounted() {
-    this.$store.dispatch('saveToken', JSON.parse(this.token));
-    this.$store.dispatch('saveUserData', JSON.parse(this.user));
+    const token = JSON.parse(this.token);
+    const user = JSON.parse(this.user);
+    const isEmptyObject = (value) =>
+      value && Object.keys(value).length === 0 && value.constructor === Object;
+
+    if (!this.isAuthenticated) {
+      if (isEmptyObject(token) || isEmptyObject(user)) {
+        this.$router.push('/login', () => window.location.reload());
+      } else {
+        this.$store.dispatch('saveToken', token);
+        this.$store.dispatch('saveUserData', this.user);
+      }
+    }
   },
   data: function () {
     return {
@@ -47,7 +58,7 @@ export default {
     loadPassportData: function () {
       const data = [
         this.$store.dispatch('getNotifications'),
-        // this.$store.dispatch('getUserData'),
+        this.$store.dispatch('getUserData'),
         this.$store.dispatch('getUserMenu'),
         this.$store.dispatch('getStudentInfo'),
       ];
