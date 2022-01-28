@@ -31,7 +31,7 @@
       throw new CapabilityWasNotFoundException();
     }
     
-    public static function getStringForRoute(string $capability) : string {
+    public static function getMiddlewareName(string $capability) : string {
       return 'has-capability:' . $capability;
     }
   }
