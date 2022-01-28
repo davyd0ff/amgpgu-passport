@@ -8,7 +8,12 @@
   use App\Models\Entities\Capability;
   use Closure;
   
-  class IsOwnerOrHasCapability extends HasCapability {
+  class IsOwnerOrHasCapability {
+    private $middlewareHasCapability;
+    
+    public function __construct(HasCapability $middleware){
+      $this->middlewareHasCapability = $middleware;
+    }
     /**
      * Handle an incoming request.
      *
@@ -31,6 +36,10 @@
     }
     
     private function checkCapability($request, Closure $next, string $capabilityName) {
-      return parent::handle($request, $next, $capabilityName);
+      return $this->middlewareHasCapability->handle($request, $next, $capabilityName);
+    }
+    
+    public static function getMiddlewareName(string $capability): string {
+      return 'is-owner:file,' . $capability;
     }
   }
