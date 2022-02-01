@@ -11,20 +11,6 @@ main {
   padding-left: 300px;
 }
 
-/* NAVBAR */
-.navbar-fixed {
-  height: 64px;
-  position: relative;
-}
-
-.navbar-fixed nav.navbar {
-  padding: 0 20px;
-}
-
-.navbar-fixed nav.navbar {
-  width: calc(100% - 300px);
-}
-
 
 /* APP*/
 .app-container {

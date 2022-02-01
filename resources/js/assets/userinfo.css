@@ -1,0 +1,12 @@
+.user-view .background {
+  background-image: url('/images/banner.jpg');
+  background-position: center;
+  background-size: cover;
+}
+
+.user-view .avatar {
+  background-image: url('/images/avatar.svg');
+  background-position: center;
+  background-size: contain;
+}
+
