@@ -20,8 +20,8 @@ export default {
   name: 'Application',
   components: { Loader, Sidebar, Navbar },
   props: {
-    user: { type: String },
-    token: { type: String },
+    user: { type: String, default: '{}' },
+    token: { type: String, default: '{}' },
   },
   mounted() {
     const token = JSON.parse(this.token);
@@ -38,7 +38,7 @@ export default {
       }
     }
   },
-  data: function () {
+  data() {
     return {
       isLoading: false,
     };
@@ -81,7 +81,9 @@ export default {
 @import '~materialize-css/dist/css/materialize.min.css';
 //@import '~vuetify/dist/vuetify.min.css';
 @import './assets/app.css';
+@import './assets/navbar.css';
 @import './assets/fileInput.css';
 @import './assets/sidenav.css';
+@import './assets/userinfo.css';
 @import './assets/dropDownNotifications.css';
 </style>

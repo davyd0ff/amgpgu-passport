@@ -13,6 +13,7 @@ describe('App.vue', () => {
   const action_uploadAvatar = jest.fn(() => Promise.resolve({}));
   const action_getStudentInfo = jest.fn(() => Promise.resolve({}));
   const action_getNotifications = jest.fn(() => Promise.resolve({}));
+  const $router = { push: jest.fn() };
 
   const makeWrapper = (options = {}) => {
     const localVue = createLocalVue();
@@ -36,7 +37,14 @@ describe('App.vue', () => {
     return shallowMount(App, {
       store,
       localVue,
+      propsData: {
+        user: '{}',
+        token: '{}',
+      },
       stubs: ['router-view'],
+      mocks: {
+        $router,
+      },
       ...options,
     });
   };
@@ -47,6 +55,7 @@ describe('App.vue', () => {
     action_uploadAvatar.mockClear();
     action_getStudentInfo.mockClear();
     action_getNotifications.mockClear();
+    $router.push.mockClear();
   });
 
   it('called actions after mounted', async () => {
