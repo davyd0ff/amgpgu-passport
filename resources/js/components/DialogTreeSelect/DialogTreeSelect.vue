@@ -2,7 +2,12 @@
   <dialog-window v-bind:is-opened="isOpened" v-on:on-close="select">
     <template v-slot:header>
       <div class="input-field">
-        <input id="filter" type="text" placeholder="TREE_FILTER" />
+        <input
+          id="filter"
+          type="text"
+          placeholder="TREE_FILTER"
+          v-model="filter"
+        />
       </div>
     </template>
     <template v-slot:content>
@@ -52,15 +57,23 @@ export default {
   },
   computed: {
     filteredTree() {
+      if (this.filter.length <= 3) {
+        return this.tree;
+      }
+
       const stack = new Stack();
 
       const dfs = (node, filter) => {
+        const nameContainsFilter = (node, filter) =>
+          node?.name?.toLowerCase().includes(filter.toLowerCase()) ||
+          node?.member?.name.toLowerCase().includes(filter.toLowerCase());
+
         const result = { nodes: [] };
         stack.push(node);
 
         while (stack.isNotEmpty()) {
           const node = stack.pop();
-          if (node && node.name && node.name.includes(filter)) {
+          if (nameContainsFilter(node, filter)) {
             result.nodes.push(node);
           } else {
             node?.nodes?.forEach((child) => {
@@ -75,10 +88,10 @@ export default {
       return dfs(this.tree, this.filter);
     },
     nodes() {
-      return this.tree?.nodes || [];
+      return this.filteredTree?.nodes || [];
     },
     cssColumnsCount() {
-      return this.nodes.length || 1;
+      return 1; // this.nodes.length || 1;
     },
   },
   methods: {
