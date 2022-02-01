@@ -9,7 +9,7 @@ describe('test store - notification actions', () => {
       const TEST_NOTIFICATIONS = [{ title: TEST_NOTIFICATION_TITLE }];
       PassportAPI.getNotifications = jest
         .fn()
-        .mockImplementation(() => ({ data: TEST_NOTIFICATIONS }));
+        .mockImplementation(() => TEST_NOTIFICATIONS);
 
       await actions.getNotifications({ commit });
 

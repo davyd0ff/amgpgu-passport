@@ -6,16 +6,14 @@ describe('test store - student actions', () => {
     it('commit has been called', async () => {
       const commit = jest.fn();
       const TEST_STUDENT = 'TEST_STUDENT';
-      PassportAPI.getStudentInfo = jest
-        .fn()
-        .mockImplementation(() => ({ data: TEST_STUDENT }));
+      PassportAPI.getStudentData = jest.fn(() => ({ TEST_STUDENT }));
 
       await actions.getStudentInfo({ commit });
 
       expect(commit).toHaveBeenCalledWith('SET_STUDENT', {
-        student: TEST_STUDENT,
+        student: { TEST_STUDENT },
       });
-      expect(PassportAPI.getStudentInfo).toHaveBeenCalledTimes(1);
+      expect(PassportAPI.getStudentData).toHaveBeenCalledTimes(1);
     });
   });
 });

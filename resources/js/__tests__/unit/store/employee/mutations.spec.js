@@ -1,18 +1,68 @@
 import mutations from '@/store/employee/mutations';
 
-describe('test store - employee mutations', () => {
-  it('SET_TREE', () => {
-    const context = 'SOME_TREE';
+describe('store/employee/mutations', () => {
+  const tree = {
+    TREE: {
+      TEST_NODE: 'TEST',
+    },
+  };
+  it('SET_STUDENTS_TREE', () => {
     const state = {
-      [context]: {},
-    };
-    const tree = {
-      TREE: {
-        TEST_NODE: 'TEST',
+      trees: {
+        students: {},
+        employees: {},
+        listeners: {},
       },
     };
 
-    mutations.SET_TREE(state, { context, tree });
-    expect(state[context]).toStrictEqual(tree);
+    mutations.SET_STUDENTS_TREE(state, { tree });
+
+    expect(state.trees.students).toStrictEqual({
+      TREE: {
+        TEST_NODE: 'TEST',
+      },
+    });
+    expect(state.trees.employees).toStrictEqual({});
+    expect(state.trees.listeners).toStrictEqual({});
+  });
+
+  it('SET_EMPLOYEES_TREE', () => {
+    const state = {
+      trees: {
+        students: {},
+        employees: {},
+        listeners: {},
+      },
+    };
+
+    mutations.SET_EMPLOYEES_TREE(state, { tree });
+
+    expect(state.trees.employees).toStrictEqual({
+      TREE: {
+        TEST_NODE: 'TEST',
+      },
+    });
+    expect(state.trees.students).toStrictEqual({});
+    expect(state.trees.listeners).toStrictEqual({});
+  });
+
+  it('SET_LISTENERS_TREE', () => {
+    const state = {
+      trees: {
+        students: {},
+        employees: {},
+        listeners: {},
+      },
+    };
+
+    mutations.SET_LISTENERS_TREE(state, { tree });
+
+    expect(state.trees.listeners).toStrictEqual({
+      TREE: {
+        TEST_NODE: 'TEST',
+      },
+    });
+    expect(state.trees.students).toStrictEqual({});
+    expect(state.trees.employees).toStrictEqual({});
   });
 });

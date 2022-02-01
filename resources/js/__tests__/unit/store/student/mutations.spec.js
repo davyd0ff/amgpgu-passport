@@ -5,10 +5,14 @@ describe('test student mutations', () => {
     const state = {
       info: {},
     };
-    const student = { name: 'TEST' };
+    const student = {
+      info: { name: 'TEST' },
+      educations: [{ group: 'TEST' }],
+    };
 
     mutations.SET_STUDENT(state, { student });
 
-    expect(state.info).toStrictEqual(student);
+    expect(state.info).toStrictEqual({ name: 'TEST' });
+    expect(state.educations).toStrictEqual([{ group: 'TEST' }]);
   });
 });

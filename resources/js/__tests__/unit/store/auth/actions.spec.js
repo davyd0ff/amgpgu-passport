@@ -8,15 +8,14 @@ describe('actions for auth store', () => {
     commit.mockClear();
     const username = 'TEST_USER_NAME';
     const password = 'TEST_USER_PASSWD';
-    PassportAPI.login = jest.fn((_) => ({
-      data: 'SOME_TOKEN_DATA',
-    }));
+    const SOME_TOKEN_DATA = 'SOME_TOKEN_DATA';
+    PassportAPI.login = jest.fn((_) => ({ SOME_TOKEN_DATA }));
 
     await auth.actions.login({ commit }, { username, password });
 
     expect(commit).toHaveBeenCalledTimes(1);
     expect(commit).toHaveBeenCalledWith('LOGIN', {
-      token: 'SOME_TOKEN_DATA',
+      token: { SOME_TOKEN_DATA },
     });
     expect(PassportAPI.login).toHaveBeenCalledTimes(1);
     expect(PassportAPI.login).toHaveBeenCalledWith({
