@@ -2,7 +2,7 @@ import BACKEND_ENDPOINTS from '@/backend-endpoints/passport';
 import httpClient from './httpClient';
 
 export default {
-  getStudentInfo: () => {
+  getStudentData: () => {
     const backpoint = BACKEND_ENDPOINTS.getStudentData();
     return httpClient(backpoint);
   },
@@ -10,6 +10,6 @@ export default {
     const backpoint = facultyCode
       ? BACKEND_ENDPOINTS.getStudentsTreeOfFaculty(facultyCode)
       : BACKEND_ENDPOINTS.getStudentsTree();
-    return httpClient(backpoint).then((response) => response.data);
+    return httpClient(backpoint);
   },
 };

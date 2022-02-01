@@ -8,9 +8,7 @@ export default {
   },
   getFiles: (context) => {
     const backpoint = BACKEND_ENDPOINTS.fetchFiles(context);
-    return httpClient(backpoint).then((response) =>
-      Object.values(response.data)
-    );
+    return httpClient(backpoint).then((files) => Object.values(files));
   },
   uploadFiles: (files, context, onUploadProgress) => {
     const backpoint = BACKEND_ENDPOINTS.uploadFile(context);
@@ -25,7 +23,7 @@ export default {
     };
 
     const options = { ...backpoint, headers, data, onUploadProgress };
-    return httpClient(options).then((response) => Object.values(response.data));
+    return httpClient(options).then((data) => Object.values(data));
   },
   uploadAvatar: (file) => {
     return this.uploadFile(file, 'avatar');
