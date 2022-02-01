@@ -11,10 +11,10 @@ export default {
   },
 
   getEmployeeTree: async ({ commit }) => {
-    throw Error('NotImplementation');
+    throw 'NotImplementation';
   },
 
   getListenerTree: async ({ commit }) => {
-    throw Error('NotImplementation');
+    throw 'NotImplementation';
   },
 };

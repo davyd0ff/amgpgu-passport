@@ -17,8 +17,8 @@ export default {
   },
   login: async ({ commit }, { username, password }) => {
     try {
-      const response = await PassportApi.login({ username, password });
-      commit('LOGIN', { token: response.data });
+      const token = await PassportApi.login({ username, password });
+      commit('LOGIN', { token });
     } catch (error) {
       throw error;
     }

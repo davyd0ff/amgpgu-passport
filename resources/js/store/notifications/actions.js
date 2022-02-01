@@ -3,10 +3,10 @@ import PassportApi from '@/commands/passport';
 export default {
   getNotifications: async ({ commit }) => {
     try {
-      const response = await PassportApi.getNotifications();
-      commit('SET_NOTIFICATIONS', { notifications: response.data });
+      const notifications = await PassportApi.getNotifications();
+      commit('SET_NOTIFICATIONS', { notifications });
     } catch (err) {
-      throw new Error(err);
+      throw err;
     }
   },
 
@@ -15,7 +15,7 @@ export default {
       await PassportApi.readNotification(id);
       commit('READ_NOTIFICATION', { id });
     } catch (err) {
-      throw new Error(err);
+      throw err;
     }
   },
 
@@ -24,7 +24,7 @@ export default {
       await PassportApi.readNotifications();
       commit('READ_NOTIFICATIONS');
     } catch (err) {
-      throw new Error(err);
+      throw err;
     }
   },
 
@@ -32,7 +32,7 @@ export default {
     try {
       await PassportApi.sendNotification(notification, context);
     } catch (error) {
-      throw new Error(error);
+      throw error;
     }
   },
 };

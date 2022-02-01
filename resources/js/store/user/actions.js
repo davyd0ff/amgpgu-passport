@@ -7,28 +7,28 @@ export default {
 
   getUserData: async ({ commit }) => {
     try {
-      const response = await PassportApi.getUserData();
-      commit('SET_USER', { user: response.data });
+      const user = await PassportApi.getUserData();
+      commit('SET_USER', { user });
     } catch (error) {
-      throw new Error(error);
+      throw error;
     }
   },
 
   getUserMenu: async ({ commit }) => {
     try {
-      const response = await PassportApi.getUserMenu();
-      commit('SET_MENU', { menu: response.data });
+      const menu = await PassportApi.getUserMenu();
+      commit('SET_MENU', { menu });
     } catch (error) {
-      throw new Error(error);
+      throw error;
     }
   },
 
   uploadAvatar: async ({ commit }, { file }) => {
     try {
-      const response = await PassportApi.uploadAvatar(file);
-      commit('SET_AVATAR', { url: response.data });
+      const url = await PassportApi.uploadAvatar(file);
+      commit('SET_AVATAR', { url });
     } catch (error) {
-      throw new Error(error);
+      throw error;
     }
   },
 };
