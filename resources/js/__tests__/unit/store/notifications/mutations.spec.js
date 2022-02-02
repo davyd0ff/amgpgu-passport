@@ -9,9 +9,9 @@ describe('test store - notifications mutations', () => {
     mutations.SET_NOTIFICATIONS(state, { notifications });
 
     expect(notifications.length).toBe(1);
-    expect(state.notifications.length).toBe(1);
+    expect(state.all.length).toBe(1);
     expect(state).toStrictEqual({
-      notifications: [{ title: TEST_NOTIFICATION_TITLE }],
+      all: [{ title: TEST_NOTIFICATION_TITLE }],
     });
   });
 });
