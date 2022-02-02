@@ -7,11 +7,19 @@
       <p>{{ notification.message }}</p>
     </div>
     <div class="card-action">
-      <a href="#" v-on:click.prevent="onClickAndTransmission(notification.id)">
+      <a
+        class="open-notification"
+        href="#"
+        v-on:click.prevent="onOpen(notification.id)"
+      >
         {{ 'NOTIFICATION_CARD_TO_OPEN' | localize }}
       </a>
-      <a href="#" v-on:click.prevent="click(notification.id)">
-        {{ 'NOTIFICATION_CARD_TO_SIGN_AS_SHOWED' | localize }}
+      <a
+        class="read-notification"
+        href="#"
+        v-on:click.prevent="onRead(notification.id)"
+      >
+        {{ 'NOTIFICATION_CARD_TO_SIGN_AS_READ' | localize }}
       </a>
     </div>
   </div>
@@ -25,15 +33,13 @@ export default {
       type: Object,
       default: () => ({}),
     },
-    click: Function,
   },
   methods: {
-    onClickAndTransmission(id) {
-      setTimeout(() => {
-        this.click(id);
-      }, 0);
-
-      this.$router.push(`/notifications/${id}`);
+    onRead(id) {
+      this.$emit('read', id);
+    },
+    onOpen(id) {
+      this.$emit('open', id);
     },
   },
 };

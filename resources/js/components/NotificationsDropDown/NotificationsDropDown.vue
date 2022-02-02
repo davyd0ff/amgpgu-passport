@@ -1,11 +1,15 @@
 <template>
   <li>
     <notifications-drop-down-button v-bind:active="isActive" ref="dropdown" />
-    <notifications-drop-down-content
-      v-bind:notifications="notifications"
-      v-on:notification-click="onNotificationClick"
-      v-on:clear="onClearNotifications"
-    />
+    <notifications-drop-down-content v-on:clear="onClearNotifications">
+      <notifications-drop-down-card
+        v-for="notification in notifications"
+        v-bind:key="notification.id"
+        v-bind:notification="notification"
+        v-on:open="onOpenNotification"
+        v-on:read="onReadNotification"
+      />
+    </notifications-drop-down-content>
   </li>
 </template>
 
@@ -13,21 +17,32 @@
 import M from 'materialize-css';
 import NotificationsDropDownButton from './NotificationsDropDownButton';
 import NotificationsDropDownContent from './NotificationsDropDownContent';
+import NotificationsDropDownCard from './NotificationsDropDownCard.vue';
 
 export default {
   name: 'NotificationsDropDown',
-  components: { NotificationsDropDownContent, NotificationsDropDownButton },
+  components: {
+    NotificationsDropDownContent,
+    NotificationsDropDownButton,
+    NotificationsDropDownCard,
+  },
   computed: {
     isActive() {
       return this.$store.getters.hasNotReadedNotifications;
     },
     notifications() {
-      return this.$store.getters.getNotReadedNotifications(3);
+      const notifications = this.$store.getters.getNotReadedNotifications(3);
+      return notifications;
     },
   },
   methods: {
-    onNotificationClick(id) {
-      this.$store.dispatch('readNotification', id);
+    onReadNotification(id) {
+      this.$store.dispatch('readNotification', { id });
+    },
+    onOpenNotification(id) {
+      this.$router.push(`/notification/${id}`, () =>
+        this.onReadNotification(id)
+      );
     },
     onClearNotifications() {
       this.$store.dispatch('readNotifications');
