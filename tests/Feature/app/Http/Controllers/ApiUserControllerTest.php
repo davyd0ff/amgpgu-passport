@@ -151,7 +151,7 @@
 
     public function test_refreshToken_ViaDefaultClientWithWrongToken() {
       $response = $this->call('post', '/api/login/refresh/default', [
-        'refresh_token' => 'A AM AN WRONG TOKEN',
+        'refresh_token' => 'I AM AN WRONG TOKEN',
       ]);
 
       $response->assertUnauthorized();
