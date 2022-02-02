@@ -12,6 +12,7 @@ import passport from '@/commands/passport';
 import store from '@/store';
 
 jest.mock('@/commands/passport');
+jest.mock('materialize-css');
 
 describe('App.vue', () => {
   const $router = {
