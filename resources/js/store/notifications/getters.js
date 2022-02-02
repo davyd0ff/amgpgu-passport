@@ -1,23 +1,23 @@
 export default {
   getAllNotifications: (state) => {
-    return state;
+    return state.all;
   },
   getNotReadedNotifications: (state) => (count) => {
-    return state
+    return state.all
       .filter(
-        (notification) => !notification.isReaded && notification.isMeantForMe
+        (notification) => !notification.isReaded && notification.isMeantToMe
       )
       .slice(0, count);
   },
   hasNotReadedNotifications: (state) => {
-    return state.some(
-      (notification) => !notification.isReaded && notification.isMeantForMe
+    return state.all.some(
+      (notification) => !notification.isReaded && notification.isMeantToMe
     );
   },
   getNotification: (state) => (id) => {
-    const index = state.findIndex((notification) => notification.id === id);
+    const index = state.all.findIndex((notification) => notification.id === id);
     if (index !== -1) {
-      return { ...state[index] };
+      return { ...state.all[index] };
     } else {
       return {};
     }
