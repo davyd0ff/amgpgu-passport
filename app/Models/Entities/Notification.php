@@ -49,7 +49,7 @@
         'files' => $this->files->map(function (File $file) {
           return $file->getSerializableData();
         }),
-        'isReaded' => $this->readed,
+        'isReaded' => (bool) $this->pivot->readed,
       );
     }
     

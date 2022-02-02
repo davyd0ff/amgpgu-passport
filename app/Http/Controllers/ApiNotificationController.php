@@ -15,11 +15,16 @@
       
       // todo develop: добавить секционирование по дате, на данный момент грузятся все уведомления за год
       //               возможно... придется добавлять старые уведомления, если пользователь не прочитал еще старее уведомления
-      return new JsonResponse($user
-        ->getIncomingNotifications(now()->addYears(-1))
-        ->map(function (Notification $notification) {
-          return $notification->getSerializableData();
-        }), 200);
+      return new JsonResponse(
+        $user
+          ->getIncomingNotifications(now()->addYears(-1))
+          ->map(function (Notification $notification) {
+            return $notification->getSerializableData();
+          })
+          ->map(function ($notification) {
+            $notification['isMeantToMe'] = true;
+            return $notification;
+          }), 200);
     }
     
     public function setRead(Request $request, int $id): JsonResponse {
