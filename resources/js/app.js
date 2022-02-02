@@ -7,8 +7,6 @@
 require('./bootstrap');
 
 const vuelidate = require('vuelidate');
-// const materialize = require('materialize-css');
-// console.log('materialize', materialize);
 const fragment = require('vue-fragment');
 const vuetify = require('vuetify');
 const store = require('./store').default;
@@ -16,8 +14,6 @@ const router = require('./router').default;
 const messagePlugin = require('./utils/message.plugin').default;
 const localizeFilter = require('./filters/localize.filter').default;
 window.Vue = require('vue');
-
-// require('materialize-css/dist/js/materialize.min');
 
 /**
  * The following block of code may be used to automatically register your
@@ -27,10 +23,6 @@ window.Vue = require('vue');
  * Eg. ./components/ExampleComponent.vue -> <example-component></example-component>
  */
 
-// const files = require.context('./', true, /\.vue$/i)
-// files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
-
-// Vue.component('example-component', require('./components/ExampleComponent.vue').default);
 Vue.component('app-component', require('./App.vue').default);
 
 /**
@@ -45,8 +37,6 @@ Vue.use(vuetify);
 Vue.use(messagePlugin);
 
 Vue.filter('localize', localizeFilter);
-
-// window.store = store;
 
 const app = new Vue({
   store,
