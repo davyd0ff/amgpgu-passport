@@ -1,5 +1,49 @@
 export const notifications = [
   {
+    id: 38,
+    title: 'ТЕСТ1',
+    message: 'ТЕСТ',
+    created: 1643697027,
+    files: [],
+    isReaded: false,
+    isMeantToMe: true,
+  },
+  {
+    id: 37,
+    title: 'FUCK',
+    message: 'FUCK',
+    created: 1643696942,
+    files: [],
+    isReaded: false,
+    isMeantToMe: true,
+  },
+  {
+    id: 35,
+    title: 'Тест',
+    message: 'Тест',
+    created: 1641793650,
+    files: [
+      {
+        id: 30,
+        name: 'Screenshot_20211102_150020.png',
+        type: 'image/png',
+        created: 1641793650,
+        url: 'https://passport.amgpgu.ru/storage/4WOnlRkd2DJs30Rvjh0LvNJCJcfkTDnXb2z5WM7X.png',
+      },
+    ],
+    isReaded: false,
+    isMeantToMe: true,
+  },
+  {
+    id: 34,
+    title: 'Тест',
+    message: 'Тест',
+    created: 1641793474,
+    files: [],
+    isReaded: false,
+    isMeantToMe: true,
+  },
+  {
     id: 33,
     title: 'Ехал грека',
     message: 'Ехал грека через реку',
@@ -20,7 +64,8 @@ export const notifications = [
         url: 'https://passport.amgpgu.ru/storage/7ELSKEzm0RAz3Y1UAbzZa7dtYvdjwmAc4sGw5K8W.docx',
       },
     ],
-    isReaded: null,
+    isReaded: true,
+    isMeantToMe: true,
   },
   {
     id: 25,
@@ -28,7 +73,8 @@ export const notifications = [
     message: 'вввв',
     created: 1614569168,
     files: [],
-    isReaded: null,
+    isReaded: false,
+    isMeantToMe: true,
   },
   {
     id: 24,
@@ -36,7 +82,8 @@ export const notifications = [
     message: 'dadasdadada',
     created: 1613372528,
     files: [],
-    isReaded: null,
+    isReaded: true,
+    isMeantToMe: true,
   },
   {
     id: 23,
@@ -44,7 +91,8 @@ export const notifications = [
     message: 'dsdadasda',
     created: 1613372523,
     files: [],
-    isReaded: null,
+    isReaded: true,
+    isMeantToMe: true,
   },
   {
     id: 22,
@@ -52,7 +100,8 @@ export const notifications = [
     message: 'dsdsd sd',
     created: 1613372518,
     files: [],
-    isReaded: null,
+    isReaded: true,
+    isMeantToMe: true,
   },
   {
     id: 21,
@@ -60,7 +109,8 @@ export const notifications = [
     message: 'dsdsds',
     created: 1613372513,
     files: [],
-    isReaded: null,
+    isReaded: true,
+    isMeantToMe: true,
   },
   {
     id: 20,
@@ -68,7 +118,8 @@ export const notifications = [
     message: 'ddadada',
     created: 1613371571,
     files: [],
-    isReaded: null,
+    isReaded: true,
+    isMeantToMe: true,
   },
   {
     id: 19,
@@ -76,7 +127,8 @@ export const notifications = [
     message: 'daadada',
     created: 1613371567,
     files: [],
-    isReaded: null,
+    isReaded: true,
+    isMeantToMe: true,
   },
   {
     id: 18,
@@ -84,7 +136,8 @@ export const notifications = [
     message: 'edadada',
     created: 1613371563,
     files: [],
-    isReaded: null,
+    isReaded: true,
+    isMeantToMe: true,
   },
 ];
 
