@@ -2,7 +2,7 @@ import Vue from 'vue';
 
 export default {
   SET_NOTIFICATIONS: (state, { notifications }) => {
-    console.log('store/mutations/SET_NOTIFICATIONS', notifications);
+    // console.log('store/mutations/SET_NOTIFICATIONS', notifications);
     // state.notifications = notifications;
     Vue.set(state, 'notifications', notifications);
   },
