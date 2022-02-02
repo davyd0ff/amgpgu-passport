@@ -28,7 +28,7 @@ export default {
     click: Function,
   },
   methods: {
-    onClickAndTransmission: function (id) {
+    onClickAndTransmission(id) {
       setTimeout(() => {
         this.click(id);
       }, 0);

@@ -18,18 +18,18 @@ export default {
   name: 'NotificationsDropDown',
   components: { NotificationsDropDownContent, NotificationsDropDownButton },
   computed: {
-    isActive: function () {
+    isActive() {
       return this.$store.getters.hasNotReadedNotifications;
     },
-    notifications: function () {
+    notifications() {
       return this.$store.getters.getNotReadedNotifications(3);
     },
   },
   methods: {
-    onNotificationClick: function (id) {
+    onNotificationClick(id) {
       this.$store.dispatch('readNotification', id);
     },
-    onClearNotifications: function () {
+    onClearNotifications() {
       this.$store.dispatch('readNotifications');
     },
   },

@@ -1,3 +1,3 @@
-import NotificationDropDown from './NotificationsDropDown';
+import NotificationDropDown from './NotificationsDropDown.vue';
 
 export default NotificationDropDown;

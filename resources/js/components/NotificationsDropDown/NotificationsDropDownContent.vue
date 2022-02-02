@@ -53,15 +53,15 @@ export default {
     },
   },
   computed: {
-    hasNotifications: function () {
+    hasNotifications() {
       return this.notifications.length !== 0;
     },
   },
   methods: {
-    onNotificationClick: function (id) {
+    onNotificationClick(id) {
       this.$emit('notification-click', id);
     },
-    onClearClick: function () {
+    onClearClick() {
       this.$emit('clear');
     },
   },
