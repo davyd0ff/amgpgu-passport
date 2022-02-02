@@ -1,0 +1,300 @@
+{
+  "info": {
+    "code": "100013380",
+    "lastname": "Тирон",
+    "firstname": "Снежана",
+    "middlename": "Сергеевна",
+    "birthday": "14.09.2001 0:00:00",
+    "gender": "Женский"
+  },
+  "educations": [
+    {
+      "formOfEducation": "Очная",
+      "baseOfEducation": "Бюджетная основа",
+      "speciality": {
+        "code": "44.03.02",
+        "name": "Психолого-педагогическое образование",
+        "specialization": "Педагогика и психология"
+      },
+      "faculty": "Институт педагогики и психологии",
+      "group": "ППОпп-21",
+      "course": "Второй",
+      "partOfGrades": [
+        {
+          "semester": "Первый семестр",
+          "subject": "Введение в психолого-педагогическую деятельность",
+          "rating": "100",
+          "valuation": "Отлично",
+          "reasonForNoAttestation": "",
+          "quantityOfHours": "180"
+        },
+        {
+          "semester": "Первый семестр",
+          "subject": "Возрастная анатомия, физиология и гигиена",
+          "rating": "84",
+          "valuation": "Хорошо",
+          "reasonForNoAttestation": "",
+          "quantityOfHours": "108"
+        },
+        {
+          "semester": "Первый семестр",
+          "subject": "Дифференциальная психология",
+          "rating": "69",
+          "valuation": "Зачтено",
+          "reasonForNoAttestation": "",
+          "quantityOfHours": "108"
+        },
+        {
+          "semester": "Первый семестр",
+          "subject": "Иностранный язык",
+          "rating": "65",
+          "valuation": "Зачтено",
+          "reasonForNoAttestation": "",
+          "quantityOfHours": "72"
+        },
+        {
+          "semester": "Первый семестр",
+          "subject": "Инфокоммуникационные технологии",
+          "rating": "85",
+          "valuation": "Зачтено",
+          "reasonForNoAttestation": "",
+          "quantityOfHours": "72"
+        },
+        {
+          "semester": "Первый семестр",
+          "subject": "История (история России, всеобщая история)",
+          "rating": "87",
+          "valuation": "Зачтено",
+          "reasonForNoAttestation": "",
+          "quantityOfHours": "72"
+        },
+        {
+          "semester": "Первый семестр",
+          "subject": "Общая психология",
+          "rating": "79",
+          "valuation": "Хорошо",
+          "reasonForNoAttestation": "",
+          "quantityOfHours": "144"
+        },
+        {
+          "semester": "Первый семестр",
+          "subject": "Русский язык и культура речи",
+          "rating": "70",
+          "valuation": "Зачтено",
+          "reasonForNoAttestation": "",
+          "quantityOfHours": "72"
+        },
+        {
+          "semester": "Первый семестр",
+          "subject": "Физическая культура и спорт",
+          "rating": "65",
+          "valuation": "Зачтено",
+          "reasonForNoAttestation": "",
+          "quantityOfHours": "72"
+        },
+        {
+          "semester": "Первый семестр",
+          "subject": "Этнопсихология ",
+          "rating": "66",
+          "valuation": "Зачтено",
+          "reasonForNoAttestation": "",
+          "quantityOfHours": "72"
+        },
+        {
+          "semester": "Второй семестр",
+          "subject": "Иностранный язык",
+          "rating": "72",
+          "valuation": "Зачтено",
+          "reasonForNoAttestation": "",
+          "quantityOfHours": "72"
+        },
+        {
+          "semester": "Второй семестр",
+          "subject": "Нейрофизиологические основы развития ВНД",
+          "rating": "77",
+          "valuation": "Хорошо",
+          "reasonForNoAttestation": "",
+          "quantityOfHours": "144"
+        },
+        {
+          "semester": "Второй семестр",
+          "subject": "Общая психология",
+          "rating": "78",
+          "valuation": "Хорошо",
+          "reasonForNoAttestation": "",
+          "quantityOfHours": "144"
+        },
+        {
+          "semester": "Второй семестр",
+          "subject": "Основы математической обработки информации",
+          "rating": "78",
+          "valuation": "Зачтено",
+          "reasonForNoAttestation": "",
+          "quantityOfHours": "72"
+        },
+        {
+          "semester": "Второй семестр",
+          "subject": "Основы медицинских знаний и здорового образа жизни",
+          "rating": "65",
+          "valuation": "Зачтено",
+          "reasonForNoAttestation": "",
+          "quantityOfHours": "72"
+        },
+        {
+          "semester": "Второй семестр",
+          "subject": "Психология дошкольного возраста",
+          "rating": "65",
+          "valuation": "Зачтено",
+          "reasonForNoAttestation": "",
+          "quantityOfHours": "72"
+        },
+        {
+          "semester": "Второй семестр",
+          "subject": "Психология развития",
+          "rating": "75",
+          "valuation": "Хорошо",
+          "reasonForNoAttestation": "",
+          "quantityOfHours": "108"
+        },
+        {
+          "semester": "Второй семестр",
+          "subject": "Психология развития младшего школьника",
+          "rating": "70",
+          "valuation": "Зачтено",
+          "reasonForNoAttestation": "",
+          "quantityOfHours": "72"
+        },
+        {
+          "semester": "Второй семестр",
+          "subject": "Социальная психология",
+          "rating": "81",
+          "valuation": "Хорошо",
+          "reasonForNoAttestation": "",
+          "quantityOfHours": "144"
+        },
+        {
+          "semester": "Второй семестр",
+          "subject": "Учебная ознакомительная практика",
+          "rating": "75",
+          "valuation": "Зачтено",
+          "reasonForNoAttestation": "",
+          "quantityOfHours": "144"
+        },
+        {
+          "semester": "Второй семестр",
+          "subject": "Элективные курсы по физической культуре",
+          "rating": "90",
+          "valuation": "Зачтено",
+          "reasonForNoAttestation": "",
+          "quantityOfHours": "76"
+        }
+      ],
+      "partOfAcademicPerformance": [
+        {
+          "semester": "Третий семестр",
+          "subject": "Естественнонаучная картина мира",
+          "rating": "41",
+          "maxRating": "50"
+        },
+        {
+          "semester": "Третий семестр",
+          "subject": "Иностранный язык (английский язык)",
+          "rating": "35",
+          "maxRating": "50"
+        },
+        {
+          "semester": "Третий семестр",
+          "subject": "Педагогика",
+          "rating": "32",
+          "maxRating": "40"
+        },
+        {
+          "semester": "Третий семестр",
+          "subject": "Профессиональная этика в психолого-педагогической деятельности",
+          "rating": "20",
+          "maxRating": "35"
+        },
+        {
+          "semester": "Третий семестр",
+          "subject": "Психология детско-родительских отношений",
+          "rating": "8",
+          "maxRating": "37"
+        },
+        {
+          "semester": "Третий семестр",
+          "subject": "Самоопределение и профессиональная ориентация учащихся",
+          "rating": "52",
+          "maxRating": "60"
+        },
+        {
+          "semester": "Третий семестр",
+          "subject": "Социология ",
+          "rating": "20",
+          "maxRating": "50"
+        },
+        {
+          "semester": "Третий семестр",
+          "subject": "Технология проективно-исследовательской деятельности учащихся",
+          "rating": "20",
+          "maxRating": "20"
+        },
+        {
+          "semester": "Третий семестр",
+          "subject": "Учебная ознакомительная практика",
+          "rating": "25",
+          "maxRating": "38"
+        },
+        {
+          "semester": "Третий семестр",
+          "subject": "Философия",
+          "rating": "12",
+          "maxRating": "28"
+        },
+        {
+          "semester": "Третий семестр",
+          "subject": "Элективные курсы по физической культуре",
+          "rating": "16",
+          "maxRating": "50"
+        }
+      ],
+      "partOfOrders": [
+        {
+          "title": "Приказ 253-л/с от 24.08.2020 0:00:00",
+          "type": "Зачисление в вуз",
+          "studentRecordBook": "20035",
+          "dateOfBegin": "2020-09-01T00:00:00",
+          "formOfEducation": "Очная",
+          "baseOfEducation": "Бюджетная основа",
+          "faculty": "Институт педагогики и психологии",
+          "speciality": {
+            "code": "44.03.02",
+            "name": "Психолого-педагогическое образование",
+            "specialization": "Педагогика и психология"
+          },
+          "course": "Первый",
+          "group": "ППОпп-11",
+          "academicYear": "2020 - 2024"
+        },
+        {
+          "title": "Приказ 260-л/с от 29.06.2021 9:22:41",
+          "type": "Перевод на следующий курс",
+          "studentRecordBook": "20035",
+          "dateOfBegin": "2021-06-29T00:00:00",
+          "formOfEducation": "Очная",
+          "baseOfEducation": "Бюджетная основа",
+          "faculty": "Институт педагогики и психологии",
+          "speciality": {
+            "code": "44.03.02",
+            "name": "Психолого-педагогическое образование",
+            "specialization": "Педагогика и психология"
+          },
+          "course": "Второй",
+          "group": "ППОпп-21",
+          "academicYear": "2020 - 2024"
+        }
+      ],
+      "academicPlanCode": "000000665"
+    }
+  ],
+  "messages": {}
+}

@@ -1,0 +1,1465 @@
+{
+  "info": {
+    "code": "100010924",
+    "lastname": "Наливайко",
+    "firstname": "Юлия",
+    "middlename": "Анатольевна",
+    "birthday": "18.08.1999 0:00:00",
+    "gender": "Женский"
+  },
+  "educations": [
+    {
+      "formOfEducation": "Очная",
+      "baseOfEducation": "Бюджетная основа",
+      "speciality": {
+        "code": "44.03.01",
+        "name": "Педагогическое образование",
+        "specialization": "Дошкольное образование"
+      },
+      "faculty": "Институт педагогики и психологии",
+      "group": "ПОдо-44",
+      "course": "четвертый",
+      "partOfGrades": [
+        {
+          "semester": "Первый семестр",
+          "subject": "Анатомия, физиология и гигиена",
+          "rating": "75",
+          "valuation": "Хорошо",
+          "reasonForNoAttestation": "",
+          "quantityOfHours": "108"
+        },
+        {
+          "semester": "Первый семестр",
+          "subject": "Возрастная психология",
+          "rating": "75",
+          "valuation": "Хорошо",
+          "reasonForNoAttestation": "",
+          "quantityOfHours": "108"
+        },
+        {
+          "semester": "Первый семестр",
+          "subject": "Иностранный язык (французский язык)",
+          "rating": "75",
+          "valuation": "Зачтено",
+          "reasonForNoAttestation": "",
+          "quantityOfHours": "90"
+        },
+        {
+          "semester": "Первый семестр",
+          "subject": "Математика ",
+          "rating": "70",
+          "valuation": "Зачтено",
+          "reasonForNoAttestation": "",
+          "quantityOfHours": "72"
+        },
+        {
+          "semester": "Первый семестр",
+          "subject": "Основы медицинских знаний и здорового образа жизни",
+          "rating": "85",
+          "valuation": "Отлично",
+          "reasonForNoAttestation": "",
+          "quantityOfHours": "144"
+        },
+        {
+          "semester": "Первый семестр",
+          "subject": "Психология самопознания и саморазвития",
+          "rating": "72",
+          "valuation": "Зачтено",
+          "reasonForNoAttestation": "",
+          "quantityOfHours": "72"
+        },
+        {
+          "semester": "Первый семестр",
+          "subject": "Русский язык и культура речи",
+          "rating": "78",
+          "valuation": "Зачтено",
+          "reasonForNoAttestation": "",
+          "quantityOfHours": "72"
+        },
+        {
+          "semester": "Первый семестр",
+          "subject": "Теоретическая педагогика",
+          "rating": "88",
+          "valuation": "Зачтено",
+          "reasonForNoAttestation": "",
+          "quantityOfHours": "72"
+        },
+        {
+          "semester": "Первый семестр",
+          "subject": "Тренинг педагогического общения",
+          "rating": "78",
+          "valuation": "Зачтено",
+          "reasonForNoAttestation": "",
+          "quantityOfHours": "72"
+        },
+        {
+          "semester": "Первый семестр",
+          "subject": "Элективные курсы по физической культуре",
+          "rating": "100",
+          "valuation": "Зачтено",
+          "reasonForNoAttestation": "",
+          "quantityOfHours": "54"
+        },
+        {
+          "semester": "Первый семестр",
+          "subject": "Этнопедагогика",
+          "rating": "98",
+          "valuation": "Отлично",
+          "reasonForNoAttestation": "",
+          "quantityOfHours": "144"
+        },
+        {
+          "semester": "Второй семестр",
+          "subject": "История",
+          "rating": "85",
+          "valuation": "Зачтено",
+          "reasonForNoAttestation": "",
+          "quantityOfHours": "72"
+        },
+        {
+          "semester": "Второй семестр",
+          "subject": "История дошкольной педагогики",
+          "rating": "100",
+          "valuation": "Отлично",
+          "reasonForNoAttestation": "",
+          "quantityOfHours": "126"
+        },
+        {
+          "semester": "Второй семестр",
+          "subject": "Мировоззренческие основы противодействия коррупции",
+          "rating": "70",
+          "valuation": "Зачтено",
+          "reasonForNoAttestation": "",
+          "quantityOfHours": "72"
+        },
+        {
+          "semester": "Второй семестр",
+          "subject": "Основы математической обработки информации",
+          "rating": "83",
+          "valuation": "Зачтено",
+          "reasonForNoAttestation": "",
+          "quantityOfHours": "108"
+        },
+        {
+          "semester": "Второй семестр",
+          "subject": "Правоведение",
+          "rating": "85",
+          "valuation": "Отлично",
+          "reasonForNoAttestation": "",
+          "quantityOfHours": "108"
+        },
+        {
+          "semester": "Второй семестр",
+          "subject": "Проектирование развивающей среды в ДОУ",
+          "rating": "85",
+          "valuation": "Зачтено",
+          "reasonForNoAttestation": "",
+          "quantityOfHours": "72"
+        },
+        {
+          "semester": "Второй семестр",
+          "subject": "Психология социального взаимодействия",
+          "rating": "95",
+          "valuation": "Отлично",
+          "reasonForNoAttestation": "",
+          "quantityOfHours": "108"
+        },
+        {
+          "semester": "Второй семестр",
+          "subject": "Психолого-педагогическая диагностика",
+          "rating": "71",
+          "valuation": "Зачтено",
+          "reasonForNoAttestation": "",
+          "quantityOfHours": "72"
+        },
+        {
+          "semester": "Второй семестр",
+          "subject": "Теоретическая педагогика",
+          "rating": "85",
+          "valuation": "Отлично",
+          "reasonForNoAttestation": "",
+          "quantityOfHours": "108"
+        },
+        {
+          "semester": "Второй семестр",
+          "subject": "Экономика образования",
+          "rating": "86",
+          "valuation": "Зачтено",
+          "reasonForNoAttestation": "",
+          "quantityOfHours": "72"
+        },
+        {
+          "semester": "Второй семестр",
+          "subject": "Элективные курсы по физической культуре",
+          "rating": "100",
+          "valuation": "Зачтено",
+          "reasonForNoAttestation": "",
+          "quantityOfHours": "54"
+        },
+        {
+          "semester": "Третий семестр",
+          "subject": "Выразительное чтение",
+          "rating": "100",
+          "valuation": "Отлично",
+          "reasonForNoAttestation": "",
+          "quantityOfHours": "108"
+        },
+        {
+          "semester": "Третий семестр",
+          "subject": "Детская литература",
+          "rating": "85",
+          "valuation": "Отлично",
+          "reasonForNoAttestation": "",
+          "quantityOfHours": "180"
+        },
+        {
+          "semester": "Третий семестр",
+          "subject": "Дошкольная педагогика",
+          "rating": "89",
+          "valuation": "Отлично",
+          "reasonForNoAttestation": "",
+          "quantityOfHours": "126"
+        },
+        {
+          "semester": "Третий семестр",
+          "subject": "Естественно-научная картина мира",
+          "rating": "74",
+          "valuation": "Зачтено",
+          "reasonForNoAttestation": "",
+          "quantityOfHours": "72"
+        },
+        {
+          "semester": "Третий семестр",
+          "subject": "Иностранный язык (английский язык/французский язык)",
+          "rating": "65",
+          "valuation": "Зачтено",
+          "reasonForNoAttestation": "",
+          "quantityOfHours": "72"
+        },
+        {
+          "semester": "Третий семестр",
+          "subject": "Информатика",
+          "rating": "87",
+          "valuation": "Зачтено",
+          "reasonForNoAttestation": "",
+          "quantityOfHours": "72"
+        },
+        {
+          "semester": "Третий семестр",
+          "subject": "Информационные технологии",
+          "rating": "78",
+          "valuation": "Зачтено",
+          "reasonForNoAttestation": "",
+          "quantityOfHours": "108"
+        },
+        {
+          "semester": "Третий семестр",
+          "subject": "Практическая педагогика",
+          "rating": "89",
+          "valuation": "Отлично",
+          "reasonForNoAttestation": "",
+          "quantityOfHours": "108"
+        },
+        {
+          "semester": "Третий семестр",
+          "subject": "Семейное воспитание дошкольников",
+          "rating": "90",
+          "valuation": "Зачтено",
+          "reasonForNoAttestation": "",
+          "quantityOfHours": "72"
+        },
+        {
+          "semester": "Третий семестр",
+          "subject": "Технологии обучения детей дошкольного возраста",
+          "rating": "90",
+          "valuation": "Зачтено",
+          "reasonForNoAttestation": "",
+          "quantityOfHours": "108"
+        },
+        {
+          "semester": "Третий семестр",
+          "subject": "Учебная, практика по получению первичных профессиональных умений и навыков",
+          "rating": "90",
+          "valuation": "Отлично",
+          "reasonForNoAttestation": "",
+          "quantityOfHours": "108"
+        },
+        {
+          "semester": "Третий семестр",
+          "subject": "Элективные курсы по физической культуре",
+          "rating": "100",
+          "valuation": "Зачтено",
+          "reasonForNoAttestation": "",
+          "quantityOfHours": "72"
+        },
+        {
+          "semester": "Четвертый семестр",
+          "subject": "Безопасность жизнедеятельности",
+          "rating": "92",
+          "valuation": "Зачтено",
+          "reasonForNoAttestation": "",
+          "quantityOfHours": "108"
+        },
+        {
+          "semester": "Четвертый семестр",
+          "subject": "Иностранный язык (английский язык/французский язык)",
+          "rating": "79",
+          "valuation": "Хорошо",
+          "reasonForNoAttestation": "",
+          "quantityOfHours": "108"
+        },
+        {
+          "semester": "Четвертый семестр",
+          "subject": "Культурология",
+          "rating": "80",
+          "valuation": "Зачтено",
+          "reasonForNoAttestation": "",
+          "quantityOfHours": "72"
+        },
+        {
+          "semester": "Четвертый семестр",
+          "subject": "Курсовая работа",
+          "rating": "79",
+          "valuation": "Хорошо",
+          "reasonForNoAttestation": "",
+          "quantityOfHours": "36"
+        },
+        {
+          "semester": "Четвертый семестр",
+          "subject": "Методика развития речи дошкольников",
+          "rating": "95",
+          "valuation": "Отлично",
+          "reasonForNoAttestation": "",
+          "quantityOfHours": "108"
+        },
+        {
+          "semester": "Четвертый семестр",
+          "subject": "Музыкальное воспитание дошкольников",
+          "rating": "87",
+          "valuation": "Отлично",
+          "reasonForNoAttestation": "",
+          "quantityOfHours": "144"
+        },
+        {
+          "semester": "Четвертый семестр",
+          "subject": "Философия",
+          "rating": "82",
+          "valuation": "Хорошо",
+          "reasonForNoAttestation": "",
+          "quantityOfHours": "108"
+        },
+        {
+          "semester": "Четвертый семестр",
+          "subject": "Элективные курсы по физической культуре",
+          "rating": "100",
+          "valuation": "Зачтено",
+          "reasonForNoAttestation": "",
+          "quantityOfHours": "54"
+        },
+        {
+          "semester": "Пятый семестр",
+          "subject": "Дошкольная педагогика",
+          "rating": "87",
+          "valuation": "Отлично",
+          "reasonForNoAttestation": "",
+          "quantityOfHours": "90"
+        },
+        {
+          "semester": "Пятый семестр",
+          "subject": "Логопедия",
+          "rating": "86",
+          "valuation": "Отлично",
+          "reasonForNoAttestation": "",
+          "quantityOfHours": "108"
+        },
+        {
+          "semester": "Пятый семестр",
+          "subject": "Методика обучения детей дошкольного возраста изобразительной деятельности и конструированию",
+          "rating": "92",
+          "valuation": "Отлично",
+          "reasonForNoAttestation": "",
+          "quantityOfHours": "126"
+        },
+        {
+          "semester": "Пятый семестр",
+          "subject": "Методика развития речи дошкольников",
+          "rating": "76",
+          "valuation": "Зачтено",
+          "reasonForNoAttestation": "",
+          "quantityOfHours": "54"
+        },
+        {
+          "semester": "Пятый семестр",
+          "subject": "Методика физического воспитания и развития детей дошкольного возраста",
+          "rating": "90",
+          "valuation": "Отлично",
+          "reasonForNoAttestation": "",
+          "quantityOfHours": "144"
+        },
+        {
+          "semester": "Пятый семестр",
+          "subject": "Методика формирования элементарных математических представлений",
+          "rating": "78",
+          "valuation": "Зачтено",
+          "reasonForNoAttestation": "",
+          "quantityOfHours": "72"
+        },
+        {
+          "semester": "Пятый семестр",
+          "subject": "Основы специальной педагогики и психологии",
+          "rating": "83",
+          "valuation": "Зачтено",
+          "reasonForNoAttestation": "",
+          "quantityOfHours": "108"
+        },
+        {
+          "semester": "Пятый семестр",
+          "subject": "Педагогика раннего возраста",
+          "rating": "85",
+          "valuation": "Отлично",
+          "reasonForNoAttestation": "",
+          "quantityOfHours": "180"
+        },
+        {
+          "semester": "Пятый семестр",
+          "subject": "Педагогическая психология",
+          "rating": "85",
+          "valuation": "Отлично",
+          "reasonForNoAttestation": "",
+          "quantityOfHours": "108"
+        },
+        {
+          "semester": "Пятый семестр",
+          "subject": "Управление образовательными системами",
+          "rating": "68",
+          "valuation": "Зачтено",
+          "reasonForNoAttestation": "",
+          "quantityOfHours": "72"
+        },
+        {
+          "semester": "Пятый семестр",
+          "subject": "Элективные курсы по физической культуре",
+          "rating": "75",
+          "valuation": "Зачтено",
+          "reasonForNoAttestation": "",
+          "quantityOfHours": "54"
+        },
+        {
+          "semester": "Шестой семестр",
+          "subject": "Детская психология",
+          "rating": "87",
+          "valuation": "Зачтено",
+          "reasonForNoAttestation": "",
+          "quantityOfHours": "72"
+        },
+        {
+          "semester": "Шестой семестр",
+          "subject": "Здоровьесберегающие системы в дошкольном образовании",
+          "rating": "76",
+          "valuation": "Хорошо",
+          "reasonForNoAttestation": "",
+          "quantityOfHours": "108"
+        },
+        {
+          "semester": "Шестой семестр",
+          "subject": "Инклюзивное образование детей дошкольного возраста",
+          "rating": "85",
+          "valuation": "Отлично",
+          "reasonForNoAttestation": "",
+          "quantityOfHours": "108"
+        },
+        {
+          "semester": "Шестой семестр",
+          "subject": "Курсовая работа",
+          "rating": "0",
+          "valuation": "Хорошо",
+          "reasonForNoAttestation": "",
+          "quantityOfHours": "36"
+        },
+        {
+          "semester": "Шестой семестр",
+          "subject": "Методика развития речи дошкольников",
+          "rating": "95",
+          "valuation": "Отлично",
+          "reasonForNoAttestation": "",
+          "quantityOfHours": "126"
+        },
+        {
+          "semester": "Шестой семестр",
+          "subject": "Методика формирования элементарных математических представлений",
+          "rating": "80",
+          "valuation": "Зачтено",
+          "reasonForNoAttestation": "",
+          "quantityOfHours": "36"
+        },
+        {
+          "semester": "Шестой семестр",
+          "subject": "Научно-исследовательская деятельность педагога",
+          "rating": "96",
+          "valuation": "Отлично",
+          "reasonForNoAttestation": "",
+          "quantityOfHours": "144"
+        },
+        {
+          "semester": "Шестой семестр",
+          "subject": "Проектирование воспитательно-образовательного процесса в ДОУ",
+          "rating": "80",
+          "valuation": "Зачтено",
+          "reasonForNoAttestation": "",
+          "quantityOfHours": "72"
+        },
+        {
+          "semester": "Шестой семестр",
+          "subject": "Производственная, практика по получению профессиональных умений и опыта профессиональной деятельности",
+          "rating": "0",
+          "valuation": "Отлично",
+          "reasonForNoAttestation": "",
+          "quantityOfHours": "324"
+        },
+        {
+          "semester": "Шестой семестр",
+          "subject": "Физическая культура",
+          "rating": "95",
+          "valuation": "Зачтено",
+          "reasonForNoAttestation": "",
+          "quantityOfHours": "18"
+        },
+        {
+          "semester": "Шестой семестр",
+          "subject": "Экологическое воспитание детей дошкольного возраста",
+          "rating": "90",
+          "valuation": "Зачтено",
+          "reasonForNoAttestation": "",
+          "quantityOfHours": "72"
+        },
+        {
+          "semester": "Шестой семестр",
+          "subject": "Элективные курсы по физической культуре",
+          "rating": "95",
+          "valuation": "Отлично",
+          "reasonForNoAttestation": "",
+          "quantityOfHours": "54"
+        },
+        {
+          "semester": "Седьмой семестр",
+          "subject": "Инновационные и ИК технологии обучения и воспитания дошкольников",
+          "rating": "65",
+          "valuation": "Зачтено",
+          "reasonForNoAttestation": "",
+          "quantityOfHours": "72"
+        },
+        {
+          "semester": "Седьмой семестр",
+          "subject": "Курсовая работа",
+          "rating": "0",
+          "valuation": "Отлично",
+          "reasonForNoAttestation": "",
+          "quantityOfHours": "36"
+        },
+        {
+          "semester": "Седьмой семестр",
+          "subject": "Методика развития детского изобразительного творчества",
+          "rating": "65",
+          "valuation": "Зачтено",
+          "reasonForNoAttestation": "",
+          "quantityOfHours": "72"
+        },
+        {
+          "semester": "Седьмой семестр",
+          "subject": "Монтессори-педагогика в системе современного образовательного учреждения",
+          "rating": "65",
+          "valuation": "Зачтено",
+          "reasonForNoAttestation": "",
+          "quantityOfHours": "108"
+        },
+        {
+          "semester": "Седьмой семестр",
+          "subject": "Обучение нетрадиционным техникам изобразительной деятельности",
+          "rating": "65",
+          "valuation": "Зачтено",
+          "reasonForNoAttestation": "",
+          "quantityOfHours": "108"
+        },
+        {
+          "semester": "Седьмой семестр",
+          "subject": "Педагогическая поддержка и сопровождение воспитания и обучения детей раннего и дошкольного возраста",
+          "rating": "85",
+          "valuation": "Отлично",
+          "reasonForNoAttestation": "",
+          "quantityOfHours": "216"
+        },
+        {
+          "semester": "Седьмой семестр",
+          "subject": "Проектирование воспитательно-образовательного процесса в ДОУ",
+          "rating": "85",
+          "valuation": "Отлично",
+          "reasonForNoAttestation": "",
+          "quantityOfHours": "180"
+        },
+        {
+          "semester": "Седьмой семестр",
+          "subject": "Производственная, педагогическая практика",
+          "rating": "0",
+          "valuation": "Отлично",
+          "reasonForNoAttestation": "",
+          "quantityOfHours": "108"
+        },
+        {
+          "semester": "Седьмой семестр",
+          "subject": "Экологическое воспитание детей дошкольного возраста",
+          "rating": "85",
+          "valuation": "Отлично",
+          "reasonForNoAttestation": "",
+          "quantityOfHours": "108"
+        },
+        {
+          "semester": "Седьмой семестр",
+          "subject": "Эффективные технологии трудоустройства",
+          "rating": "95",
+          "valuation": "Зачтено",
+          "reasonForNoAttestation": "",
+          "quantityOfHours": "144"
+        },
+        {
+          "semester": "Восьмой семестр",
+          "subject": "Инновационные и ИК технологии обучения и воспитания дошкольников",
+          "rating": "86",
+          "valuation": "Отлично",
+          "reasonForNoAttestation": "",
+          "quantityOfHours": "108"
+        },
+        {
+          "semester": "Восьмой семестр",
+          "subject": "Логико-математическое развитие дошкольников",
+          "rating": "85",
+          "valuation": "Зачтено",
+          "reasonForNoAttestation": "",
+          "quantityOfHours": "72"
+        },
+        {
+          "semester": "Восьмой семестр",
+          "subject": "Методика развития детского изобразительного творчества",
+          "rating": "85",
+          "valuation": "Отлично",
+          "reasonForNoAttestation": "",
+          "quantityOfHours": "180"
+        },
+        {
+          "semester": "Восьмой семестр",
+          "subject": "Производственная, педагогическая практика",
+          "rating": "0",
+          "valuation": "Отлично",
+          "reasonForNoAttestation": "",
+          "quantityOfHours": "108"
+        },
+        {
+          "semester": "Восьмой семестр",
+          "subject": "Современные аспекты готовности детей к обучению в школе",
+          "rating": "95",
+          "valuation": "Отлично",
+          "reasonForNoAttestation": "",
+          "quantityOfHours": "108"
+        },
+        {
+          "semester": "Восьмой семестр",
+          "subject": "Современные образовательные программы в дошкольном образовательном учреждении",
+          "rating": "85",
+          "valuation": "Отлично",
+          "reasonForNoAttestation": "",
+          "quantityOfHours": "144"
+        }
+      ],
+      "partOfAcademicPerformance": [
+        {
+          "semester": "Восьмой семестр",
+          "subject": "Инновационные и ИК технологии обучения и воспитания дошкольников",
+          "rating": "86",
+          "maxRating": "100"
+        },
+        {
+          "semester": "Восьмой семестр",
+          "subject": "Логико-математическое развитие дошкольников",
+          "rating": "85",
+          "maxRating": "100"
+        },
+        {
+          "semester": "Восьмой семестр",
+          "subject": "Методика развития детского изобразительного творчества",
+          "rating": "85",
+          "maxRating": "100"
+        },
+        {
+          "semester": "Восьмой семестр",
+          "subject": "Современные аспекты готовности детей к обучению в школе",
+          "rating": "95",
+          "maxRating": "100"
+        },
+        {
+          "semester": "Восьмой семестр",
+          "subject": "Современные образовательные программы в дошкольном образовательном учреждении",
+          "rating": "85",
+          "maxRating": "100"
+        }
+      ],
+      "partOfOrders": [
+        {
+          "title": "Приказ 185-л/с от 03.08.2017 13:03:17",
+          "type": "Зачисление в вуз",
+          "studentRecordBook": "17213",
+          "dateOfBegin": "2017-09-01T00:00:00",
+          "formOfEducation": "Очная",
+          "baseOfEducation": "Бюджетная основа",
+          "faculty": "Институт педагогики и психологии",
+          "speciality": {
+            "code": "44.03.01",
+            "name": "Педагогическое образование",
+            "specialization": "Дошкольное образование"
+          },
+          "course": "Первый",
+          "group": "ПОдо-14",
+          "academicYear": "2017 - 2021"
+        },
+        {
+          "title": "Приказ 225-л/с от 13.07.2018 10:25:07",
+          "type": "Перевод на следующий курс",
+          "studentRecordBook": "17213",
+          "dateOfBegin": "2018-07-13T00:00:00",
+          "formOfEducation": "Очная",
+          "baseOfEducation": "Бюджетная основа",
+          "faculty": "Институт педагогики и психологии",
+          "speciality": {
+            "code": "44.03.01",
+            "name": "Педагогическое образование",
+            "specialization": "Дошкольное образование"
+          },
+          "course": "Второй",
+          "group": "ПОдо-24",
+          "academicYear": "2017 - 2021"
+        },
+        {
+          "title": "Приказ 148-л/с от 14.06.2019 9:43:10",
+          "type": "Перевод на следующий курс",
+          "studentRecordBook": "17213",
+          "dateOfBegin": "2019-06-14T00:00:00",
+          "formOfEducation": "Очная",
+          "baseOfEducation": "Бюджетная основа",
+          "faculty": "Институт педагогики и психологии",
+          "speciality": {
+            "code": "44.03.01",
+            "name": "Педагогическое образование",
+            "specialization": "Дошкольное образование"
+          },
+          "course": "третий",
+          "group": "ПОдо-34",
+          "academicYear": "2017 - 2021"
+        },
+        {
+          "title": "Приказ 214-л/с от 03.07.2020 9:28:00",
+          "type": "Перевод на следующий курс",
+          "studentRecordBook": "17213",
+          "dateOfBegin": "2020-07-03T00:00:00",
+          "formOfEducation": "Очная",
+          "baseOfEducation": "Бюджетная основа",
+          "faculty": "Институт педагогики и психологии",
+          "speciality": {
+            "code": "44.03.01",
+            "name": "Педагогическое образование",
+            "specialization": "Дошкольное образование"
+          },
+          "course": "четвертый",
+          "group": "ПОдо-44",
+          "academicYear": "2017 - 2021"
+        },
+        {
+          "title": "Приказ 208-л/с от 15.06.2021 9:20:00",
+          "type": "Выпуск",
+          "studentRecordBook": "17213",
+          "dateOfBegin": "2021-06-15T00:00:00",
+          "formOfEducation": "Очная",
+          "baseOfEducation": "Бюджетная основа",
+          "faculty": "Институт педагогики и психологии",
+          "speciality": {
+            "code": "44.03.01",
+            "name": "Педагогическое образование",
+            "specialization": "Дошкольное образование"
+          },
+          "course": "четвертый",
+          "group": "ПОдо-44",
+          "academicYear": "2017 - 2021"
+        }
+      ],
+      "academicPlanCode": "000000490"
+    },
+    {
+      "formOfEducation": "Заочная",
+      "baseOfEducation": "Полное возмещение затрат",
+      "speciality": {
+        "code": "44.03.01",
+        "name": "Педагогическое образование",
+        "specialization": "Физическая культура"
+      },
+      "faculty": "Институт заочного и дополнительного образования",
+      "group": "ПОфк-4 (з)",
+      "course": "четвертый",
+      "partOfGrades": [
+        {
+          "semester": "Первый семестр",
+          "subject": "Анатомия, физиология и гигиена",
+          "rating": "0",
+          "valuation": "Хорошо",
+          "reasonForNoAttestation": "",
+          "quantityOfHours": "144"
+        },
+        {
+          "semester": "Первый семестр",
+          "subject": "Иностранный язык",
+          "rating": "0",
+          "valuation": "Зачтено",
+          "reasonForNoAttestation": "",
+          "quantityOfHours": "36"
+        },
+        {
+          "semester": "Первый семестр",
+          "subject": "Информатика",
+          "rating": "0",
+          "valuation": "Зачтено",
+          "reasonForNoAttestation": "",
+          "quantityOfHours": "72"
+        },
+        {
+          "semester": "Первый семестр",
+          "subject": "Культурология",
+          "rating": "0",
+          "valuation": "Зачтено",
+          "reasonForNoAttestation": "",
+          "quantityOfHours": "72"
+        },
+        {
+          "semester": "Первый семестр",
+          "subject": "Математика",
+          "rating": "0",
+          "valuation": "Зачтено",
+          "reasonForNoAttestation": "",
+          "quantityOfHours": "72"
+        },
+        {
+          "semester": "Первый семестр",
+          "subject": "Психология самопознания и саморазвития",
+          "rating": "0",
+          "valuation": "Зачтено",
+          "reasonForNoAttestation": "",
+          "quantityOfHours": "72"
+        },
+        {
+          "semester": "Первый семестр",
+          "subject": "Социология физической культуры и спорта",
+          "rating": "0",
+          "valuation": "Хорошо",
+          "reasonForNoAttestation": "",
+          "quantityOfHours": "144"
+        },
+        {
+          "semester": "Первый семестр",
+          "subject": "Теоретическая педагогика",
+          "rating": "0",
+          "valuation": "Зачтено",
+          "reasonForNoAttestation": "",
+          "quantityOfHours": "72"
+        },
+        {
+          "semester": "Второй семестр",
+          "subject": "Базовые и новые физкультурно-спортивные виды спорта",
+          "rating": "0",
+          "valuation": "Незачтено",
+          "reasonForNoAttestation": "",
+          "quantityOfHours": "144"
+        },
+        {
+          "semester": "Второй семестр",
+          "subject": "Естественно-научная картина мира",
+          "rating": "0",
+          "valuation": "Зачтено",
+          "reasonForNoAttestation": "",
+          "quantityOfHours": "72"
+        },
+        {
+          "semester": "Второй семестр",
+          "subject": "Иностранный язык",
+          "rating": "0",
+          "valuation": "Зачтено",
+          "reasonForNoAttestation": "",
+          "quantityOfHours": "144"
+        },
+        {
+          "semester": "Второй семестр",
+          "subject": "Иностранный язык",
+          "rating": "0",
+          "valuation": "Зачтено",
+          "reasonForNoAttestation": "",
+          "quantityOfHours": "36"
+        },
+        {
+          "semester": "Второй семестр",
+          "subject": "История",
+          "rating": "0",
+          "valuation": "Зачтено",
+          "reasonForNoAttestation": "",
+          "quantityOfHours": "72"
+        },
+        {
+          "semester": "Второй семестр",
+          "subject": "История",
+          "rating": "0",
+          "valuation": "Зачтено",
+          "reasonForNoAttestation": "",
+          "quantityOfHours": "36"
+        },
+        {
+          "semester": "Второй семестр",
+          "subject": "История физической культуры",
+          "rating": "0",
+          "valuation": "Хорошо",
+          "reasonForNoAttestation": "",
+          "quantityOfHours": "180"
+        },
+        {
+          "semester": "Второй семестр",
+          "subject": "Правоведение",
+          "rating": "0",
+          "valuation": "Отлично",
+          "reasonForNoAttestation": "",
+          "quantityOfHours": "108"
+        },
+        {
+          "semester": "Второй семестр",
+          "subject": "Спортивная морфология и физиология",
+          "rating": "0",
+          "valuation": "Хорошо",
+          "reasonForNoAttestation": "",
+          "quantityOfHours": "216"
+        },
+        {
+          "semester": "Второй семестр",
+          "subject": "Теоретическая педагогика",
+          "rating": "0",
+          "valuation": "Отлично",
+          "reasonForNoAttestation": "",
+          "quantityOfHours": "108"
+        },
+        {
+          "semester": "Второй семестр",
+          "subject": "Физическая культура",
+          "rating": "0",
+          "valuation": "Незачтено",
+          "reasonForNoAttestation": "",
+          "quantityOfHours": "72"
+        },
+        {
+          "semester": "Второй семестр",
+          "subject": "Физическая культура",
+          "rating": "65",
+          "valuation": "Зачтено",
+          "reasonForNoAttestation": "",
+          "quantityOfHours": "72"
+        },
+        {
+          "semester": "Второй семестр",
+          "subject": "Физкультурно-спортивные сооружения",
+          "rating": "0",
+          "valuation": "Зачтено",
+          "reasonForNoAttestation": "",
+          "quantityOfHours": "72"
+        },
+        {
+          "semester": "Третий семестр",
+          "subject": "Возрастная психология",
+          "rating": "0",
+          "valuation": "Отлично",
+          "reasonForNoAttestation": "",
+          "quantityOfHours": "108"
+        },
+        {
+          "semester": "Третий семестр",
+          "subject": "Гигиенические основы физкультурно-спортивной деятельности",
+          "rating": "0",
+          "valuation": "Удовлетворительно",
+          "reasonForNoAttestation": "",
+          "quantityOfHours": "144"
+        },
+        {
+          "semester": "Третий семестр",
+          "subject": "Иностранный язык",
+          "rating": "0",
+          "valuation": "Зачтено",
+          "reasonForNoAttestation": "",
+          "quantityOfHours": "36"
+        },
+        {
+          "semester": "Третий семестр",
+          "subject": "Информационные технологии",
+          "rating": "0",
+          "valuation": "Зачтено",
+          "reasonForNoAttestation": "",
+          "quantityOfHours": "108"
+        },
+        {
+          "semester": "Третий семестр",
+          "subject": "Педагогическая психология",
+          "rating": "0",
+          "valuation": "Отлично",
+          "reasonForNoAttestation": "",
+          "quantityOfHours": "144"
+        },
+        {
+          "semester": "Третий семестр",
+          "subject": "Психология социального взаимодействия",
+          "rating": "0",
+          "valuation": "Зачтено",
+          "reasonForNoAttestation": "",
+          "quantityOfHours": "72"
+        },
+        {
+          "semester": "Третий семестр",
+          "subject": "Психолого-педагогическая диагностика",
+          "rating": "0",
+          "valuation": "Зачтено",
+          "reasonForNoAttestation": "",
+          "quantityOfHours": "72"
+        },
+        {
+          "semester": "Третий семестр",
+          "subject": "Русский язык и культура речи",
+          "rating": "0",
+          "valuation": "Зачтено",
+          "reasonForNoAttestation": "",
+          "quantityOfHours": "72"
+        },
+        {
+          "semester": "Третий семестр",
+          "subject": "Современные физкультурно-оздоровительные технологии",
+          "rating": "0",
+          "valuation": "Удовлетворительно",
+          "reasonForNoAttestation": "",
+          "quantityOfHours": "72"
+        },
+        {
+          "semester": "Третий семестр",
+          "subject": "Физкультурно-спортивные сооружения",
+          "rating": "0",
+          "valuation": "Удовлетворительно",
+          "reasonForNoAttestation": "",
+          "quantityOfHours": "108"
+        },
+        {
+          "semester": "Четвертый семестр",
+          "subject": "Базовые и новые физкультурно-спортивные виды спорта",
+          "rating": "0",
+          "valuation": "Зачтено",
+          "reasonForNoAttestation": "",
+          "quantityOfHours": "180"
+        },
+        {
+          "semester": "Четвертый семестр",
+          "subject": "Безопасность жизнедеятельности",
+          "rating": "0",
+          "valuation": "Хорошо",
+          "reasonForNoAttestation": "",
+          "quantityOfHours": "108"
+        },
+        {
+          "semester": "Четвертый семестр",
+          "subject": "Иностранный язык",
+          "rating": "0",
+          "valuation": "Зачтено",
+          "reasonForNoAttestation": "",
+          "quantityOfHours": "36"
+        },
+        {
+          "semester": "Четвертый семестр",
+          "subject": "Иностранный язык",
+          "rating": "0",
+          "valuation": "Хорошо",
+          "reasonForNoAttestation": "",
+          "quantityOfHours": "180"
+        },
+        {
+          "semester": "Четвертый семестр",
+          "subject": "Курсовая работа",
+          "rating": "0",
+          "valuation": "",
+          "reasonForNoAttestation": "Неявка",
+          "quantityOfHours": "3"
+        },
+        {
+          "semester": "Четвертый семестр",
+          "subject": "Менеджмент физической культуры и спорта",
+          "rating": "0",
+          "valuation": "Зачтено",
+          "reasonForNoAttestation": "",
+          "quantityOfHours": "108"
+        },
+        {
+          "semester": "Четвертый семестр",
+          "subject": "Основы математической обработки информации",
+          "rating": "0",
+          "valuation": "Зачтено",
+          "reasonForNoAttestation": "",
+          "quantityOfHours": "108"
+        },
+        {
+          "semester": "Четвертый семестр",
+          "subject": "Практическая педагогика",
+          "rating": "0",
+          "valuation": "Отлично",
+          "reasonForNoAttestation": "",
+          "quantityOfHours": "216"
+        },
+        {
+          "semester": "Четвертый семестр",
+          "subject": "Современные физкультурно-оздоровительные технологии",
+          "rating": "0",
+          "valuation": "Удовлетворительно",
+          "reasonForNoAttestation": "",
+          "quantityOfHours": "144"
+        },
+        {
+          "semester": "Четвертый семестр",
+          "subject": "Социология",
+          "rating": "0",
+          "valuation": "Зачтено",
+          "reasonForNoAttestation": "",
+          "quantityOfHours": "72"
+        },
+        {
+          "semester": "Четвертый семестр",
+          "subject": "Учебная,практика по получению первичных профессиональных умений и навыков,в том числе первичных умений и навыков научно-исследовательской деятельности",
+          "rating": "0",
+          "valuation": "",
+          "reasonForNoAttestation": "Неявка",
+          "quantityOfHours": "2"
+        },
+        {
+          "semester": "Четвертый семестр",
+          "subject": "Философия",
+          "rating": "0",
+          "valuation": "Удовлетворительно",
+          "reasonForNoAttestation": "",
+          "quantityOfHours": "108"
+        },
+        {
+          "semester": "Пятый семестр",
+          "subject": "Базовые и новые физкультурно-спортивные виды спорта",
+          "rating": "0",
+          "valuation": "Зачтено",
+          "reasonForNoAttestation": "",
+          "quantityOfHours": "72"
+        },
+        {
+          "semester": "Пятый семестр",
+          "subject": "Менеджмент физической культуры и спорта",
+          "rating": "0",
+          "valuation": "Хорошо",
+          "reasonForNoAttestation": "",
+          "quantityOfHours": "144"
+        },
+        {
+          "semester": "Пятый семестр",
+          "subject": "Методика обучения и воспитания физической культуре",
+          "rating": "0",
+          "valuation": "Зачтено",
+          "reasonForNoAttestation": "",
+          "quantityOfHours": "108"
+        },
+        {
+          "semester": "Пятый семестр",
+          "subject": "Основы физической реабилитации",
+          "rating": "0",
+          "valuation": "Удовлетворительно",
+          "reasonForNoAttestation": "",
+          "quantityOfHours": "108"
+        },
+        {
+          "semester": "Пятый семестр",
+          "subject": "Педагогическое физкультурно-спортивное совершенствование",
+          "rating": "0",
+          "valuation": "Зачтено",
+          "reasonForNoAttestation": "",
+          "quantityOfHours": "72"
+        },
+        {
+          "semester": "Пятый семестр",
+          "subject": "Спортивная метрология",
+          "rating": "0",
+          "valuation": "Удовлетворительно",
+          "reasonForNoAttestation": "",
+          "quantityOfHours": "108"
+        },
+        {
+          "semester": "Пятый семестр",
+          "subject": "Физиология физического воспитания и спорта",
+          "rating": "0",
+          "valuation": "Хорошо",
+          "reasonForNoAttestation": "",
+          "quantityOfHours": "144"
+        },
+        {
+          "semester": "Пятый семестр",
+          "subject": "Экономика образования",
+          "rating": "0",
+          "valuation": "",
+          "reasonForNoAttestation": "Неявка",
+          "quantityOfHours": "72"
+        },
+        {
+          "semester": "Пятый семестр",
+          "subject": "Эффективные технологии трудоустройства",
+          "rating": "0",
+          "valuation": "",
+          "reasonForNoAttestation": "Неявка",
+          "quantityOfHours": "72"
+        },
+        {
+          "semester": "Шестой семестр",
+          "subject": "Базовые и новые физкультурно-спортивные виды спорта",
+          "rating": "0",
+          "valuation": "Отлично",
+          "reasonForNoAttestation": "",
+          "quantityOfHours": "108"
+        },
+        {
+          "semester": "Шестой семестр",
+          "subject": "Лечебная физическая культура и массаж",
+          "rating": "0",
+          "valuation": "Зачтено",
+          "reasonForNoAttestation": "",
+          "quantityOfHours": "36"
+        },
+        {
+          "semester": "Шестой семестр",
+          "subject": "Методика обучения и воспитания физической культуре",
+          "rating": "0",
+          "valuation": "Зачтено",
+          "reasonForNoAttestation": "",
+          "quantityOfHours": "36"
+        },
+        {
+          "semester": "Шестой семестр",
+          "subject": "Методика обучения и воспитания физической культуре",
+          "rating": "0",
+          "valuation": "Удовлетворительно",
+          "reasonForNoAttestation": "",
+          "quantityOfHours": "72"
+        },
+        {
+          "semester": "Шестой семестр",
+          "subject": "Основы физической реабилитации",
+          "rating": "0",
+          "valuation": "Зачтено",
+          "reasonForNoAttestation": "",
+          "quantityOfHours": "144"
+        },
+        {
+          "semester": "Шестой семестр",
+          "subject": "Педагогика физической культуры",
+          "rating": "0",
+          "valuation": "Удовлетворительно",
+          "reasonForNoAttestation": "",
+          "quantityOfHours": "216"
+        },
+        {
+          "semester": "Шестой семестр",
+          "subject": "Педагогическое физкультурно-спортивное совершенствование",
+          "rating": "0",
+          "valuation": "Хорошо",
+          "reasonForNoAttestation": "",
+          "quantityOfHours": "108"
+        },
+        {
+          "semester": "Шестой семестр",
+          "subject": "Производственная, педагогическая практика",
+          "rating": "0",
+          "valuation": "Хорошо",
+          "reasonForNoAttestation": "",
+          "quantityOfHours": "4"
+        },
+        {
+          "semester": "Шестой семестр",
+          "subject": "Психология физической культуры",
+          "rating": "0",
+          "valuation": "Зачтено",
+          "reasonForNoAttestation": "",
+          "quantityOfHours": "72"
+        },
+        {
+          "semester": "Шестой семестр",
+          "subject": "Современные средства оценивания результатов обучения",
+          "rating": "0",
+          "valuation": "Зачтено",
+          "reasonForNoAttestation": "",
+          "quantityOfHours": "72"
+        },
+        {
+          "semester": "Шестой семестр",
+          "subject": "Теория и методика обучения туризму",
+          "rating": "0",
+          "valuation": "Зачтено",
+          "reasonForNoAttestation": "",
+          "quantityOfHours": "108"
+        },
+        {
+          "semester": "Шестой семестр",
+          "subject": "Управление образовательными системами",
+          "rating": "0",
+          "valuation": "",
+          "reasonForNoAttestation": "Неявка",
+          "quantityOfHours": "72"
+        },
+        {
+          "semester": "Шестой семестр",
+          "subject": "Элективные курсы по физической культуре",
+          "rating": "0",
+          "valuation": "Зачтено",
+          "reasonForNoAttestation": "",
+          "quantityOfHours": "328"
+        },
+        {
+          "semester": "Седьмой семестр",
+          "subject": "Базовые и новые физкультурно-спортивные виды спорта",
+          "rating": "0",
+          "valuation": "Зачтено",
+          "reasonForNoAttestation": "",
+          "quantityOfHours": "72"
+        },
+        {
+          "semester": "Седьмой семестр",
+          "subject": "Лечебная физическая культура и массаж",
+          "rating": "0",
+          "valuation": "Хорошо",
+          "reasonForNoAttestation": "",
+          "quantityOfHours": "180"
+        },
+        {
+          "semester": "Седьмой семестр",
+          "subject": "Методика обучения и воспитания физической культуре",
+          "rating": "0",
+          "valuation": "Зачтено",
+          "reasonForNoAttestation": "",
+          "quantityOfHours": "108"
+        },
+        {
+          "semester": "Седьмой семестр",
+          "subject": "Методы диагностики функционального состояния организма спортсменов",
+          "rating": "0",
+          "valuation": "Хорошо",
+          "reasonForNoAttestation": "",
+          "quantityOfHours": "180"
+        },
+        {
+          "semester": "Седьмой семестр",
+          "subject": "Педагогическое физкультурно-спортивное совершенствование",
+          "rating": "0",
+          "valuation": "Зачтено",
+          "reasonForNoAttestation": "",
+          "quantityOfHours": "36"
+        },
+        {
+          "semester": "Седьмой семестр",
+          "subject": "Психология физической культуры",
+          "rating": "0",
+          "valuation": "Хорошо",
+          "reasonForNoAttestation": "",
+          "quantityOfHours": "72"
+        },
+        {
+          "semester": "Седьмой семестр",
+          "subject": "Теория и методика обучения бадминтону",
+          "rating": "0",
+          "valuation": "Зачтено",
+          "reasonForNoAttestation": "",
+          "quantityOfHours": "180"
+        },
+        {
+          "semester": "Седьмой семестр",
+          "subject": "Теория и методика обучения туризму",
+          "rating": "0",
+          "valuation": "Зачтено",
+          "reasonForNoAttestation": "",
+          "quantityOfHours": "36"
+        }
+      ],
+      "partOfAcademicPerformance": {},
+      "partOfOrders": [
+        {
+          "title": "Приказ 610-изидо от 15.08.2018 11:44:45",
+          "type": "Зачисление в вуз",
+          "studentRecordBook": "18325",
+          "dateOfBegin": "2018-09-01T00:00:00",
+          "formOfEducation": "Заочная",
+          "baseOfEducation": "Полное возмещение затрат",
+          "faculty": "Институт заочного и дополнительного образования",
+          "speciality": {
+            "code": "44.03.01",
+            "name": "Педагогическое образование",
+            "specialization": "Физическая культура"
+          },
+          "course": "Первый",
+          "group": "ПОфк-1 (з)",
+          "academicYear": "2018 - 2022"
+        },
+        {
+          "title": "Приказ 450-изидо от 09.07.2019 15:53:17",
+          "type": "Перевод на следующий курс",
+          "studentRecordBook": "18325",
+          "dateOfBegin": "2019-07-09T00:00:00",
+          "formOfEducation": "Заочная",
+          "baseOfEducation": "Полное возмещение затрат",
+          "faculty": "Институт заочного и дополнительного образования",
+          "speciality": {
+            "code": "44.03.01",
+            "name": "Педагогическое образование",
+            "specialization": "Физическая культура"
+          },
+          "course": "Второй",
+          "group": "ПОфк-2 (з)",
+          "academicYear": "2018 - 2022"
+        },
+        {
+          "title": "Приказ 443-изидо от 03.07.2020 16:37:40",
+          "type": "Перевод на следующий курс",
+          "studentRecordBook": "18325",
+          "dateOfBegin": "2020-07-03T00:00:00",
+          "formOfEducation": "Заочная",
+          "baseOfEducation": "Полное возмещение затрат",
+          "faculty": "Институт заочного и дополнительного образования",
+          "speciality": {
+            "code": "44.03.01",
+            "name": "Педагогическое образование",
+            "specialization": "Физическая культура"
+          },
+          "course": "третий",
+          "group": "ПОфк-3 (з)",
+          "academicYear": "2018 - 2022"
+        },
+        {
+          "title": "Приказ 462-изидо от 02.07.2021 8:46:20",
+          "type": "Перевод на следующий курс",
+          "studentRecordBook": "18325",
+          "dateOfBegin": "2021-07-02T00:00:00",
+          "formOfEducation": "Заочная",
+          "baseOfEducation": "Полное возмещение затрат",
+          "faculty": "Институт заочного и дополнительного образования",
+          "speciality": {
+            "code": "44.03.01",
+            "name": "Педагогическое образование",
+            "specialization": "Физическая культура"
+          },
+          "course": "четвертый",
+          "group": "ПОфк-4 (з)",
+          "academicYear": "2018 - 2022"
+        }
+      ],
+      "academicPlanCode": "000000552"
+    }
+  ],
+  "messages": {}
+}
