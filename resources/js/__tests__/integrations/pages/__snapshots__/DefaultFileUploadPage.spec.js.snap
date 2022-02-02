@@ -1,6 +1,68 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`DefaultFileUploadPage.vue render 1`] = `
+exports[`DefaultFileUploadPage.vue render, when backend not returns files 1`] = `
+<div class="row">
+  <div class="col s12">
+    <div class="card">
+      <div class="card-content">
+        <div>
+          <v-file-input-stub small-chips="" multiple="" label="Добавьте файлы" dense=""></v-file-input-stub>
+          <!---->
+          <div class="center-align"><a class="waves-effect btn teal disabled"><i class="material-icons right">cloud_upload</i>
+              FILE_UPLOAD_FORM_UPLOAD_BUTTON
+            </a></div>
+        </div>
+        <table>
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>FILES_TABLE_COLUMN_TYPE_FILE</th>
+              <th>FILES_TABLE_COLUMN_NAME_FILE</th>
+              <th>FILES_TABLE_COLUMN_DATE_UPLOAD</th>
+              <th>FILES_TABLE_COLUMN_DELETE_FILE</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+        <!---->
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`DefaultFileUploadPage.vue render, when backend returns error 1`] = `
+<div class="row">
+  <div class="col s12">
+    <div class="card">
+      <div class="card-content">
+        <div>
+          <v-file-input-stub small-chips="" multiple="" label="Добавьте файлы" dense=""></v-file-input-stub>
+          <!---->
+          <div class="center-align"><a class="waves-effect btn teal disabled"><i class="material-icons right">cloud_upload</i>
+              FILE_UPLOAD_FORM_UPLOAD_BUTTON
+            </a></div>
+        </div>
+        <table>
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>FILES_TABLE_COLUMN_TYPE_FILE</th>
+              <th>FILES_TABLE_COLUMN_NAME_FILE</th>
+              <th>FILES_TABLE_COLUMN_DATE_UPLOAD</th>
+              <th>FILES_TABLE_COLUMN_DELETE_FILE</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+        <!---->
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`DefaultFileUploadPage.vue render, when backend returns files 1`] = `
 <div class="row">
   <div class="col s12">
     <div class="card">
@@ -25,27 +87,21 @@ exports[`DefaultFileUploadPage.vue render 1`] = `
           <tbody>
             <tr>
               <td>1</td>
-              <td>image</td>
-              <td><a href="/some/url/to/file/test/1.jpg" target="_blank">FILE_TEST_1</a></td>
-              <td>202112211135</td>
+              <td>application/octet-stream</td>
+              <td><a href="https://passport.amgpgu.ru/storage/8hIOGo1pOVX78ttRoq8X01KxMSAyxwLlua2dnFZJ.bin" target="_blank">oauth-login.vsdx</a></td>
+              <td>1616047842</td>
               <td><button class="btn btn-danger"><i class="medium material-icons">delete</i></button></td>
             </tr>
             <tr>
               <td>2</td>
-              <td>image</td>
-              <td><a href="/some/url/to/file/test/2.jpg" target="_blank">FILE_TEST_2</a></td>
-              <td>202112211135</td>
-              <td><button class="btn btn-danger"><i class="medium material-icons">delete</i></button></td>
-            </tr>
-            <tr>
-              <td>3</td>
-              <td>image</td>
-              <td><a href="/some/url/to/file/test/3.jpg" target="_blank">FILE_TEST_3</a></td>
-              <td>202112211135</td>
+              <td>application/vnd.openxmlformats-officedocument.wordprocessingml.document</td>
+              <td><a href="https://passport.amgpgu.ru/storage/7ELSKEzm0RAz3Y1UAbzZa7dtYvdjwmAc4sGw5K8W.docx" target="_blank">Жалоба в ГИС ЖКХ.docx</a></td>
+              <td>1616047843</td>
               <td><button class="btn btn-danger"><i class="medium material-icons">delete</i></button></td>
             </tr>
           </tbody>
         </table>
+        <!---->
       </div>
     </div>
   </div>
