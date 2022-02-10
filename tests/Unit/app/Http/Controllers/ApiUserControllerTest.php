@@ -3,8 +3,12 @@
   namespace Tests\Unit\app\Http\Controllers;
   
   use App\Builders\Menu\IMenuBuilder;
+  use App\Capabilities;
+  use App\Models\Entities\Capability;
   use App\Models\Entities\Menu;
+  use App\Models\Entities\Role;
   use App\User;
+  use CapabilitySeeder;
   use DateTime;
   use DB;
   use Illuminate\Foundation\Testing\RefreshDatabase;
@@ -66,7 +70,7 @@
         ->assertJsonPath('name', self::TEST_USER_NAME);
     }
     
-    public function testGetUser_UserIsNotAuthenticated() {
+    public function test_getUserInfo_UserIsNotAuthenticated() {
       $response = $this
         ->withHeaders([
           'Accept' => 'application/json'
@@ -76,6 +80,98 @@
       $response->assertUnauthorized();
     }
     
+    
+    public function test_add() {
+      $this->artisan('db:seed', ['--class' => CapabilitySeeder::class]);
+      $user = factory(User::class)->create();
+      $role = factory(Role::class)->create();
+      $role->setCapabilities(Capability::where('name', Capabilities::CAN_CREATE_USER)->get());
+      $role->setUsers(collect([$user]));
+      Passport::actingAs($user);
+      
+      $response = $this->withHeaders([
+        'Accept' => 'application/json'
+      ])->post('api/admin/users/add', [
+        'name' => 'TEST',
+        'email' => 'test@amgpgu.ru',
+        'password' => 'tester#1',
+        'code' => '123456789',
+        'firstname' => 'Тест',
+        'lastname' => 'Тестов',
+        'middlename' => 'Тестович'
+      ]);
+      
+      $response->assertStatus(201)
+        ->assertJsonStructure(['id']);
+    }
+    
+    public function test_add_AddedUserIsExist() {
+      $this->artisan('db:seed', ['--class' => CapabilitySeeder::class]);
+      $user = factory(User::class)->create();
+      $role = factory(Role::class)->create();
+      $role->setCapabilities(Capability::where('name', Capabilities::CAN_CREATE_USER)->get());
+      $role->setUsers(collect([$user]));
+      Passport::actingAs($user);
+      $addedUser = User::firstOrCreate(['name' => 'TEST'], [
+        'email' => 'test@amgpgu.ru',
+        'password' => 'tester#1',
+        'code' => '123456789',
+        'firstname' => 'Тест',
+        'lastname' => 'Тестов',
+        'middlename' => 'Тестович'
+      ]);
+      
+      $response = $this->withHeaders([
+        'Accept' => 'application/json'
+      ])->post('api/admin/users/add', [
+        'name' => 'TEST',
+        'email' => 'test@amgpgu.ru',
+        'password' => 'tester#1',
+        'code' => '123456789',
+        'firstname' => 'Тест',
+        'lastname' => 'Тестов',
+        'middlename' => 'Тестович'
+      ]);
+      
+      $response->assertStatus(201)
+        ->assertJsonFragment(['id' => $addedUser->id]);
+    }
+    
+    public function test_add_UserHasNoCapability() {
+      Passport::actingAs(factory(User::class)->create());
+      
+      $response = $this->withHeaders([
+        'Accept' => 'application/json'
+      ])->post('api/admin/users/add', [
+        'name' => 'TEST',
+        'email' => 'test@amgpgu.ru',
+        'password' => 'tester#1',
+        'code' => '123456789',
+        'firstname' => 'Тест',
+        'lastname' => 'Тестов',
+        'middlename' => 'Тестович'
+      ]);
+      
+      $response->assertStatus(404)
+        ->assertJsonFragment(['messageCode' => 'CAPABILITY_WAS_NOT_FOUND']);
+    }
+    
+    public function test_add_UserIsNotAuthenticated() {
+      $response = $this->withHeaders([
+        'Accept' => 'application/json'
+      ])->post('api/admin/users/add', [
+        'name' => 'TEST',
+        'email' => 'test@amgpgu.ru',
+        'password' => 'tester#1',
+        'code' => '123456789',
+        'firstname' => 'Тест',
+        'lastname' => 'Тестов',
+        'middlename' => 'Тестович'
+      ]);
+      
+      $response->assertStatus(401)
+        ->assertJsonFragment(['messageCode' => 'USER_IS_NOT_AUTHENTICATED']);
+    }
     
     public function test_getMenu() {
       $stubMenuBuilder = $this->getMenuBuilderStub();

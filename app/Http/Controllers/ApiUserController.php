@@ -72,18 +72,22 @@
     public function add(Request $request): JsonResponse {
       $data = $request->all();
       
-      $this->validator($data)->validate();
-      $user = User::create([
-        'name' => $data['name'],
-        'email' => $data['email'],
-        'password' => Hash::make($data['password']),
-        'code' => $data['code'],
-        'firstname' => $data['firstname'] ?? '',
-        'lastname' => $data['lastname'] ?? '',
-        'middlename' => $data['middlename'] ?? '',
-      ]);
-      
-      event(new Registered($user));
+      $user = User::where('name', $data['name'])->first();
+      if (!$user) {
+        $this->validator($data)->validate();
+        
+        $user = User::create([
+          'name' => $data['name'],
+          'email' => $data['email'],
+          'password' => Hash::make($data['password']),
+          'code' => $data['code'],
+          'firstname' => $data['firstname'] ?? '',
+          'lastname' => $data['lastname'] ?? '',
+          'middlename' => $data['middlename'] ?? '',
+        ]);
+        
+        event(new Registered($user));
+      }
       
       return new JsonResponse(['id' => $user->id], 201);
     }

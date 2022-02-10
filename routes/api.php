@@ -3,6 +3,8 @@
   use App\Capabilities;
   use App\Http\Middleware\HasCapability;
   use App\Http\Middleware\IsOwnerOrHasCapability;
+  use App\Models\Entities\Notification;
+  use Illuminate\Http\JsonResponse;
   use Illuminate\Support\Facades\Route;
   
   /*
@@ -22,12 +24,16 @@
     });
     Route::get('/notifications', function () {
       $user = App\User::where('id', 1)->first();
-      $notifications = $user
-        ->getIncomingNotifications(now()->addYears(-3))
-        ->map(function (App\Models\Entities\Notification $notification) {
-          return $notification->getSerializableData();
-        });
-      return new Illuminate\Http\JsonResponse($notifications, 200);
+      return new JsonResponse(
+        $user
+          ->getIncomingNotifications(now()->addYears(-1))
+          ->map(function (Notification $notification) {
+            return $notification->getSerializableData();
+          })
+          ->map(function ($notification) {
+            $notification['isMeantToMe'] = true;
+            return $notification;
+          }), 200);
     });
   });
   
@@ -68,7 +74,7 @@
           ->middleware(HasCapability::getMiddlewareName(Capabilities::CAN_GET_STUDENT_TREE));
       });
       
-      Route::group(['prefix' => 'admin'], function () {
+      Route::group(['prefix' => 'admin', 'middleware' => ['throttle:6000,1']], function () {
         Route::group(['prefix' => 'notifications'], function () {
           Route::group(['prefix' => 'add'], function () {
             Route::post('/for-students', 'ApiNotificationController@add')
