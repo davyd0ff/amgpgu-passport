@@ -11,9 +11,10 @@
   class SoapService {
     private $client;
     private $opts = array(
-      // 'http' => array(
-      //   'user_agent' => 'PHPSoapClient'
-      // ),
+      'http' => array(
+        // 'user_agent' => 'PHPSoapClient',
+        "follow_location" => 1,
+      ),
       'ssl' => array(
         'ciphers' => 'RC4-SHA',
         'verify_peer' => false,
@@ -52,13 +53,14 @@
       ini_set('soap.wsdl_cache_ttl', 0);
       
       try {
-        $this->client = new SoapClient($url, $this->getConfig($login, $password));
+        $this->client = new SoapClient($url . "?wsdl", $this->getConfig($url, $login, $password));
       } catch (Exception $exception) {
         throw new ConnectToServiceIsFailureException();
       }
     }
     
-    private function getConfig(string $login, string $password) {
+    private function getConfig(string $url, string $login, string $password) {
+
       $configuration = array(
         'soap_version' => SOAP_1_2, //версия SOAP
         'cache_wsdl' => WSDL_CACHE_NONE,
@@ -68,12 +70,13 @@
         'verifyhost' => false,
         'exceptions' => true,
         'connection_timeout' => 180,
+        'location' => $url,
         'stream_context' => stream_context_create($this->opts)
       );
       
       if ($this->isLoginRequired) {
-        $configuration['login'] = $login;
-        $configuration['password'] = $password;
+        // $configuration['login'] = $login;
+        // $configuration['password'] = $password;
       }
       
       return $configuration;
