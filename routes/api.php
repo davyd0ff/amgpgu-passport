@@ -6,6 +6,8 @@
   use App\Models\Entities\Notification;
   use Illuminate\Http\JsonResponse;
   use Illuminate\Support\Facades\Route;
+
+  use App\Services\University\IUniversityService;
   
   /*
   |--------------------------------------------------------------------------
@@ -17,26 +19,36 @@
   | is assigned the "api" middleware group. Enjoy building your API!
   |
   */
-  
-  Route::group(['prefix' => 'test'], function () {
-    Route::get('/phpinfo', function () {
-      return phpinfo();
-    });
-    Route::get('/notifications', function () {
-      $user = App\User::where('id', 1)->first();
-      return new JsonResponse(
-        $user
-          ->getIncomingNotifications(now()->addYears(-1))
-          ->map(function (Notification $notification) {
-            return $notification->getSerializableData();
-          })
-          ->map(function ($notification) {
-            $notification['isMeantToMe'] = true;
-            return $notification;
-          }), 200);
-    });
-  });
-  
+  /*
+  // Route::group(['prefix' => 'test'], function () {
+  //   Route::get('/phpinfo', function () {
+  //     return phpinfo();
+  //   });
+  //   Route::get('/student-tree', function(IUniversityService $universityService){
+  //     $studentTree = $universityService->getStudentsTree();
+      
+  //     return new JsonResponse($studentTree, 200);
+  //   });
+  //   Route::get('/student-data/{code}', function(IUniversityService $universityService, $code) {
+  //     $studentData = $universityService->getStudentData($code);
+      
+  //     return new JsonResponse($studentData, 200);
+  //   });
+  //   Route::get('/notifications', function () {
+  //     $user = App\User::where('id', 1)->first();
+  //     return new JsonResponse(
+  //       $user
+  //         ->getIncomingNotifications(now()->addYears(-1))
+  //         ->map(function (Notification $notification) {
+  //           return $notification->getSerializableData();
+  //         })
+  //         ->map(function ($notification) {
+  //           $notification['isMeantToMe'] = true;
+  //           return $notification;
+  //         }), 200);
+  //   });
+  // });
+  */
   
   Route::group(['middleware' => ['force-json-response']], function () {
     Route::post('/logout', 'Auth\LoginController@logout');
