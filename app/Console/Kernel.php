@@ -14,6 +14,8 @@ class Kernel extends ConsoleKernel
      */
     protected $commands = [
         //
+        \App\Console\Commands\InstallCommand::class,
+        \App\Console\Commands\ClearCommand::class,
     ];
 
     /**
