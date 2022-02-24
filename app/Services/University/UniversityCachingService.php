@@ -16,25 +16,24 @@
     }
     
     public function isListener(string $userCode): bool {
-      return Cache::remember("$userCode-is-listener", $this->ttl, function () use ($userCode) {
-        try {
+      try{
+        return Cache::remember("$userCode-is-listener", $this->ttl, function () use ($userCode) {
           return $this->realService->isListener($userCode);
-        } catch (\Exception $exp) {
-          return false;
-        }
-      });
+        });
+      } catch (\Exception $exp) {
+        return false;
+      }
     }
     
     public function isStudent(string $userCode): bool {
-      return Cache::remember("$userCode-is-student", $this->ttl, function () use ($userCode) {
-        try {
-          // return $this->realService->isStudent($userCode);
+      try{
+        return Cache::remember("$userCode-is-student", $this->ttl, function () use ($userCode) {
           $studentData = $this->getStudentData($userCode);
           return is_array($studentData->educations) && count($studentData->educations) > 0;
-        } catch (\Exception $exp) {
-          return false;
-        }
-      });
+        });
+      } catch (\Exception $exp) {
+        return false;
+      }
     }
 
     public function getStudentData(string $userCode): object {
