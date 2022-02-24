@@ -9,7 +9,6 @@
      * @return void
      */
     public function run() {
-      // $this->call(UsersTableSeeder::class);
       $this->call(UserSeeder::class);
       $this->call(CapabilitySeeder::class);
       $this->call(RolesSeeder::class);
