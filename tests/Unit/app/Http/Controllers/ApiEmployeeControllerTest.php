@@ -73,7 +73,7 @@
 
     private function getUniversityServiceStub(): IUniversityService {
       $stub = $this->createMock(IUniversityService::class);
-      $stub->method('getStudentsTree')->willReturn(self::STUDENTS_TREE);
+      $stub->method('getStudentsTree')->willReturn((object) self::STUDENTS_TREE);
 
       return $stub;
     }

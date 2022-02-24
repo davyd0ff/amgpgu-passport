@@ -37,7 +37,7 @@
         '--provider' => 'users',
       ]);
       
-      $this->oldAuthData = $this->call('post', '/api/login', [
+      $this->oldAuthData = $this->call('post', '/api/login/default', [
         'username' => self::USER_NAME,
         'password' => self::USER_SECRET,
       ])->json();
@@ -45,7 +45,7 @@
     
     
     public function test_login_ViaDefaultClient() {
-      $response = $this->call('post', '/api/login', [
+      $response = $this->call('post', '/api/login/default', [
         'username' => self::USER_NAME,
         'password' => self::USER_SECRET,
       ]);
@@ -85,7 +85,7 @@
       $otherClient = Passport::client()->where('name', $otherClientName)->first();
       
       
-      $response = $this->call('post', '/api/login', [
+      $response = $this->call('post', '/api/login/default', [
         'grant_type' => 'password',
         'client_id' => $otherClient->id,
         'client_secret' => $otherClient->secret,
@@ -105,7 +105,7 @@
     }
     
     public function test_login_ViaWrongClient() {
-      $response = $this->call('post', '/api/login', [
+      $response = $this->call('post', '/api/login/default', [
         'grant_type' => 'password',
         'client_id' => '123',
         'client_secret' => 'TEST CLIENT SECRET',
@@ -123,7 +123,7 @@
     }
     
     public function test_login_WithWrongCredentials() {
-      $response = $this->call('post', '/api/login', [
+      $response = $this->call('post', '/api/login/default', [
         'username' => "WRONG_USER_NAME",
         'password' => "WRONG_USER_PASSWORD",
       ]);

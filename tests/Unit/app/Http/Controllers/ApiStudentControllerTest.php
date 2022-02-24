@@ -28,7 +28,7 @@
     
     private function getUniversityServiceStub(): IUniversityService {
       $stub = $this->createMock(IUniversityService::class);
-      $stub->method('getStudentData')->willReturn(self::STUDENT_DATA);
+      $stub->method('getStudentData')->willReturn((object) self::STUDENT_DATA);
       
       return $stub;
     }
