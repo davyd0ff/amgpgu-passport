@@ -47,34 +47,33 @@
 <script>
 export default {
   name: 'QuicklyViewNotification',
-  data: function () {
+  data() {
     return {
       showForMe: true,
     };
   },
   computed: {
-    notifications: function () {
+    notifications() {
       return this.$store.getters.getAllNotifications.filter(
         (notification) =>
-          notification.isMeantForMe === this.showForMe ||
+          notification.isMeantToMe === this.showForMe ||
           notification.isCreatedByMe === !this.showForMe
       );
     },
   },
   methods: {
-    onRowClick: function (notification) {
+    onRowClick(notification) {
       // console.log(notification);
       this.$router.push(`/notifications/${notification.id}`);
     },
-    onClickForMe: function () {
+    onClickForMe() {
       this.showForMe = true;
     },
-    onClickCreatedByMe: function () {
+    onClickCreatedByMe() {
       this.showForMe = false;
     },
   },
 };
 </script>
 
-<style scoped>
-</style>
+<style scoped></style>
