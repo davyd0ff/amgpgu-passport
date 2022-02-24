@@ -6,18 +6,13 @@ exports[`UserInfo.vue render 1`] = `
 >
   <div
     class="background"
-  >
-    <img
-      src="https://www.las.ru/media/foto/kabinet-rukovoditelya-seventies-foto-01-a.jpg"
-    />
-  </div>
+  />
    
   <router-link-stub
     to="/profile"
   >
-    <img
-      class="circle"
-      src="https://sun9-11.userapi.com/impf/c638426/v638426062/50419/eNL3yaz6niM.jpg?size=300x300&quality=96&proxy=1&sign=281eca8b1027b3a552a1e591fd6d5019&type=audio"
+    <div
+      class="avatar circle"
     />
   </router-link-stub>
    
