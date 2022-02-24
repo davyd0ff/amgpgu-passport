@@ -13,16 +13,6 @@
   class ApiFileController extends Controller {
     
     public function fetchFiles(Request $request, $context): JsonResponse {
-//      $user = $request->user();
-//
-//      $files = $user->files
-//        ->where('context', $context)
-//        ->all();
-//
-//      return new JsonResponse(collect($files)->map(function (File $f) {
-//        return $f->getSerializableData();
-//      }));
-      
       $user = $request->user();
       
       $files = $user->getFiles($context)
@@ -39,7 +29,7 @@
       $files = collect();
       
       foreach ($request->file('files') as $file) {
-        $path = $file->store('public');
+        $path = $file->store('public/' . $user->code . "/" . $context);
         $file = new File([
           'name' => $file->getClientOriginalName(),
           'path' => $path,

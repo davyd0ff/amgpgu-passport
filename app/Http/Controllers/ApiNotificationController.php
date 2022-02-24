@@ -23,6 +23,7 @@
           })
           ->map(function ($notification) {
             $notification['isMeantToMe'] = true;
+            $notification['isCreatedByMe'] = false;
             return $notification;
           }), 200);
     }
@@ -50,7 +51,6 @@
     }
     
     public function add(Request $request) {
-      // todo develop: user has capability for to add notification
       $user = auth()->user();
       $recipients = json_decode($request->recipients ?? "[]");
       $files = $request->file('files') ?? [];
@@ -62,7 +62,7 @@
       ]);
       
       foreach ($files as $file) {
-        $path = $file->store('public');
+        $path = $file->store('public/' . $user->code . "/" . 'notifications');
         $file = new File([
           'name' => $file->getClientOriginalName(),
           'path' => $path,
