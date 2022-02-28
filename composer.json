@@ -1,11 +1,8 @@
 {
-  "name": "laravel/laravel",
+  "name": "amgpgu/passport",
   "type": "project",
-  "description": "The Laravel Framework.",
-  "keywords": [
-    "framework",
-    "laravel"
-  ],
+  "description": "",
+  "keywords": [],
   "license": "MIT",
   "require": {
     "php": "^7.2.5",
@@ -46,9 +43,7 @@
       "app/Builders",
       "app/Passport"
     ],
-    "files": [
-      
-    ]
+    "files": []
   },
   "autoload-dev": {
     "psr-4": {
@@ -58,6 +53,12 @@
   "minimum-stability": "dev",
   "prefer-stable": true,
   "scripts": {
+    "post-install-cmd": [
+      "@php artisan project:install"
+    ],
+    "pre-autoload-dump": [
+      "@php artisan project:clear"
+    ],
     "post-autoload-dump": [
       "Illuminate\\Foundation\\ComposerScripts::postAutoloadDump",
       "@php artisan package:discover --ansi"
