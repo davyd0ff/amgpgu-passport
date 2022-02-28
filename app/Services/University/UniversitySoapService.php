@@ -10,8 +10,8 @@
     private $soapClient;
     
     public function __construct() {
-      $login = env("SERVICE_1C_PASSPORT_USERNAME");
-      $password = env("SERVICE_1C_PASSPORT_PASSWORD");
+      $login = env("SERVICE_1C_PASSPORT_USERNAME", "");
+      $password = env("SERVICE_1C_PASSPORT_PASSWORD", "");
       $url = env("SERVICE_1C_PASSPORT_URL");
       
       $this->soapClient = new SoapService($url, $login, $password);
