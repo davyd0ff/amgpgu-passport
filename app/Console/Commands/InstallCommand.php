@@ -43,7 +43,9 @@ class InstallCommand extends Command
 
         $this->call('db:seed');
 
-        $this->call('passport:keys');
+        $this->call('passport:keys', [
+            '--force' => true
+        ]);
 
         // todo think: А нужен ли personal-client?
         $this->call('passport:client', [
@@ -56,6 +58,10 @@ class InstallCommand extends Command
             '--name' => '1C_University_Client',
             '--provider' => 'users'
         ]);
+
+        // $this->call('passport:client', [
+        //     ''
+        // ])
 
         return 0;
     }
