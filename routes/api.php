@@ -19,36 +19,15 @@
   | is assigned the "api" middleware group. Enjoy building your API!
   |
   */
-  /*
+  
   // Route::group(['prefix' => 'test'], function () {
-  //   Route::get('/phpinfo', function () {
-  //     return phpinfo();
-  //   });
-  //   Route::get('/student-tree', function(IUniversityService $universityService){
-  //     $studentTree = $universityService->getStudentsTree();
-      
-  //     return new JsonResponse($studentTree, 200);
-  //   });
   //   Route::get('/student-data/{code}', function(IUniversityService $universityService, $code) {
   //     $studentData = $universityService->getStudentData($code);
       
   //     return new JsonResponse($studentData, 200);
   //   });
-  //   Route::get('/notifications', function () {
-  //     $user = App\User::where('id', 1)->first();
-  //     return new JsonResponse(
-  //       $user
-  //         ->getIncomingNotifications(now()->addYears(-1))
-  //         ->map(function (Notification $notification) {
-  //           return $notification->getSerializableData();
-  //         })
-  //         ->map(function ($notification) {
-  //           $notification['isMeantToMe'] = true;
-  //           return $notification;
-  //         }), 200);
-  //   });
   // });
-  */
+
   
   Route::group(['middleware' => ['force-json-response']], function () {
     Route::post('/logout', 'Auth\LoginController@logout');
@@ -60,20 +39,21 @@
       ->middleware(['refresh-token-via-personal-client', 'throttle']);
     
     Route::group(['middleware' => ['auth:api']], function () {
-      Route::group(['prefix' => 'user'], function () {
+
+      Route::group(['prefix' => 'user', 'middleware' => ['throttle:60,1,default']], function () {
         Route::get('/', 'ApiUserController@getUserInfo');
         Route::get('/menu', 'ApiUserController@getMenu');
         Route::get('/student-data', 'ApiStudentController@getData');
 //      Route::get('/listener-data', 'ApiListenerController@getData');
       });
       
-      Route::group(['prefix' => 'notifications'], function () {
+      Route::group(['prefix' => 'notifications', 'middleware' => ['throttle:60,1,default']], function () {
         Route::get('/incoming', 'ApiNotificationController@getIncoming');
         Route::post('/read/{id}', 'ApiNotificationController@setRead');
         Route::post('/read-all', 'ApiNotificationController@setReadAll');
       });
       
-      Route::group(['prefix' => 'files'], function () {
+      Route::group(['prefix' => 'files', 'middleware' => ['throttle:60,1,default']], function () {
         Route::get('/fetch/{context}', 'ApiFileController@fetchFiles');
         Route::post('/upload/{context}', 'ApiFileController@uploadFiles');
         // todo think: CAN_DELETE_STUDENT_FILES ?? А если файлы listeners? или employees?
@@ -81,12 +61,12 @@
           ->middleware(IsOwnerOrHasCapability::getMiddlewareName(Capabilities::CAN_DELETE_STUDENT_FILES));
       });
       
-      Route::group(['prefix' => 'students'], function () {
+      Route::group(['prefix' => 'students', 'middleware' => ['throttle:60,1,default']], function () {
         Route::get('/tree/{facultyCode?}', 'ApiEmployeeController@getStudentsTree')
           ->middleware(HasCapability::getMiddlewareName(Capabilities::CAN_GET_STUDENT_TREE));
       });
       
-      Route::group(['prefix' => 'admin', 'middleware' => ['throttle:6000,1']], function () {
+      Route::group(['prefix' => 'admin', 'middleware' => ['throttle:6000,1,admin']], function () {
         Route::group(['prefix' => 'notifications'], function () {
           Route::group(['prefix' => 'add'], function () {
             Route::post('/for-students', 'ApiNotificationController@add')
