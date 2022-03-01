@@ -53,6 +53,9 @@
   "minimum-stability": "dev",
   "prefer-stable": true,
   "scripts": {
+    "pre-install-cmd": [
+      "@php -r \"file_exists('storage/oauth-private.key.dev') && copy('storage/oauth-private.key.dev', 'storage/oauth-private.key');\""
+    ],
     "post-install-cmd": [
       "@php artisan project:install"
     ],
