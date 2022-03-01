@@ -21,7 +21,13 @@
      */
     public function register() {
       //
-      $this->app->when(UniversityCachingService::class)->needs(IUniversityService::class)->give(UniversitySoapService::class);
+      $this->app->when(UniversityCachingService::class)
+        ->needs(IUniversityService::class)
+        ->give(UniversitySoapService::class);
+      $this->app->when(UniversityCachingService::class)
+        ->needs('$ttl')
+        ->give((int) env('SERVICE_1C_PASSPORT_CACHE_TTL', null));
+        
       $this->app->singleton(IUniversityService::class, UniversityCachingService::class);
       $this->app->bind(IMenuBuilder::class, MenuBuilder::class);
     }
