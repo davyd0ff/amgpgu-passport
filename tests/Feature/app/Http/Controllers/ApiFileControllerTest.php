@@ -66,6 +66,30 @@
           ]
         ]);
     }
+
+    public function test_uploadFiles_userHasNoCode() {
+      $user = factory(User::class)->create(['code' => null]);
+      $tokens = $user->createToken('TEST');
+
+      $file1 = UploadedFile::fake()->image('test1.file');
+      $file2 = UploadedFile::fake()->image('test2.file');
+      
+      $response = $this->withHeaders(array_merge(
+        $this->getAcceptJsonHeader(),
+        $this->getAuthorizationHeader($tokens)
+      ))
+        ->post('/api/files/upload/' . $this->context, [
+          'files' => [$file1, $file2]
+        ]);
+      
+      $response
+        ->assertStatus(200)
+        ->assertJsonStructure([
+          '*' => [
+            'id', 'name', 'url'
+          ]
+        ]);
+    }
     
     public function test_fetchFiles() {
       factory(File::class)->create([

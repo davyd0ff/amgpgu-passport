@@ -103,7 +103,12 @@
     }
     
     public function getUserCode(): string {
-      return $this->code;
+      $code = $this->code;
+      if($code) {
+        return $code;
+      }
+      
+      return "0";
     }
     
     public function getCapabilities(): Collection {
