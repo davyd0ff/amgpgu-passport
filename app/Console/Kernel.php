@@ -16,6 +16,7 @@ class Kernel extends ConsoleKernel
         //
         \App\Console\Commands\InstallCommand::class,
         \App\Console\Commands\ClearCommand::class,
+        \App\Console\Commands\ChangePasswordCommand::class,
     ];
 
     /**
