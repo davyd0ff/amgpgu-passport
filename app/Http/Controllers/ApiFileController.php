@@ -29,7 +29,7 @@
       $files = collect();
       
       foreach ($request->file('files') as $file) {
-        $path = $file->store('public/' . $user->code . "/" . $context);
+        $path = $file->store('public/' . $user->getUserCode() . "/" . $context);
         $file = new File([
           'name' => $file->getClientOriginalName(),
           'path' => $path,

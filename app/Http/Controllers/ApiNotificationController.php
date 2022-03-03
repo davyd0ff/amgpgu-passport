@@ -62,7 +62,7 @@
       ]);
       
       foreach ($files as $file) {
-        $path = $file->store('public/' . $user->code . "/" . 'notifications');
+        $path = $file->store('public/' . $user->getUserCode() . "/" . 'notifications');
         $file = new File([
           'name' => $file->getClientOriginalName(),
           'path' => $path,
