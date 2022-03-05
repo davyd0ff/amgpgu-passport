@@ -39,6 +39,8 @@ class InstallCommand extends Command
     {
         $this->call('project:clear');
 
+        $this->call('key:generate');
+
         $this->call('migrate');
 
         $this->call('db:seed');
