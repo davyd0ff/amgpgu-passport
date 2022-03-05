@@ -43,6 +43,8 @@ class InstallCommand extends Command
 
         $this->call('db:seed');
 
+        $this->call('storage:link');
+
         $this->call('passport:keys', [
             '--force' => true
         ]);
