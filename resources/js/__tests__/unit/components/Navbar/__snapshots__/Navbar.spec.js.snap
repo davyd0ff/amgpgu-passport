@@ -12,7 +12,7 @@ exports[`Navbar.vue render 1`] = `
         class="nav-wrapper"
       >
         <a
-          class="brand-logo white-text"
+          class="white-text"
           href="#"
         >
           TEST TITLE
