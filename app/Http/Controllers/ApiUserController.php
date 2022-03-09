@@ -68,6 +68,11 @@
       $user = $request->user();
       return new JsonResponse($user->getSerializableData(), 200);
     }
+
+    public function updateProfile(Request $request): JsonResponse {
+      
+      return new JsonResponse('NotImplementation', 500);
+    }
     
     public function add(Request $request): JsonResponse {
       $data = $request->all();
@@ -95,10 +100,13 @@
     public function update(Request $request): JsonResponse {
       $this->validator($request->all())->validate();
       
-      $user = $request->user();
-      $user->fill($request->all());
-      $user->password = Hash::make($user->password);
-      $user->save();
+      $userId = $request->all()["id"];
+      if($userId){
+        $user = User::find($userId);
+        $user->fill($request->all());
+        $user->password = Hash::make($request->password);
+        $user->save();
+      }
       
       return new JsonResponse(['id' => $user->id], 200);
     }

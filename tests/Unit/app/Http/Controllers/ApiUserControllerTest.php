@@ -26,25 +26,25 @@
     const TYPE_ACCESS_TOKEN = 'Bearer ';
     
     private $user;
-    private $userAccessToken;
+    // private $token;
     
-    private function getUrl(string $uri): string {
-      return 'https://passport.amgpgu.ru' . $uri;
-    }
+    // private function getUrl(string $uri): string {
+    //   return 'https://passport.amgpgu.ru' . $uri;
+    // }
     
     protected function setUp(): void {
       parent::setUp();
       
-      $clientRepository = new ClientRepository();
-      $client = $clientRepository->createPersonalAccessClient(
-        null, 'Test Personal Access Client', $this->getUrl('')
-      );
+      // $this->artisan('passport:client', [
+      //   '--personal' => true,
+      //   '--name' => config('app.name') . 'Personal Access',
+      // ]);
       
-      DB::table('oauth_personal_access_clients')->insert([
-        'client_id' => $client->id,
-        'created_at' => new DateTime,
-        'updated_at' => new DateTime,
-      ]);
+      // $this->artisan('passport:client', [
+      //   '--password' => true,
+      //   '--name' => env('PASSPORT_GRANT_CLIENT_NAME'),
+      //   '--provider' => 'users',
+      // ]);
       
       $this->user = User::create([
         'name' => self::TEST_USER_NAME,
@@ -53,7 +53,11 @@
         'code' => self::TEST_USER_CODE,
       ]);
       
-      $this->userAccessToken = $this->user->createToken('TestToken')->accessToken;
+      // $this->token = $this->user->createToken('TestToken')->accessToken;
+
+      factory(User::class)->create([
+        'name' => env('APP_ADMIN_NAME')
+      ]);
     }
     
     
@@ -106,11 +110,8 @@
     }
     
     public function test_add_AddedUserIsExist() {
-      $this->artisan('db:seed', ['--class' => CapabilitySeeder::class]);
       $user = factory(User::class)->create();
-      $role = factory(Role::class)->create();
-      $role->setCapabilities(Capability::where('name', Capabilities::CAN_CREATE_USER)->get());
-      $role->setUsers(collect([$user]));
+      $this->addCapabilityToUser($user, Capabilities::CAN_CREATE_USER);
       Passport::actingAs($user);
       $addedUser = User::firstOrCreate(['name' => 'TEST'], [
         'email' => 'test@amgpgu.ru',
@@ -172,6 +173,50 @@
       $response->assertStatus(401)
         ->assertJsonFragment(['messageCode' => 'USER_IS_NOT_AUTHENTICATED']);
     }
+
+    public function test_update_userHasCapability(){
+      $this->addCapabilityToUser($this->user, Capabilities::CAN_UPDATE_USER);
+      Passport::actingAs($this->user);
+      $updatedUser = factory(User::class)->create();
+      
+      $response = $this->withHeaders([
+        'Accept' => 'application/json',
+      ])->post('/api/admin/users/update', [
+        'id' => $updatedUser->id,
+        'name' => $updatedUser->name,
+        'email' => $updatedUser->email,
+        'password' => 'tester#1',
+        'code' => $updatedUser->code,
+        'firstname' => 'Тест',
+        'lastname' => 'Тестов',
+        'middlename' => 'Тестович'
+      ]);
+      
+      $response->assertStatus(200)
+        ->assertJsonFragment(['id' => $updatedUser->id]);
+    }
+
+    public function test_update_currentUserHasNoCapability(){
+      Passport::actingAs(factory(User::class)->create());
+      $updatedUser = factory(User::class)->create();
+      
+      $response = $this->withHeaders([
+        'Accept' => 'application/json'
+      ])->post('api/admin/users/update', [
+        'id' => $updatedUser->id,
+        'name' => $updatedUser->name,
+        'email' => $updatedUser->email,
+        'password' => 'tester#1',
+        'code' => $updatedUser->code,
+        'firstname' => 'Тест',
+        'lastname' => 'Тестов',
+        'middlename' => 'Тестович'
+      ]);
+      
+      $response->assertStatus(404)
+        ->assertJsonFragment(['messageCode' => 'CAPABILITY_WAS_NOT_FOUND']);
+      
+    }
     
     public function test_getMenu() {
       $stubMenuBuilder = $this->getMenuBuilderStub();
@@ -186,7 +231,7 @@
         ->assertJsonPath('menu', 'mocked');
     }
     
-    public function testGetMenu_UserIsNotAuthenticated() {
+    public function test_getMenu_UserIsNotAuthenticated() {
       $stubMenuBuilder = $this->getMenuBuilderStub();
       $this->app->instance(IMenuBuilder::class, $stubMenuBuilder);
       
@@ -220,5 +265,12 @@
       $stub->method('getSerializableData')->willReturn(['menu' => 'mocked']);
       
       return $stub;
+    }
+
+    private function addCapabilityToUser($user, $capability){
+      $this->artisan('db:seed', ['--class' => CapabilitySeeder::class]);
+      $role = factory(Role::class)->create();
+      $role->setCapabilities(Capability::where('name', $capability)->get());
+      $role->setUsers(collect([$user]));
     }
   }
