@@ -218,6 +218,28 @@
       
     }
     
+    public function test_update_WithoutSomeAttributes() {
+      $this->addCapabilityToUser($this->user, Capabilities::CAN_UPDATE_USER);
+      Passport::actingAs($this->user);
+      $updatedUser = factory(User::class)->create();
+
+      $response = $this->withHeaders([
+        'Accept' => 'application/json',
+      ])->post('/api/admin/users/update', [
+        'id' => $updatedUser->id,
+        'name' => $updatedUser->name,
+        'email' => $updatedUser->email,
+        'password' => 'tester#1',
+        'code' => $updatedUser->code,
+        'firstname' => '',
+        'lastname' => 'Тестов',
+        'middlename' => ''
+      ]);
+      
+      $response->assertStatus(200)
+        ->assertJsonFragment(['id' => $updatedUser->id]);
+    }
+
     public function test_getMenu() {
       $stubMenuBuilder = $this->getMenuBuilderStub();
       $this->app->instance(IMenuBuilder::class, $stubMenuBuilder);

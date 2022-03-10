@@ -103,8 +103,16 @@
       $userId = $request->all()["id"];
       if($userId){
         $user = User::find($userId);
-        $user->fill($request->all());
-        $user->password = Hash::make($request->password);
+        
+        $data = $request->all();
+        $user->name = $data['name'];
+        $user->code = $data['code'];
+        $user->email = $data['email'];
+        $user->password = Hash::make($data['password']);
+        $user->firstname = $data['firstname'] ?? '';
+        $user->lastname = $data['lastname'] ?? '';
+        $user->middlename = $data['middlename'] ?? '';
+
         $user->save();
       }
       
