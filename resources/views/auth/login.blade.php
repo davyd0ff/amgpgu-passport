@@ -8,11 +8,12 @@
 @endsection
 
 @section('content')
+  {{ App::isLocale('ru') }}
   <div class="container">
     <div class="row">
       <div class="center">
         <div class="card">
-          <div class="card-title">{{ __('Login') }}</div>
+          <div class="card-title">{{ __('login.titleLogin') }}</div>
 
           <div class="card-content">
             <form method="POST" action="{{ route('login') }}">
@@ -20,7 +21,7 @@
 
               <div class="row">
                 <div class="input-field">
-                  <label for="name">{{ 'Login' }}</label>
+                  <label for="name">{{ __('login.labelLogin') }}</label>
                   <input id="name" type="text"
                          class="form-control @error('name') is-invalid @enderror" name="name"
                          value="{{ old('name') }}" required autocomplete="name" autofocus>
@@ -35,7 +36,7 @@
 
               <div class="row">
                 <div class="input-field">
-                  <label for="password">{{ __('Password') }}</label>
+                  <label for="password">{{ __('login.labelPassword') }}</label>
 
                   <input id="password" type="password"
                          class="form-control @error('password') is-invalid @enderror" name="password"
@@ -53,14 +54,14 @@
                 <label>
                   <input class="filled-in" type="checkbox" name="remember"
                          id="remember" {{ old('remember') ? 'checked' : '' }}>
-                  <span>{{ __('Remember Me') }}</span>
+                  <span>{{ __('login.rememberMe') }}</span>
                 </label>
               </div>
 
               <div class="row">
                 <div class="form-input">
                   <button type="submit" class="btn teal">
-                    {{ __('Login') }}
+                    {{ __('login.buttonLogin') }}
                   </button>
                 </div>
               </div>
